@@ -8,6 +8,7 @@ import ru.terra.universal.server.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.server.shared.packet.Packet;
 import ru.terra.universal.server.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.server.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.server.shared.packet.server.OkPacket;
 
 public class LoginWorker extends InterserverWorker {
 
@@ -29,6 +30,11 @@ public class LoginWorker extends InterserverWorker {
                 registerPacket.setEndRange(OpCodes.LoginOpcodeEnd);
                 NetworkManager.getInstance().getChannel().write(helloPacket);
                 NetworkManager.getInstance().getChannel().write(registerPacket);
+            }
+            break;
+            case OpCodes.Client.Login.CMSG_LOGIN: {
+                log.info("Client with id " + packet.getSender() + " logged in");
+                NetworkManager.getInstance().getChannel().write(new OkPacket(1));
             }
             break;
         }
