@@ -7,20 +7,20 @@ public class FrontEndServerWorker extends ServerWorker {
 
     @Override
     public void disconnectedFromChannel() {
-	// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void acceptPacket(Packet message) {
-	// TODO Auto-generated method stub
+        // TODO Auto-generated method stub
 
     }
 
     @Override
     public void sendHello() {
-	// TODO Auto-generated method stub
-	
+        // TODO Auto-generated method stub
+
     }
 
 }

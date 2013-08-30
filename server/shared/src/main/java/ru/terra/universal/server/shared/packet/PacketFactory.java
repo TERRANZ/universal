@@ -11,21 +11,21 @@ public class PacketFactory {
     }
 
     public static PacketFactory getInstance() {
-	return instance;
+        return instance;
     }
 
     public Packet getPacket(int opCode, long sender) {
-	switch (opCode) {
-	case InterServer.ISMSG_HELLO: {
-	    return new HelloPacket(sender);
-	}
-	case InterServer.ISMSG_REG: {
-	    return new RegisterPacket(sender);
-	}
-	case InterServer.ISMSG_UNREG: {
-	}
-	    break;
-	}
-	return null;
+        switch (opCode) {
+            case InterServer.ISMSG_HELLO: {
+                return new HelloPacket(sender);
+            }
+            case InterServer.ISMSG_REG: {
+                return new RegisterPacket(sender);
+            }
+            case InterServer.ISMSG_UNREG: {
+            }
+            break;
+        }
+        return null;
     }
 }

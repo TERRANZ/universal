@@ -1,4 +1,4 @@
-package ru.terra.universal.chatserver;
+package ru.terra.universal.worldserver;
 
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
@@ -9,7 +9,7 @@ import ru.terra.universal.server.shared.packet.Packet;
 import ru.terra.universal.server.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.server.shared.packet.interserver.RegisterPacket;
 
-public class ChatWorker extends InterserverWorker {
+public class WorldserverWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
 
@@ -23,10 +23,10 @@ public class ChatWorker extends InterserverWorker {
         //log.info("packet accepted " + packet.getOpCode());
         if (packet.getOpCode() == InterServer.ISMSG_HELLO) {
             HelloPacket helloPacket = new HelloPacket(0);
-            helloPacket.setHello("chat server");
+            helloPacket.setHello("world server");
             RegisterPacket registerPacket = new RegisterPacket(0);
-            registerPacket.setStartRange(OpCodes.ChatOpcodeStart);
-            registerPacket.setEndRange(OpCodes.ChatOpcodeEnd);
+            registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
+            registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
             NetworkManager.getInstance().getChannel().write(helloPacket);
             NetworkManager.getInstance().getChannel().write(registerPacket);
         }

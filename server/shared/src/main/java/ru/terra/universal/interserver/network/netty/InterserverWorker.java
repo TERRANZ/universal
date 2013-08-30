@@ -1,7 +1,6 @@
 package ru.terra.universal.interserver.network.netty;
 
 import org.jboss.netty.channel.Channel;
-
 import ru.terra.universal.server.shared.packet.Packet;
 
 public abstract class InterserverWorker {
@@ -10,27 +9,27 @@ public abstract class InterserverWorker {
     private Channel channel;
 
     public InterserverWorker(InterserverHandler clientHandler, Channel channel) {
-	this.clientHandler = clientHandler;
-	this.channel = channel;
+        this.clientHandler = clientHandler;
+        this.channel = channel;
     }
 
     public InterserverWorker() {
     }
 
     public InterserverHandler getClientHandler() {
-	return clientHandler;
+        return clientHandler;
     }
 
     public void setClientHandler(InterserverHandler clientHandler) {
-	this.clientHandler = clientHandler;
+        this.clientHandler = clientHandler;
     }
 
     public Channel getChannel() {
-	return channel;
+        return channel;
     }
 
     public void setChannel(Channel channel) {
-	this.channel = channel;
+        this.channel = channel;
     }
 
     public abstract void disconnectedFromChannel();

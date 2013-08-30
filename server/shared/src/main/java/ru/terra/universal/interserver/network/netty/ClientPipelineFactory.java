@@ -9,15 +9,15 @@ public class ClientPipelineFactory implements ChannelPipelineFactory {
     private Class<? extends InterserverWorker> workerClass;
 
     public ClientPipelineFactory(Class<? extends InterserverWorker> workerClass) {
-	super();
-	this.workerClass = workerClass;
+        super();
+        this.workerClass = workerClass;
     }
 
     @Override
     public ChannelPipeline getPipeline() throws Exception {
-	PacketFrameDecoder decoder = new PacketFrameDecoder();
-	PacketFrameEncoder encoder = new PacketFrameEncoder();
-	return Channels.pipeline(decoder, encoder, new InterserverHandler(decoder, encoder, workerClass));
+        PacketFrameDecoder decoder = new PacketFrameDecoder();
+        PacketFrameEncoder encoder = new PacketFrameEncoder();
+        return Channels.pipeline(decoder, encoder, new InterserverHandler(decoder, encoder, workerClass));
     }
 
 }

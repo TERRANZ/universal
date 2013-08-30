@@ -1,12 +1,7 @@
 package ru.terra.universal.frontend.network.netty;
 
 import org.apache.log4j.Logger;
-import org.jboss.netty.channel.ChannelHandlerContext;
-import org.jboss.netty.channel.ChannelStateEvent;
-import org.jboss.netty.channel.ExceptionEvent;
-import org.jboss.netty.channel.MessageEvent;
-import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
-
+import org.jboss.netty.channel.*;
 import ru.terra.universal.server.shared.packet.Packet;
 
 
@@ -19,65 +14,65 @@ public class ServerHandler extends SimpleChannelUpstreamHandler {
     private Class<? extends ServerWorker> serverWorker;
 
     public PacketFrameDecoder getDecoder() {
-	return decoder;
+        return decoder;
     }
 
     public PacketFrameEncoder getEncoder() {
-	return encoder;
+        return encoder;
     }
 
     public ServerHandler(PacketFrameDecoder decoder,
-	    PacketFrameEncoder encoder,
-	    Class<? extends ServerWorker> serverWorker) {
-	this.decoder = decoder;
-	this.encoder = encoder;
-	this.serverWorker = serverWorker;
+                         PacketFrameEncoder encoder,
+                         Class<? extends ServerWorker> serverWorker) {
+        this.decoder = decoder;
+        this.encoder = encoder;
+        this.serverWorker = serverWorker;
     }
 
     @Override
     public void channelConnected(ChannelHandlerContext ctx, ChannelStateEvent e)
-	    throws Exception {
-	// Событие вызывается при подключении клиента. Я создаю здесь Worker
-	// игрока — объект, который занимается обработкой данных игрока
-	// непостредственно.
-	// Я передаю ему канал игрока (функция e.getChannel()), чтобы он мог в
-	// него посылать пакеты
-	// log.info("channelConnected");
-	worker = serverWorker.newInstance();
-	worker.setChannel(e.getChannel());	
-	worker.setPlayerHandler(this);
-	worker.sendHello();
+            throws Exception {
+        // Событие вызывается при подключении клиента. Я создаю здесь Worker
+        // игрока — объект, который занимается обработкой данных игрока
+        // непостредственно.
+        // Я передаю ему канал игрока (функция e.getChannel()), чтобы он мог в
+        // него посылать пакеты
+        // log.info("channelConnected");
+        worker = serverWorker.newInstance();
+        worker.setChannel(e.getChannel());
+        worker.setPlayerHandler(this);
+        worker.sendHello();
     }
 
     @Override
     public void channelDisconnected(ChannelHandlerContext ctx,
-	    ChannelStateEvent e) throws Exception {
-	// Событие закрытия канала. Используется в основном, чтобы освободить
-	// ресурсы, или выполнить другие действия, которые происходят при
-	// отключении пользователя. Если его не обработать, Вы можете и не
-	// заметить, что пользователь отключился, если он напрямую не сказал
-	// этого
-	// серверу, а просто оборвался канал.
-	// log.info("channelDisconnected");
-	worker.disconnectedFromChannel();
+                                    ChannelStateEvent e) throws Exception {
+        // Событие закрытия канала. Используется в основном, чтобы освободить
+        // ресурсы, или выполнить другие действия, которые происходят при
+        // отключении пользователя. Если его не обработать, Вы можете и не
+        // заметить, что пользователь отключился, если он напрямую не сказал
+        // этого
+        // серверу, а просто оборвался канал.
+        // log.info("channelDisconnected");
+        worker.disconnectedFromChannel();
     }
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
-	// Функция принимает уже готовые Packet'ы от игрока, поэтому их можно
-	// сразу посылать в worker. За их формирование отвечает другой
-	// обработчик.
-	//log.info("messageReceived " + ((Packet) e.getMessage()).getOpCode());
-	if (e.getChannel().isOpen())
-	    worker.acceptPacket((Packet) e.getMessage());
+        // Функция принимает уже готовые Packet'ы от игрока, поэтому их можно
+        // сразу посылать в worker. За их формирование отвечает другой
+        // обработчик.
+        //log.info("messageReceived " + ((Packet) e.getMessage()).getOpCode());
+        if (e.getChannel().isOpen())
+            worker.acceptPacket((Packet) e.getMessage());
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, ExceptionEvent e) {
-	// На канале произошло исключение. Выводим ошибку, закрываем канал.
-	// Server.logger.log(Level.WARNING, "Exception from downstream",
-	// e.getCause());
-	log.info("exceptionCaught", e.getCause());
-	ctx.getChannel().close();
+        // На канале произошло исключение. Выводим ошибку, закрываем канал.
+        // Server.logger.log(Level.WARNING, "Exception from downstream",
+        // e.getCause());
+        log.info("exceptionCaught", e.getCause());
+        ctx.getChannel().close();
     }
 }

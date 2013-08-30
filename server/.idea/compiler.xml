@@ -17,7 +17,25 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="chatserver" />
+        <module name="frontend" />
+        <module name="loginserver" />
+        <module name="shared" />
+        <module name="worldserver" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="chatserver" target="1.7" />
+      <module name="frontend" target="1.7" />
+      <module name="loginserver" target="1.7" />
+      <module name="shared" target="1.7" />
+      <module name="worldserver" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

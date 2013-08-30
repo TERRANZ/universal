@@ -1,7 +1,6 @@
 package ru.terra.universal.server.shared.packet.interserver;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-
 import ru.terra.universal.server.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.server.shared.packet.Packet;
 
@@ -11,35 +10,35 @@ public class RegisterPacket extends Packet {
     private int endRange = 0;
 
     public RegisterPacket(long sender) {
-	super(InterServer.ISMSG_REG, sender);
+        super(InterServer.ISMSG_REG, sender);
     }
 
     @Override
     public void get(ChannelBuffer buffer) {
-	startRange = buffer.readInt();
-	endRange = buffer.readInt();
+        startRange = buffer.readInt();
+        endRange = buffer.readInt();
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
-	buffer.writeInt(startRange);
-	buffer.writeInt(endRange);
+        buffer.writeInt(startRange);
+        buffer.writeInt(endRange);
     }
 
     public int getStartRange() {
-	return startRange;
+        return startRange;
     }
 
     public void setStartRange(int startRange) {
-	this.startRange = startRange;
+        this.startRange = startRange;
     }
 
     public int getEndRange() {
-	return endRange;
+        return endRange;
     }
 
     public void setEndRange(int endRange) {
-	this.endRange = endRange;
+        this.endRange = endRange;
     }
 
 }
