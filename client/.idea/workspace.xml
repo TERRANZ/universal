@@ -2,28 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dcc54af-fb65-481f-a182-0757b04ff229" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterPath="$PROJECT_DIR$/../server/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.iml" afterPath="$PROJECT_DIR$/client.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/shared/src/main/java/ru/terra/universal/server/shared/packet/PacketFactory.java" afterPath="$PROJECT_DIR$/../server/shared/src/main/java/ru/terra/universal/server/shared/packet/PacketFactory.java" />
     </list>
     <ignored path="client.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866024378" ignored="false" />
     <file path="/Main.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377864993358" ignored="false" />
-    <file path="/ClientWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865485775" ignored="false" />
+    <file path="/ClientWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866194850" ignored="false" />
     <file path="/fragment.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865058444" ignored="false" />
     <file path="/NetworkManager.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865066893" ignored="false" />
     <file path="/LoginPacket.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865668772" ignored="false" />
     <file path="/OkPacket.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865309435" ignored="false" />
-    <file path="$MAVEN_REPOSITORY$/ru/terra/universal/server/shared/1/shared-1.jar!/ru/terra/universal/interserver/network/NetworkManager.class" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865877635" ignored="false" />
+    <file path="$MAVEN_REPOSITORY$/ru/terra/universal/server/shared/1/shared-1.jar!/ru/terra/universal/interserver/network/NetworkManager.class" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866548172" ignored="false" />
     <file path="/OpCodes.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865602768" ignored="false" />
     <file path="/LoginWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865958684" ignored="false" />
     <file path="/ChatWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865775019" ignored="false" />
     <file path="/WorldserverWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377865810241" ignored="false" />
     <file path="/pom.xml" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866026095" ignored="false" />
+    <file path="/FrontEndServerWorker.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866260725" ignored="false" />
+    <file path="/PacketFactory.java" changelist="8dcc54af-fb65-481f-a182-0757b04ff229" time="1377866478215" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +83,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="ClientWorker.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="64" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.60571426">
-              <folding />
+            <state line="8" column="25" selection-start="324" selection-end="324" vertical-scroll-proportion="0.13422818">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,8 +113,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java" />
       </list>
     </option>
   </component>
@@ -125,8 +126,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1920" />
-    <option name="height" value="1053" />
+    <option name="x" value="-7" />
+    <option name="y" value="-12" />
+    <option name="width" value="1934" />
+    <option name="height" value="1072" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -168,6 +171,64 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
@@ -316,7 +377,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1053" extended-state="0" />
+    <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -331,7 +392,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23333333" sideWeight="0.6717724" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23159018" sideWeight="0.6717724" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03842049" sideWeight="0.6717724" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -438,19 +499,19 @@
         <state line="6" column="22" selection-start="196" selection-end="196" vertical-scroll-proportion="0.08650519" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="38" selection-start="739" selection-end="739" vertical-scroll-proportion="0.43721974">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="36" column="64" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.59731543">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/ClientWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="64" selection-start="1382" selection-end="1382" vertical-scroll-proportion="0.60571426">
-          <folding />
+        <state line="8" column="25" selection-start="324" selection-end="324" vertical-scroll-proportion="0.13422818">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
