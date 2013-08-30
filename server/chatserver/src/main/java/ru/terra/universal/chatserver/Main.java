@@ -1,4 +1,4 @@
-package ru.terra.universal.loginserver;
+package ru.terra.universal.chatserver;
 
 import org.apache.log4j.BasicConfigurator;
 
@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 	BasicConfigurator.configure();
-	NetworkManager.getInstance().start(LoginWorker.class);
+	NetworkManager.getInstance().start(ChatWorker.class);
     }
 
 }

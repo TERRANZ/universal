@@ -1,4 +1,4 @@
-package ru.terra.universal.loginserver.network;
+package ru.terra.universal.loginserver;
 
 import org.apache.log4j.Logger;
 
@@ -24,7 +24,7 @@ public class LoginWorker extends InterserverWorker {
 	//log.info("packet accepted " + packet.getOpCode());
 	if (packet.getOpCode() == InterServer.ISMSG_HELLO) {
 	    HelloPacket helloPacket = new HelloPacket(0);
-	    helloPacket.setHello("Hello from login server!");
+	    helloPacket.setHello("login server");
 	    RegisterPacket registerPacket = new RegisterPacket(0);
 	    registerPacket.setStartRange(OpCodes.LoginOpcodeStart);
 	    registerPacket.setEndRange(OpCodes.LoginOpcodeEnd);
