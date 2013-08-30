@@ -14,11 +14,19 @@ public interface OpCodes {
 
 
     public interface Client {
-        public static final int CMSG_LOGIN = 1;
-        public static final int CMSG_SAY = 11;
-        public static final int CMSG_WISP = 12;
-        public static final int CMSG_LOGOUT = 13;
-        public static final int CMSG_PLAYER_INFO_REQUEST = 14;
+        public interface Login {
+            public static final int CMSG_LOGIN = 2;
+            public static final int CMSG_LOGOUT = 3;
+        }
+
+        public interface Chat {
+            public static final int CMSG_SAY = 202;
+            public static final int CMSG_WISP = 203;
+        }
+
+        public interface Char {
+            public static final int CMSG_PLAYER_INFO_REQUEST = 12;
+        }
     }
 
     public interface Server {

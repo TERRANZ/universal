@@ -16,10 +16,10 @@ public class NetworkManager {
         return instance;
     }
 
-    public void start(Class<? extends InterserverWorker> workerClass) {
+    public void start(Class<? extends InterserverWorker> workerClass, String host, Integer port) {
         // frontend port,host
         log.info("Connecting to frontend server");
-        Thread t = new Thread(new NetworkThread(12346, "127.0.0.1", workerClass));
+        Thread t = new Thread(new NetworkThread(port, host, workerClass));
         t.start();
     }
 

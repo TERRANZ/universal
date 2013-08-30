@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         BasicConfigurator.configure();
-        NetworkManager.getInstance().start(ChatWorker.class);
+        NetworkManager.getInstance().start(ChatWorker.class, "127.0.0.1", 12346);
     }
 
 }

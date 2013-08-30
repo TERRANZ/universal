@@ -20,15 +20,17 @@ public class WorldserverWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(Packet packet) {
-        //log.info("packet accepted " + packet.getOpCode());
-        if (packet.getOpCode() == InterServer.ISMSG_HELLO) {
-            HelloPacket helloPacket = new HelloPacket(0);
-            helloPacket.setHello("world server");
-            RegisterPacket registerPacket = new RegisterPacket(0);
-            registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
-            registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
-            NetworkManager.getInstance().getChannel().write(helloPacket);
-            NetworkManager.getInstance().getChannel().write(registerPacket);
+        switch (packet.getOpCode()) {
+            case InterServer.ISMSG_HELLO: {
+                HelloPacket helloPacket = new HelloPacket(0);
+                helloPacket.setHello("world server");
+                RegisterPacket registerPacket = new RegisterPacket(0);
+                registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
+                registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
+                NetworkManager.getInstance().getChannel().write(helloPacket);
+                NetworkManager.getInstance().getChannel().write(registerPacket);
+            }
+            break;
         }
     }
 
