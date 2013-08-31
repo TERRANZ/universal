@@ -5,13 +5,15 @@ import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
-@Packet(opCode = OpCodes.InterServer.ISMSG_LOGIN_TO_WORLD)
-public class LoginToWorldPacket extends AbstractPacket {
+@Packet(opCode = OpCodes.InterServer.ISMSG_CHAR_IN_WORLD)
+public class CharInWorldPacket extends AbstractPacket {
     @Override
     public void get(ChannelBuffer buffer) {
+
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
+
     }
 }
