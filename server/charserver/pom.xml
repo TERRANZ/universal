@@ -1,21 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.terra.universal</groupId>
-    <artifactId>server</artifactId>
-    <version>1</version>
-    <packaging>pom</packaging>
-    <name>server</name>
-    <modules>
-        <module>frontend</module>
-        <module>worldserver</module>
-        <module>chatserver</module>
-        <module>loginserver</module>
-        <module>shared</module>
-	<module>charserver</module>
-    </modules>
+    <parent>
+        <groupId>ru.terra.universal</groupId>
+        <artifactId>server</artifactId>
+        <version>1</version>
+    </parent>
+    <artifactId>charserver</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>ru.terra.universal</groupId>
+            <artifactId>shared</artifactId>
+            <version>1</version>
+        </dependency>
+
+    </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.3</version>
@@ -25,7 +34,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>ru.terra.universal.frontend.Main</mainClass>
+                            <mainClass>ru.terra.universal.charserver.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

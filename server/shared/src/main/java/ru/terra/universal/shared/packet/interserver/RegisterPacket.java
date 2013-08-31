@@ -11,10 +11,6 @@ public class RegisterPacket extends AbstractPacket {
     private int startRange = 0;
     private int endRange = 0;
 
-    public RegisterPacket(long sender) {
-        super(sender);
-    }
-
     @Override
     public void get(ChannelBuffer buffer) {
         startRange = buffer.readInt();

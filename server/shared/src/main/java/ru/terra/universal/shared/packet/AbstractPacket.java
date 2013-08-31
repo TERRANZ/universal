@@ -10,12 +10,7 @@ public abstract class AbstractPacket {
     private long sender;
 
     public AbstractPacket() {
-        this.opCode = getClass().getAnnotation(Packet.class).opCode();
-    }
-
-    public AbstractPacket(long sender) {
-        this.sender = sender;
-        this.opCode = getClass().getAnnotation(Packet.class).opCode();
+        opCode = getClass().getAnnotation(Packet.class).opCode();
     }
 
     public long getSender() {

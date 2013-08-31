@@ -23,9 +23,9 @@ public class LoginWorker extends InterserverWorker {
     public void acceptPacket(AbstractPacket packet) {
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
-                HelloPacket helloPacket = new HelloPacket(0);
+                HelloPacket helloPacket = new HelloPacket();
                 helloPacket.setHello("login server");
-                RegisterPacket registerPacket = new RegisterPacket(0);
+                RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.LoginOpcodeStart);
                 registerPacket.setEndRange(OpCodes.LoginOpcodeEnd);
                 NetworkManager.getInstance().getChannel().write(helloPacket);
@@ -34,7 +34,7 @@ public class LoginWorker extends InterserverWorker {
             break;
             case OpCodes.Client.Login.CMSG_LOGIN: {
                 log.info("Client with id " + packet.getSender() + " logged in");
-                NetworkManager.getInstance().getChannel().write(new OkPacket(1));
+                NetworkManager.getInstance().getChannel().write(new OkPacket());
             }
             break;
         }

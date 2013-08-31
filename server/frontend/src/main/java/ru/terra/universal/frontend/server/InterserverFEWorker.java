@@ -46,7 +46,7 @@ public class InterserverFEWorker extends ServerWorker {
 
     @Override
     public void sendHello() {
-        HelloPacket helloPacket = new HelloPacket(0);
+        HelloPacket helloPacket = new HelloPacket();
         helloPacket.setHello("Hello, this is frontend!");
         channel.write(helloPacket);
     }

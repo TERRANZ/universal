@@ -26,6 +26,6 @@ public class FrontEndServerWorker extends ServerWorker {
 
     @Override
     public void sendHello() {
-        channel.write(new OkPacket(0));
+        channel.write(new OkPacket());
     }
 }

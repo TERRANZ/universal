@@ -1,4 +1,4 @@
-package ru.terra.universal.worldserver;
+package ru.terra.universal.charserver;
 
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
@@ -9,7 +9,7 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
-public class WorldserverWorker extends InterserverWorker {
+public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
 
@@ -23,10 +23,10 @@ public class WorldserverWorker extends InterserverWorker {
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket();
-                helloPacket.setHello("world server");
+                helloPacket.setHello("char server");
                 RegisterPacket registerPacket = new RegisterPacket();
-                registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
-                registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
+                registerPacket.setStartRange(OpCodes.CharOpcodeStart);
+                registerPacket.setEndRange(OpCodes.CharOpcodeEnd);
                 NetworkManager.getInstance().getChannel().write(helloPacket);
                 NetworkManager.getInstance().getChannel().write(registerPacket);
             }

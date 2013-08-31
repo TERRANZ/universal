@@ -22,9 +22,9 @@ public class ChatWorker extends InterserverWorker {
     public void acceptPacket(AbstractPacket packet) {
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
-                HelloPacket helloPacket = new HelloPacket(0);
+                HelloPacket helloPacket = new HelloPacket();
                 helloPacket.setHello("chat server");
-                RegisterPacket registerPacket = new RegisterPacket(0);
+                RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.ChatOpcodeStart);
                 registerPacket.setEndRange(OpCodes.ChatOpcodeEnd);
                 NetworkManager.getInstance().getChannel().write(helloPacket);

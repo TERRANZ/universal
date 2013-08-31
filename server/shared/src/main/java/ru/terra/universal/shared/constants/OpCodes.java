@@ -45,5 +45,11 @@ public interface OpCodes {
         public static final int ISMSG_HELLO = 10001;
         public static final int ISMSG_REG = 10002;
         public static final int ISMSG_UNREG = 10003;
+        public static final int ISMSG_LOGIN_TO_WORLD = 10004;
+        public static final int ISMSG_WORLD_TO_LOGIN = 10005;
+        public static final int ISMSG_CHAT_TO_WORLD = 10006;
+        public static final int ISMSG_WORLD_TO_CHAT = 10007;
+        public static final int ISMSG_WORLD_TO_CHAR = 10008;
+        public static final int ISMSG_CHAR_TO_WORLD = 10009;
     }
 }

@@ -22,6 +22,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="charserver" />
         <module name="chatserver" />
         <module name="frontend" />
         <module name="loginserver" />
@@ -30,6 +31,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="charserver" target="1.7" />
       <module name="chatserver" target="1.7" />
       <module name="frontend" target="1.7" />
       <module name="loginserver" target="1.7" />
