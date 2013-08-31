@@ -1,16 +1,18 @@
-package ru.terra.universal.server.shared.packet.interserver;
+package ru.terra.universal.shared.packet.interserver;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import ru.terra.universal.server.shared.constants.OpCodes.InterServer;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.annoations.Packet;
+import ru.terra.universal.shared.constants.OpCodes.InterServer;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
-public class RegisterPacket extends Packet {
+@Packet(opCode = InterServer.ISMSG_REG)
+public class RegisterPacket extends AbstractPacket {
 
     private int startRange = 0;
     private int endRange = 0;
 
     public RegisterPacket(long sender) {
-        super(InterServer.ISMSG_REG, sender);
+        super(sender);
     }
 
     @Override

@@ -9,7 +9,7 @@
     <artifactId>chatserver</artifactId>
     <dependencies>
         <dependency>
-            <groupId>ru.terra.universal.server</groupId>
+            <groupId>ru.terra.universal</groupId>
             <artifactId>shared</artifactId>
             <version>1</version>
         </dependency>

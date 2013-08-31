@@ -1,4 +1,4 @@
-package ru.terra.universal.server.shared.constants;
+package ru.terra.universal.shared.constants;
 
 public interface OpCodes {
 

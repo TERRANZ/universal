@@ -3,8 +3,8 @@ package ru.terra.universal.frontend.server;
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
-import ru.terra.universal.server.shared.packet.Packet;
-import ru.terra.universal.server.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.server.OkPacket;
 
 public class FrontEndServerWorker extends ServerWorker {
 
@@ -15,7 +15,7 @@ public class FrontEndServerWorker extends ServerWorker {
     }
 
     @Override
-    public void acceptPacket(Packet message) {
+    public void acceptPacket(AbstractPacket message) {
         Channel interchan = ChannelsHolder.getInstance().getChannel(message.getOpCode());
         if (interchan != null)
             interchan.write(message);

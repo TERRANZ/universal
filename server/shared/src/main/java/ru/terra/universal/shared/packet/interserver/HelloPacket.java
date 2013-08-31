@@ -1,15 +1,17 @@
-package ru.terra.universal.server.shared.packet.interserver;
+package ru.terra.universal.shared.packet.interserver;
 
 import org.jboss.netty.buffer.ChannelBuffer;
-import ru.terra.universal.server.shared.constants.OpCodes.InterServer;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.annoations.Packet;
+import ru.terra.universal.shared.constants.OpCodes.InterServer;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
-public class HelloPacket extends Packet {
+@Packet(opCode = InterServer.ISMSG_HELLO)
+public class HelloPacket extends AbstractPacket {
 
     private String hello;
 
     public HelloPacket(long sender) {
-        super(InterServer.ISMSG_HELLO, sender);
+        super(sender);
     }
 
     public String getHello() {

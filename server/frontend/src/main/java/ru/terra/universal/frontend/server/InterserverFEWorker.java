@@ -2,10 +2,10 @@ package ru.terra.universal.frontend.server;
 
 import org.apache.log4j.Logger;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
-import ru.terra.universal.server.shared.constants.OpCodes;
-import ru.terra.universal.server.shared.packet.Packet;
-import ru.terra.universal.server.shared.packet.interserver.HelloPacket;
-import ru.terra.universal.server.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.shared.constants.OpCodes;
+import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.interserver.HelloPacket;
+import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
 public class InterserverFEWorker extends ServerWorker {
 
@@ -17,8 +17,8 @@ public class InterserverFEWorker extends ServerWorker {
     }
 
     @Override
-    public void acceptPacket(Packet message) {
-        //log.info("Packet accepted");
+    public void acceptPacket(AbstractPacket message) {
+        //log.info("AbstractPacket accepted");
         if (message.getOpCode() >= OpCodes.ISOpCodesStart) {
             switch (message.getOpCode()) {
                 case OpCodes.InterServer.ISMSG_HELLO: {

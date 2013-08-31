@@ -1,24 +1,29 @@
-package ru.terra.universal.server.shared.packet;
+package ru.terra.universal.shared.packet;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import ru.terra.universal.shared.annoations.Packet;
 
 import java.io.IOException;
 
-public abstract class Packet {
+public abstract class AbstractPacket {
     private int opCode;
-    private long sguid;
+    private long sender;
 
-    public Packet(int opCode, long sender) {
-        this.opCode = opCode;
-        this.sguid = sender;
+    public AbstractPacket() {
+        this.opCode = getClass().getAnnotation(Packet.class).opCode();
+    }
+
+    public AbstractPacket(long sender) {
+        this.sender = sender;
+        this.opCode = getClass().getAnnotation(Packet.class).opCode();
     }
 
     public long getSender() {
-        return sguid;
+        return sender;
     }
 
     public void setSender(long sender) {
-        this.sguid = sender;
+        this.sender = sender;
     }
 
     public int getOpCode() {
@@ -29,10 +34,10 @@ public abstract class Packet {
         this.opCode = id;
     }
 
-    public static Packet read(ChannelBuffer buffer) throws IOException {
+    public static AbstractPacket read(ChannelBuffer buffer) throws IOException {
         int opcode = buffer.readUnsignedShort();
         long sguid = buffer.readLong();
-        Packet packet = PacketFactory.getInstance().getPacket(opcode, sguid);
+        AbstractPacket packet = PacketFactory.getInstance().getPacket(opcode, sguid);
         if (packet == null)
             throw new IOException("Bad packet ID: " + opcode);
 
@@ -40,7 +45,7 @@ public abstract class Packet {
         return packet;
     }
 
-    public static Packet write(Packet packet, ChannelBuffer buffer) {
+    public static AbstractPacket write(AbstractPacket packet, ChannelBuffer buffer) {
         buffer.writeChar(packet.getOpCode());
         buffer.writeLong(packet.getSender());
         packet.send(buffer);

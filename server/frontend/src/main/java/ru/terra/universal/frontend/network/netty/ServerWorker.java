@@ -1,7 +1,7 @@
 package ru.terra.universal.frontend.network.netty;
 
 import org.jboss.netty.channel.Channel;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
 
 public abstract class ServerWorker {
@@ -29,7 +29,7 @@ public abstract class ServerWorker {
 
     public abstract void disconnectedFromChannel();
 
-    public abstract void acceptPacket(Packet message);
+    public abstract void acceptPacket(AbstractPacket message);
 
     public abstract void sendHello();
 }

@@ -3,7 +3,7 @@ package ru.terra.universal.interserver.network;
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
 public class NetworkManager {
     private static NetworkManager instance = new NetworkManager();
@@ -33,7 +33,7 @@ public class NetworkManager {
         this.channel = channel;
     }
 
-    private void sendPacket(Packet p) {
+    private void sendPacket(AbstractPacket p) {
         getChannel().write(p);
     }
 

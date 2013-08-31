@@ -6,7 +6,7 @@ import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.handler.codec.replay.ReplayingDecoder;
 import org.jboss.netty.handler.codec.replay.VoidEnum;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
 
 public class PacketFrameDecoder extends ReplayingDecoder<VoidEnum> {
@@ -25,6 +25,6 @@ public class PacketFrameDecoder extends ReplayingDecoder<VoidEnum> {
     @Override
     protected Object decode(ChannelHandlerContext arg0, Channel arg1,
                             ChannelBuffer buffer, VoidEnum e) throws Exception {
-        return Packet.read(buffer);
+        return AbstractPacket.read(buffer);
     }
 }

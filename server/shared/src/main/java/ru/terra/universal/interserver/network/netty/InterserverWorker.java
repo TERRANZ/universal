@@ -1,7 +1,7 @@
 package ru.terra.universal.interserver.network.netty;
 
 import org.jboss.netty.channel.Channel;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
 public abstract class InterserverWorker {
 
@@ -34,7 +34,7 @@ public abstract class InterserverWorker {
 
     public abstract void disconnectedFromChannel();
 
-    public abstract void acceptPacket(Packet packet);
+    public abstract void acceptPacket(AbstractPacket packet);
     // switch (packet.getOpCode()) {
     // case Server.SMSG_OK: {
     // gm.ok((OkPacket) packet);

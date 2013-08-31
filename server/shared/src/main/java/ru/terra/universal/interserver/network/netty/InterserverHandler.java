@@ -2,7 +2,7 @@ package ru.terra.universal.interserver.network.netty;
 
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.*;
-import ru.terra.universal.server.shared.packet.Packet;
+import ru.terra.universal.shared.packet.AbstractPacket;
 
 public class InterserverHandler extends SimpleChannelUpstreamHandler {
 
@@ -49,10 +49,10 @@ public class InterserverHandler extends SimpleChannelUpstreamHandler {
 
     @Override
     public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
-        // Функция принимает уже готовые Packet'ы от игрока, поэтому их можно сразу посылать в worker. За их формирование отвечает другой обработчик.
+        // Функция принимает уже готовые AbstractPacket'ы от игрока, поэтому их можно сразу посылать в worker. За их формирование отвечает другой обработчик.
         // log.info("messageReceived");
         if (e.getChannel().isOpen())
-            worker.acceptPacket((Packet) e.getMessage());
+            worker.acceptPacket((AbstractPacket) e.getMessage());
     }
 
     @Override

@@ -3,12 +3,12 @@ package ru.terra.universal.loginserver;
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
-import ru.terra.universal.server.shared.constants.OpCodes;
-import ru.terra.universal.server.shared.constants.OpCodes.InterServer;
-import ru.terra.universal.server.shared.packet.Packet;
-import ru.terra.universal.server.shared.packet.interserver.HelloPacket;
-import ru.terra.universal.server.shared.packet.interserver.RegisterPacket;
-import ru.terra.universal.server.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.constants.OpCodes;
+import ru.terra.universal.shared.constants.OpCodes.InterServer;
+import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.interserver.HelloPacket;
+import ru.terra.universal.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.shared.packet.server.OkPacket;
 
 public class LoginWorker extends InterserverWorker {
 
@@ -20,7 +20,7 @@ public class LoginWorker extends InterserverWorker {
     }
 
     @Override
-    public void acceptPacket(Packet packet) {
+    public void acceptPacket(AbstractPacket packet) {
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket(0);

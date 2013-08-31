@@ -2,9 +2,9 @@ package ru.terra.universal.client;
 
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
-import ru.terra.universal.server.shared.constants.OpCodes;
-import ru.terra.universal.server.shared.packet.Packet;
-import ru.terra.universal.server.shared.packet.client.LoginPacket;
+import ru.terra.universal.shared.constants.OpCodes;
+import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.client.LoginPacket;
 
 /**
  * User: Vadim Korostelev
@@ -19,7 +19,7 @@ public class ClientWorker extends InterserverWorker {
     }
 
     @Override
-    public void acceptPacket(Packet packet) {
+    public void acceptPacket(AbstractPacket packet) {
         logger.info("Packet accepted");
         switch (packet.getOpCode()) {
             case OpCodes.Server.SMSG_OK: {
