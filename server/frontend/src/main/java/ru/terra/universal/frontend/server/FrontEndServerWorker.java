@@ -9,6 +9,7 @@ import ru.terra.universal.shared.packet.server.OkPacket;
 public class FrontEndServerWorker extends ServerWorker {
 
     private Logger logger = Logger.getLogger(this.getClass());
+    private TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
 
     @Override
     public void disconnectedFromChannel() {
@@ -26,6 +27,9 @@ public class FrontEndServerWorker extends ServerWorker {
 
     @Override
     public void sendHello() {
-        channel.write(new OkPacket());
+        tempCharactersHolder.addTempChannel(channel);
+        OkPacket okPacket = new OkPacket();
+        okPacket.setSender(tempCharactersHolder.size());
+        channel.write(okPacket);
     }
 }

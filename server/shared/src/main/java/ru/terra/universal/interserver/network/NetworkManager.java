@@ -33,7 +33,7 @@ public class NetworkManager {
         this.channel = channel;
     }
 
-    private void sendPacket(AbstractPacket p) {
+    public void sendPacket(AbstractPacket p) {
         getChannel().write(p);
     }
 

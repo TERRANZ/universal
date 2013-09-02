@@ -17,11 +17,11 @@ public interface OpCodes {
         public interface Login {
             public static final int CMSG_LOGIN = 2;
             public static final int CMSG_LOGOUT = 3;
+            public static final int CSMG_BOOT_ME = 4;
         }
 
         public interface Char {
-            public static final int CSMG_BOOT_ME = 12;
-            public static final int CMSG_SELECT_SERVER = 13;
+            public static final int CMSG_SELECT_SERVER = 11;
         }
 
         public interface Chat {
@@ -40,7 +40,8 @@ public interface OpCodes {
         public static final int ISMSG_REG = 10002;
         public static final int ISMSG_UNREG = 10003;
         public static final int ISMSG_BOOT_CHAR = 10004;
-        public static final int ISMSG_CHAR_REG = 10004;
-        public static final int ISMSG_CHAR_IN_WORLD = 10005;
+        public static final int ISMSG_CHAR_REG = 10005;
+        public static final int ISMSG_CHAR_IN_WORLD = 10006;
+        public static final int ISMSG_REG_WORLD = 10007;
     }
 }

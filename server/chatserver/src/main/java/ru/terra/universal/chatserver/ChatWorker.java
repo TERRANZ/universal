@@ -31,6 +31,10 @@ public class ChatWorker extends InterserverWorker {
                 NetworkManager.getInstance().getChannel().write(registerPacket);
             }
             break;
+            case InterServer.ISMSG_BOOT_CHAR: {
+                log.info("Registering char with uid = " + packet.getSender());
+            }
+            break;
         }
     }
 

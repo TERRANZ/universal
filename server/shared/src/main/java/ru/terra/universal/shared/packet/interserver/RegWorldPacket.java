@@ -5,25 +5,26 @@ import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
-@Packet(opCode = OpCodes.InterServer.ISMSG_CHAR_REG)
-public class CharRegPacket extends AbstractPacket {
-    private Long oldId = 0l;
+@Packet(opCode = OpCodes.InterServer.ISMSG_REG_WORLD)
+public class RegWorldPacket extends AbstractPacket {
+
+    private String worldUid = "";
 
     @Override
     public void get(ChannelBuffer buffer) {
-
+        worldUid = readString(buffer);
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
-
+        writeString(buffer, worldUid);
     }
 
-    public Long getOldId() {
-        return oldId;
+    public String getWorldUid() {
+        return worldUid;
     }
 
-    public void setOldId(Long oldId) {
-        this.oldId = oldId;
+    public void setWorldUid(String worldUid) {
+        this.worldUid = worldUid;
     }
 }

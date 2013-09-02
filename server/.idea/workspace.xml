@@ -2,51 +2,162 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/BootCharPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LogoutPacket.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/SelectServerPacket.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharToWorldPacket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/ChatToWorldPacket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/LoginToWorldPacket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToCharPacket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToChatPacket.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToLoginPacket.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GUIDHOlder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GameStateHolder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_flexjson_flexjson_2_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegWorldPacket.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/.classpath" afterPath="$PROJECT_DIR$/charserver/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/.classpath" afterPath="$PROJECT_DIR$/chatserver/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.classpath" afterPath="$PROJECT_DIR$/frontend/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/.classpath" afterPath="$PROJECT_DIR$/loginserver/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/.classpath" afterPath="$PROJECT_DIR$/shared/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/.classpath" afterPath="$PROJECT_DIR$/worldserver/.classpath" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.directory" afterPath="$PROJECT_DIR$/.directory" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/.gitignore" afterPath="$PROJECT_DIR$/charserver/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/.gitignore" afterPath="$PROJECT_DIR$/chatserver/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.gitignore" afterPath="$PROJECT_DIR$/frontend/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/.gitignore" afterPath="$PROJECT_DIR$/loginserver/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/.name" afterPath="$PROJECT_DIR$/../client/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.project" afterPath="$PROJECT_DIR$/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/.project" afterPath="$PROJECT_DIR$/charserver/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/.project" afterPath="$PROJECT_DIR$/chatserver/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.project" afterPath="$PROJECT_DIR$/frontend/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/.project" afterPath="$PROJECT_DIR$/loginserver/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/.project" afterPath="$PROJECT_DIR$/shared/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/.project" afterPath="$PROJECT_DIR$/worldserver/.project" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/ChannelsHolder.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/ChannelsHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" afterPath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java" afterPath="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/core/ClassSearcher.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/core/ClassSearcher.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/ClientPipelineFactory.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/ClientPipelineFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/ClientWorker.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/ClientWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/HelloPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/HelloPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverHandler.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverWorker.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LoginPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LoginPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterPath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/Main.java" afterPath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/Main.java" afterPath="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/Main.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/Main.java" afterPath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__ru_terra_universal_shared_1.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__ru_terra_universal_shared_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="$PROJECT_DIR$/../client/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkManager.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkThread.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Packet.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Packet.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/PacketFactory.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/PacketFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/PacketFrameDecoder.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/PacketFrameDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/PacketFrameDecoder.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/PacketFrameDecoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/PacketFrameEncoder.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/PacketFrameEncoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/PacketFrameEncoder.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/PacketFrameEncoder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegisterPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegisterPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/SelectServerPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/SelectServerPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerHandler.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerPipelineFactory.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerPipelineFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/ServerThread.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/ServerThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/netty/ServerWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/charserver.iml" afterPath="$PROJECT_DIR$/charserver/charserver.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/chatserver.iml" afterPath="$PROJECT_DIR$/chatserver/chatserver.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/client.iml" afterPath="$PROJECT_DIR$/../client/client.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/compiler.xml" afterPath="$PROJECT_DIR$/../client/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/encodings.xml" afterPath="$PROJECT_DIR$/../client/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/frontend.iml" afterPath="$PROJECT_DIR$/frontend/frontend.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/loginserver.iml" afterPath="$PROJECT_DIR$/loginserver/loginserver.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/misc.xml" afterPath="$PROJECT_DIR$/../client/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/modules.xml" afterPath="$PROJECT_DIR$/../client/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/charserver/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/chatserver/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/frontend/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/loginserver/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/shared/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/.settings/org.eclipse.jdt.core.prefs" afterPath="$PROJECT_DIR$/worldserver/.settings/org.eclipse.jdt.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/charserver/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/chatserver/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/frontend/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/loginserver/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/shared/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/.settings/org.eclipse.m2e.core.prefs" afterPath="$PROJECT_DIR$/worldserver/.settings/org.eclipse.m2e.core.prefs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/pom.xml" afterPath="$PROJECT_DIR$/../client/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/pom.xml" afterPath="$PROJECT_DIR$/charserver/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/pom.xml" afterPath="$PROJECT_DIR$/chatserver/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/pom.xml" afterPath="$PROJECT_DIR$/frontend/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/pom.xml" afterPath="$PROJECT_DIR$/loginserver/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/pom.xml" afterPath="$PROJECT_DIR$/shared/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/pom.xml" afterPath="$PROJECT_DIR$/worldserver/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/../client/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/../client/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.iml" afterPath="$PROJECT_DIR$/server.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/shared.iml" afterPath="$PROJECT_DIR$/shared/shared.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/../client/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../client/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/worldserver.iml" afterPath="$PROJECT_DIR$/worldserver/worldserver.iml" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377973046455" ignored="false" />
-    <file path="/LoginWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377865958684" ignored="false" />
+    <file path="/Dummy.txt" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378103904353" ignored="false" />
+    <file path="/LoginWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108395745" ignored="false" />
     <file path="/ChannelsHolder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377863448855" ignored="false" />
-    <file path="/InterserverFEWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377863521618" ignored="false" />
-    <file path="/FrontEndServerWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377866260725" ignored="false" />
-    <file path="/Main.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377951927263" ignored="false" />
-    <file path="/ClientWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377951040260" ignored="false" />
+    <file path="/InterserverFEWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108927978" ignored="false" />
+    <file path="/FrontEndServerWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108303143" ignored="false" />
+    <file path="/Main.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378110780840" ignored="false" />
+    <file path="/ClientWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378110625309" ignored="false" />
     <file path="/fragment.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377936133270" ignored="false" />
-    <file path="/NetworkManager.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377865066893" ignored="false" />
+    <file path="/NetworkManager.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377990934800" ignored="false" />
     <file path="$MAVEN_REPOSITORY$/ru/terra/universal/server/shared/1/shared-1.jar!/ru/terra/universal/interserver/network/NetworkManager.class" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377866548171" ignored="false" />
-    <file path="/LoginPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377865668829" ignored="false" />
+    <file path="/LoginPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377986696262" ignored="false" />
     <file path="/OkPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377936101373" ignored="false" />
-    <file path="/OpCodes.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377967523923" ignored="false" />
-    <file path="/ChatWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377865775019" ignored="false" />
-    <file path="/WorldserverWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377865810241" ignored="false" />
+    <file path="/OpCodes.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377988845882" ignored="false" />
+    <file path="/ChatWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108700846" ignored="false" />
+    <file path="/WorldserverWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108788100" ignored="false" />
     <file path="/pom.xml" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377866026088" ignored="false" />
     <file path="/PacketFactory.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377937362470" ignored="false" />
     <file path="/Packet.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377936050886" ignored="false" />
     <file path="/HelloPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377935655067" ignored="false" />
-    <file path="/AbstractPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377939569177" ignored="false" />
+    <file path="/AbstractPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377986637323" ignored="false" />
     <file path="$USER_HOME$/altarix/ta/testsuite/src/main/java/ru/altarix/ta/testsuite/ATTestSuite.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377944820756" ignored="false" />
     <file path="$USER_HOME$/altarix/ta/gui/desktop/src/main/java/ru/altarix/ta/gui/desktop/ta/AndroidBackEnd.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377950336047" ignored="false" />
-    <file path="/CharWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377951923644" ignored="false" />
+    <file path="/CharWorker.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108646861" ignored="false" />
     <file path="/CharToWorldPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377952479949" ignored="false" />
     <file path="/ChatToWorld.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377952467596" ignored="false" />
     <file path="/LoginToWorldPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377952518381" ignored="false" />
@@ -60,12 +171,20 @@
     <file path="$PROJECT_DIR$/../../jbrss/android/gen/ru/terra/jbrss/BuildConfig.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377966675676" ignored="false" />
     <file path="$PROJECT_DIR$/../../jbrss/android/libs/android-support-v13.jar!/android/support/v4/app/NotificationCompat.class" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377966697749" ignored="false" />
     <file path="/LogoutPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377968222154" ignored="false" />
-    <file path="/BootMePacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377968287752" ignored="false" />
-    <file path="/SelectServerPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377968399420" ignored="false" />
-    <file path="/CharBootPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377968439275" ignored="false" />
+    <file path="/BootMePacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377988703466" ignored="false" />
+    <file path="/SelectServerPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377989836919" ignored="false" />
+    <file path="/CharBootPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377989798071" ignored="false" />
     <file path="/BootCharPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377973095487" ignored="false" />
-    <file path="/CharRegPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377973133351" ignored="false" />
+    <file path="/CharRegPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108522081" ignored="false" />
     <file path="/CharInWorldPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377973171173" ignored="false" />
+    <file path="/PlayerInfo.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377988803186" ignored="false" />
+    <file path="/RegWorldPacket.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377988926235" ignored="false" />
+    <file path="/GameState.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1377991284966" ignored="false" />
+    <file path="/GameStateHolder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378106697749" ignored="false" />
+    <file path="/CharactersHolder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378107387245" ignored="false" />
+    <file path="/TempChannelsHolder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378107373065" ignored="false" />
+    <file path="/TempCharactersHolder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378108915975" ignored="false" />
+    <file path="/GUIDHOlder.java" changelist="7f65411f-de3a-47fd-8be3-7628e40e41f4" time="1378110608009" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,8 +199,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -118,6 +235,8 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -126,7 +245,53 @@
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="ClientWorker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/ClientWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="27" column="71" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InterserverFEWorker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="22" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="77" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.40268457">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameStateHolder.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GameStateHolder.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="48" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginWorker.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="58" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -144,22 +309,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/Main.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/ChatToWorld.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharToWorldPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/ChatToWorldPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/LoginToWorldPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToCharPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToChatPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/WorldToLoginPacket.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LogoutPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/SelectServerPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/BootCharPacket.java" />
+        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GameStateHolder.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempChannelsHolder.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharacterssHolder.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
+        <option value="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java" />
+        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
+        <option value="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" />
+        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
+        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GUIDHOlder.java" />
+        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/ClientWorker.java" />
+        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" />
       </list>
     </option>
   </component>
@@ -171,10 +336,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-6" />
-    <option name="width" value="1374" />
-    <option name="height" value="754" />
+    <option name="x" value="-7" />
+    <option name="y" value="-12" />
+    <option name="width" value="1934" />
+    <option name="height" value="1072" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -238,7 +403,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -248,25 +413,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -280,11 +427,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -302,11 +445,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -322,86 +461,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="packet" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -418,8 +485,8 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -442,19 +509,6 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -482,6 +536,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -551,12 +618,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-6" width="1374" height="754" extended-state="6" />
-    <editor active="false" />
+    <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32608697" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25054705" sideWeight="0.49786553" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39934355" sideWeight="0.49839914" order="11" side_tool="true" content_ui="tabs" />
@@ -566,14 +634,13 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25151515" sideWeight="0.6721582" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2171825" sideWeight="0.67391306" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32822758" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03842049" sideWeight="0.6717724" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24279615" sideWeight="0.6717724" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32663316" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32784185" sideWeight="0.49786553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3369803" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="1918" y="0" width="1920" height="1053" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -645,95 +712,37 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java">
+    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="65" selection-start="354" selection-end="354" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="34" selection-start="357" selection-end="357" vertical-scroll-proportion="0.23156089" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="67" selection-start="1076" selection-end="1076" vertical-scroll-proportion="0.48885077" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/PacketFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="14" selection-start="786" selection-end="786" vertical-scroll-proportion="0.20240137">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="5" column="13" selection-start="160" selection-end="160" vertical-scroll-proportion="0.06711409">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/Main.java">
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="31" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="48" selection-start="1087" selection-end="1087" vertical-scroll-proportion="0.38037866" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="13" selection-start="524" selection-end="524" vertical-scroll-proportion="0.103270225" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegisterPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="46" selection-start="312" selection-end="312" vertical-scroll-proportion="0.103270225" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LogoutPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="43" selection-start="415" selection-end="415" vertical-scroll-proportion="0.2572899">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="483" selection-end="483" vertical-scroll-proportion="0.4116638" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/SelectServerPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="495" selection-end="495" vertical-scroll-proportion="0.4116638" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="481" selection-end="481" vertical-scroll-proportion="0.4116638" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/BootCharPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="8" selection-start="492" selection-end="492" vertical-scroll-proportion="0.4116638">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="32" column="30" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.46979865">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="8" selection-start="491" selection-end="491" vertical-scroll-proportion="0.4373928">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="25" column="29" selection-start="616" selection-end="616" vertical-scroll-proportion="0.3691275">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java">
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="56" selection-start="317" selection-end="317" vertical-scroll-proportion="0.18010291">
+        <state line="23" column="43" selection-start="893" selection-end="893" vertical-scroll-proportion="0.26845637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="28" selection-start="859" selection-end="859" vertical-scroll-proportion="0.60402685">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -742,7 +751,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="40" selection-start="1018" selection-end="1018" vertical-scroll-proportion="0.47341338">
+        <state line="23" column="36" selection-start="829" selection-end="829" vertical-scroll-proportion="0.38590604">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="13" selection-start="159" selection-end="159" vertical-scroll-proportion="0.06711409">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="487" selection-end="487" vertical-scroll-proportion="0.08389262">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="44" selection-start="1429" selection-end="1444" vertical-scroll-proportion="0.4362416">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="56" selection-start="2549" selection-end="2549" vertical-scroll-proportion="0.6308725">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GUIDHOlder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="27" selection-start="354" selection-end="354" vertical-scroll-proportion="0.30201343">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="58" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/GameStateHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="48" selection-start="324" selection-end="324" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="22" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/ClientWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="71" selection-start="1013" selection-end="1013" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="77" selection-start="1506" selection-end="1506" vertical-scroll-proportion="0.40268457">
           <folding />
         </state>
       </provider>

@@ -31,6 +31,11 @@ public class WorldserverWorker extends InterserverWorker {
                 NetworkManager.getInstance().getChannel().write(registerPacket);
             }
             break;
+            case InterServer.ISMSG_CHAR_IN_WORLD: {
+                log.info("Character " + packet.getSender() + " is in world now!");
+            }
+            break;
+
         }
     }
 

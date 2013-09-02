@@ -48,8 +48,15 @@ public abstract class AbstractPacket {
     }
 
     // Функции, которые должен реализовать каждый класс пакета
+
+    /**
+     * Вызывается при приёме пакета, в этом методе производим вычитывание из буфера данных
+     */
     public abstract void get(ChannelBuffer buffer);
 
+    /**
+     * Вызывается при отсылке пакета, в этом методе производим запись в буфер данных
+     */
     public abstract void send(ChannelBuffer buffer);
 
     protected String readString(ChannelBuffer buffer) {

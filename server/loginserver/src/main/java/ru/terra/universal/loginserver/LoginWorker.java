@@ -6,9 +6,13 @@ import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.interserver.BootCharPacket;
+import ru.terra.universal.shared.packet.interserver.CharRegPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
+
+import java.util.UUID;
 
 public class LoginWorker extends InterserverWorker {
 
@@ -34,7 +38,22 @@ public class LoginWorker extends InterserverWorker {
             break;
             case OpCodes.Client.Login.CMSG_LOGIN: {
                 log.info("Client with id " + packet.getSender() + " logged in");
-                NetworkManager.getInstance().getChannel().write(new OkPacket());
+                long uid = UUID.randomUUID().getMostSignificantBits();
+                log.info("Client registered with GUID = " + uid);
+                OkPacket okPacket = new OkPacket();
+                okPacket.setSender(uid);
+                CharRegPacket charRegPacket = new CharRegPacket();
+                charRegPacket.setSender(uid);
+                charRegPacket.setOldId(packet.getSender());
+                NetworkManager.getInstance().getChannel().write(charRegPacket);
+                NetworkManager.getInstance().getChannel().write(okPacket);
+            }
+            break;
+            case OpCodes.Client.Login.CSMG_BOOT_ME: {
+                log.info("Client sent Boot Me to us");
+                BootCharPacket bootCharPacket = new BootCharPacket();
+                bootCharPacket.setSender(packet.getSender());
+                NetworkManager.getInstance().getChannel().write(bootCharPacket);
             }
             break;
         }
