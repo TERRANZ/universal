@@ -2,8 +2,8 @@ package ru.terra.universal.frontend.server;
 
 import org.jboss.netty.channel.Channel;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * User: Vadim Korostelev
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class TempCharactersHolder {
     private static TempCharactersHolder instance = new TempCharactersHolder();
-    private List<Channel> channels = new ArrayList<>();
+    private Map<Long, Channel> channels = new HashMap<>();
 
     private TempCharactersHolder() {
     }
@@ -21,19 +21,19 @@ public class TempCharactersHolder {
         return instance;
     }
 
-    public synchronized Channel getTempChannel(Integer id) {
+    public synchronized Channel getTempChannel(Long id) {
         return channels.get(id);
     }
 
-    public synchronized void addTempChannel(Channel channel) {
-        channels.add(channel);
+    public synchronized void addTempChannel(Long id, Channel channel) {
+        channels.put(id, channel);
     }
 
     public long size() {
         return channels.size();
     }
 
-    public synchronized void deleteTempChannel(int id) {
+    public synchronized void deleteTempChannel(Long id) {
         channels.remove(id);
     }
 }

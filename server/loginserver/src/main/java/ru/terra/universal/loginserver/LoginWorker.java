@@ -56,6 +56,10 @@ public class LoginWorker extends InterserverWorker {
                 NetworkManager.getInstance().getChannel().write(bootCharPacket);
             }
             break;
+            case InterServer.ISMSG_UNREG_CHAR: {
+                log.info("Unregistering char with uid = " + packet.getSender());
+            }
+            break;
         }
     }
 

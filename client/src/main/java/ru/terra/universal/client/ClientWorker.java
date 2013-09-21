@@ -23,11 +23,23 @@ public class ClientWorker extends InterserverWorker {
         switch (packet.getOpCode()) {
             case OpCodes.Server.SMSG_OK: {
                 GameStateHolder.GameState gs = GameStateHolder.getInstance().getGameState();
-                if (gs == GameStateHolder.GameState.LOGIN) {
-                    GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGGED_IN);
-                    GUIDHOlder.getInstance().setGuid(packet.getSender());
-                } else if (gs == GameStateHolder.GameState.SERVER_SELECTED) {
-                    GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.IN_WORLD);
+                switch (gs) {
+                    case INIT:
+                        GUIDHOlder.getInstance().setGuid(packet.getSender());
+                        break;
+                    case LOGIN:
+                        GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGGED_IN);
+                        GUIDHOlder.getInstance().setGuid(packet.getSender());
+                        break;
+                    case LOGGED_IN:
+                        break;
+                    case CHAR_BOOT:
+                        break;
+                    case SERVER_SELECTED:
+                        GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.IN_WORLD);
+                        break;
+                    case IN_WORLD:
+                        break;
                 }
             }
             break;

@@ -35,6 +35,11 @@ public class ChatWorker extends InterserverWorker {
                 log.info("Registering char with uid = " + packet.getSender());
             }
             break;
+            case InterServer.ISMSG_UNREG_CHAR: {
+                log.info("Unregistering char with uid = " + packet.getSender());
+            }
+            break;
+
         }
     }
 

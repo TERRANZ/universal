@@ -27,7 +27,7 @@ public abstract class ServerWorker {
         this.playerHandler = playerHandler;
     }
 
-    public abstract void disconnectedFromChannel();
+    public abstract void disconnectedFromChannel(Channel channel);
 
     public abstract void acceptPacket(AbstractPacket message);
 

@@ -4,3 +4,5 @@
 *.jar
 *.war
 *.ear
+/jmeclient/nbproject/private/
+/jmeclient/build/

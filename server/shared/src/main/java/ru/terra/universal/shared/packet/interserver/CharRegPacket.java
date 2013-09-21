@@ -11,12 +11,12 @@ public class CharRegPacket extends AbstractPacket {
 
     @Override
     public void get(ChannelBuffer buffer) {
-
+        oldId = buffer.readLong();
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
-
+        buffer.writeLong(oldId);
     }
 
     public Long getOldId() {

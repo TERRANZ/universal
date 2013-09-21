@@ -17,7 +17,7 @@ public class InterserverFEWorker extends ServerWorker {
     private TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
 
     @Override
-    public void disconnectedFromChannel() {
+    public void disconnectedFromChannel(Channel removedChannel) {
         log.info("Client disconnected");
     }
 
@@ -57,8 +57,8 @@ public class InterserverFEWorker extends ServerWorker {
                 case OpCodes.InterServer.ISMSG_CHAR_REG: {
                     Long oldId = (((CharRegPacket) packet).getOldId());
                     log.info("Registering character with oldid = " + oldId + " and new id = " + packet.getSender());
-                    charactersHolder.addCharChannel(packet.getSender(), tempCharactersHolder.getTempChannel(oldId.intValue()));
-                    //tempCharactersHolder.deleteTempChannel(oldId.intValue());
+                    charactersHolder.addCharChannel(packet.getSender(), tempCharactersHolder.getTempChannel(oldId));
+                    tempCharactersHolder.deleteTempChannel(oldId);
                 }
                 break;
                 case OpCodes.InterServer.ISMSG_CHAR_IN_WORLD: {
@@ -70,7 +70,7 @@ public class InterserverFEWorker extends ServerWorker {
         } else {
             switch (packet.getOpCode()) {
                 case OpCodes.Server.SMSG_CHAR_BOOT: {
-                    log.info("Char " + packet.getSender() + " in booting now");
+                    log.info("Char " + packet.getSender() + " is booting now");
                     charactersHolder.getCharChannel(packet.getSender()).write(packet);
                 }
                 break;

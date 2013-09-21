@@ -53,8 +53,8 @@ public class ServerHandler extends SimpleChannelUpstreamHandler {
         // заметить, что пользователь отключился, если он напрямую не сказал
         // этого
         // серверу, а просто оборвался канал.
-        // log.info("channelDisconnected");
-        worker.disconnectedFromChannel();
+        log.info("channelDisconnected");
+        worker.disconnectedFromChannel(e.getChannel());
     }
 
     @Override

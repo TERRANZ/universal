@@ -67,6 +67,10 @@ public class CharWorker extends InterserverWorker {
                 networkManager.sendPacket(charInWorldPacket);
             }
             break;
+            case InterServer.ISMSG_UNREG_CHAR: {
+                log.info("Unregistering char with uid = " + packet.getSender());
+            }
+            break;
         }
     }
 

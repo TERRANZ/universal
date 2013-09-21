@@ -20,13 +20,12 @@ public class Main {
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             while (true) {
                 String s = bufferRead.readLine();
-
                 if (s.equals("login")) {
                     GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGIN);
                     LoginPacket loginPacket = new LoginPacket();
                     loginPacket.setLogin("mylogin");
                     loginPacket.setPassword("mypass");
-                    loginPacket.setSender(0);
+                    loginPacket.setSender(GUIDHOlder.getInstance().getGuid());
                     NetworkManager.getInstance().sendPacket(loginPacket);
                 } else if (s.equals("boot")) {
                     BootMePacket bootMePacket = new BootMePacket();
@@ -36,6 +35,7 @@ public class Main {
                     SelectServerPacket selectServerPacket = new SelectServerPacket();
                     selectServerPacket.setTargetWorld("1");
                     selectServerPacket.setSender(GUIDHOlder.getInstance().getGuid());
+                    GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.SERVER_SELECTED);
                     NetworkManager.getInstance().sendPacket(selectServerPacket);
                 }
                 //System.out.println(s);
