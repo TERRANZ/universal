@@ -1,42 +1,30 @@
 package ru.terra.universal.client.game;
 
-import org.apache.log4j.Logger;
-import ru.terra.universal.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.entity.PlayerInfo;
 
-
+/**
+ * Created with IntelliJ IDEA.
+ * User: terranz
+ * Date: 22.09.13
+ * Time: 0:47
+ * To change this template use File | Settings | File Templates.
+ */
 public class GameManager {
-    private Logger log = Logger.getLogger(GameManager.class);
-
+    private static GameManager instance = new GameManager();
+    private PlayerInfo playerInfo;
 
     private GameManager() {
-
     }
-
-    private static GameManager instance = new GameManager();
 
     public static GameManager getInstance() {
         return instance;
     }
 
-
-    public void login() {
+    public PlayerInfo getPlayerInfo() {
+        return playerInfo;
     }
 
-    public void start() {
-        log.info("Starting game manager...");
-    }
-
-    public void sendSay(String message) {
-    }
-
-    public void playerSaid(long guid, String message) {
-    }
-
-    public void ok(OkPacket message) {
-        log.info("ok");
-    }
-
-    public void serverSaid(String message) {
-        GameView.getView().serverMessage(message);
+    public void setPlayerInfo(PlayerInfo playerInfo) {
+        this.playerInfo = playerInfo;
     }
 }

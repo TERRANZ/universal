@@ -1,4 +1,4 @@
-package ru.terra.universal.client;
+package ru.terra.universal.client.game;
 
 import org.apache.log4j.Logger;
 

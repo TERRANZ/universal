@@ -1,4 +1,4 @@
-package ru.terra.universal.client;
+package ru.terra.universal.client.network;
 
 /**
  * User: Vadim Korostelev

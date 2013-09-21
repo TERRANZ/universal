@@ -1,9 +1,15 @@
-package ru.terra.universal.client;
+package ru.terra.universal.client.network;
 
 import org.apache.log4j.Logger;
+import ru.terra.universal.client.game.GameManager;
+import ru.terra.universal.client.game.GameStateHolder;
+import ru.terra.universal.client.gui.GuiManager;
+import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.client.BootMePacket;
+import ru.terra.universal.shared.packet.server.CharBootPacket;
 
 /**
  * User: Vadim Korostelev
@@ -30,6 +36,9 @@ public class ClientWorker extends InterserverWorker {
                     case LOGIN:
                         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGGED_IN);
                         GUIDHOlder.getInstance().setGuid(packet.getSender());
+                        BootMePacket bootMePacket = new BootMePacket();
+                        bootMePacket.setSender(GUIDHOlder.getInstance().getGuid());
+                        NetworkManager.getInstance().sendPacket(bootMePacket);
                         break;
                     case LOGGED_IN:
                         break;
@@ -45,6 +54,12 @@ public class ClientWorker extends InterserverWorker {
             break;
             case OpCodes.Server.SMSG_CHAR_BOOT: {
                 GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.CHAR_BOOT);
+                logger.info("Received char boot packet");
+                for (String w : ((CharBootPacket) packet).getWorlds()) {
+                    logger.info("Available world: " + w);
+                }
+                GameManager.getInstance().setPlayerInfo(((CharBootPacket) packet).getPlayerInfo());
+                GuiManager.getInstance().publicWorlds(((CharBootPacket) packet).getWorlds());
             }
             break;
 
