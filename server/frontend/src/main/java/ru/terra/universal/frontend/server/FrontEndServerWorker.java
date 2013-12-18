@@ -48,7 +48,7 @@ public class FrontEndServerWorker extends ServerWorker {
     }
 
     @Override
-    public void sendHello() {
+    synchronized public void sendHello() {
         logger.info("Player connected");
         OkPacket okPacket = new OkPacket();
         okPacket.setSender(tempCharactersHolder.size());

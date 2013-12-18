@@ -25,7 +25,7 @@ public class ClientWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-        logger.info("Packet accepted");
+        logger.info("Packet accepted " + packet.getOpCode());
         switch (packet.getOpCode()) {
             case OpCodes.Server.SMSG_OK: {
                 GameStateHolder.GameState gs = GameStateHolder.getInstance().getGameState();

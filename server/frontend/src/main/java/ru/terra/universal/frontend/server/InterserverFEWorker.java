@@ -71,7 +71,11 @@ public class InterserverFEWorker extends ServerWorker {
             switch (packet.getOpCode()) {
                 case OpCodes.Server.SMSG_CHAR_BOOT: {
                     log.info("Char " + packet.getSender() + " is booting now");
-                    charactersHolder.getCharChannel(packet.getSender()).write(packet);
+                    Channel channel = charactersHolder.getCharChannel(packet.getSender());
+                    if (channel != null)
+                        channel.write(packet);
+                    else
+                        log.error("Char channel is null!");
                 }
                 break;
                 case OpCodes.Server.SMSG_OK: {

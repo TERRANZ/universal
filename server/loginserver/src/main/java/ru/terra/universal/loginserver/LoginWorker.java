@@ -6,6 +6,7 @@ import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.interserver.BootCharPacket;
 import ru.terra.universal.shared.packet.interserver.CharRegPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
@@ -37,14 +38,16 @@ public class LoginWorker extends InterserverWorker {
             }
             break;
             case OpCodes.Client.Login.CMSG_LOGIN: {
-                log.info("Client with id " + packet.getSender() + " logged in");
+                LoginPacket loginPacket = (LoginPacket) packet;
+                log.info("Client with login " + loginPacket.getLogin() + " and pass " + loginPacket.getPassword() + " attempting to log in");
+                log.info("Client with id " + loginPacket.getSender() + " logged in");
                 long uid = UUID.randomUUID().getMostSignificantBits();
                 log.info("Client registered with GUID = " + uid);
                 OkPacket okPacket = new OkPacket();
                 okPacket.setSender(uid);
                 CharRegPacket charRegPacket = new CharRegPacket();
                 charRegPacket.setSender(uid);
-                charRegPacket.setOldId(packet.getSender());
+                charRegPacket.setOldId(loginPacket.getSender());
                 NetworkManager.getInstance().getChannel().write(charRegPacket);
                 NetworkManager.getInstance().getChannel().write(okPacket);
             }

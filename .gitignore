@@ -6,3 +6,4 @@
 *.ear
 /jmeclient/nbproject/private/
 /jmeclient/build/
+target/

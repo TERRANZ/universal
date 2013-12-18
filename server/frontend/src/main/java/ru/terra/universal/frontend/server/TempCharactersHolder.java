@@ -29,7 +29,7 @@ public class TempCharactersHolder {
         channels.put(id, channel);
     }
 
-    public long size() {
+    public synchronized long size() {
         return channels.size();
     }
 

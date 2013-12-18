@@ -1,5 +1,7 @@
 package ru.terra.universal.client.network;
 
+import org.apache.log4j.Logger;
+
 /**
  * User: Vadim Korostelev
  * Date: 02.09.13
@@ -8,6 +10,7 @@ package ru.terra.universal.client.network;
 public class GUIDHOlder {
     private static GUIDHOlder instance = new GUIDHOlder();
     private long guid = 0;
+    private Logger logger = Logger.getLogger(this.getClass());
 
     private GUIDHOlder() {
     }
@@ -21,6 +24,7 @@ public class GUIDHOlder {
     }
 
     public void setGuid(long guid) {
+        logger.info("Now our guid is " + guid);
         this.guid = guid;
     }
 }
