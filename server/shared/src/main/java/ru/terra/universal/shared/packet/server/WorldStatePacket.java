@@ -21,6 +21,9 @@ public class WorldStatePacket extends AbstractPacket {
     private List<WorldEntityInfo> entityInfos = new ArrayList<>();
     private List<PlayerInfo> playerInfos = new ArrayList<>();
 
+    public WorldStatePacket() {
+    }
+
     public WorldStatePacket(List<WorldEntityInfo> entityInfos, List<PlayerInfo> playerInfos) {
         this.entityInfos = entityInfos;
         this.playerInfos = playerInfos;
@@ -34,14 +37,13 @@ public class WorldStatePacket extends AbstractPacket {
             worldEntityInfo.readEntityInfo(buffer);
             worldEntityInfo.setModel(buffer.readInt());
             worldEntityInfo.setState(buffer.readInt());
+            entityInfos.add(worldEntityInfo);
         }
         Integer playerInfosSize = buffer.readInt();
         for (int pi = 0; pi < playerInfosSize; pi++) {
             PlayerInfo playerInfo = new PlayerInfo();
-            playerInfo.readEntityInfo(buffer);
             playerInfo.readPlayerInfo(buffer);
-            playerInfo.setName(readString(buffer));
-            playerInfo.setWorld(readString(buffer));
+            playerInfos.add(playerInfo);
         }
     }
 
@@ -55,10 +57,15 @@ public class WorldStatePacket extends AbstractPacket {
         }
         buffer.writeInt(playerInfos.size());
         for (PlayerInfo playerInfo : playerInfos) {
-            playerInfo.writeEntityInfo(buffer);
             playerInfo.writePlayerInfo(buffer);
-            writeString(buffer, playerInfo.getName());
-            writeString(buffer, playerInfo.getWorld());
         }
+    }
+
+    public List<WorldEntityInfo> getEntityInfos() {
+        return entityInfos;
+    }
+
+    public List<PlayerInfo> getPlayerInfos() {
+        return playerInfos;
     }
 }

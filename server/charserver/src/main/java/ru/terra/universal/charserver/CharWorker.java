@@ -1,7 +1,6 @@
 package ru.terra.universal.charserver;
 
 import org.apache.log4j.Logger;
-import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
@@ -14,6 +13,7 @@ import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
@@ -21,6 +21,7 @@ public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
     private List<String> worlds = new ArrayList<>();
+    private List<PlayerInfo> playerInfos = new LinkedList<>();
 
     @Override
     public void disconnectedFromChannel() {
@@ -44,7 +45,8 @@ public class CharWorker extends InterserverWorker {
                 log.info("Registering character with uid = " + packet.getSender());
                 //TODO: there we load character from db and send
                 PlayerInfo playerInfo = new PlayerInfo();
-                playerInfo.setName("My first cool world!");
+                playerInfo.setUID(String.valueOf(packet.getSender()));
+                playerInfo.setName("My Cool player " + playerInfo.getUID());
                 String wuid = UUID.randomUUID().toString();
                 playerInfo.setWorld(wuid);
                 CharBootPacket charBootPacket = new CharBootPacket();
@@ -53,6 +55,7 @@ public class CharWorker extends InterserverWorker {
                 charBootPacket.setWorlds(worlds);
                 charBootPacket.setSender(packet.getSender());
                 networkManager.sendPacket(charBootPacket);
+                playerInfos.add(playerInfo);
             }
             break;
             case OpCodes.Client.Char.CMSG_SELECT_SERVER: {
@@ -61,9 +64,16 @@ public class CharWorker extends InterserverWorker {
                 OkPacket okPacket = new OkPacket();
                 okPacket.setSender(packet.getSender());
                 networkManager.sendPacket(okPacket);
-                CharInWorldPacket charInWorldPacket = new CharInWorldPacket();
-                charInWorldPacket.setSender(packet.getSender());
-                networkManager.sendPacket(charInWorldPacket);
+                PlayerInfo playerInfo = null;
+                for (PlayerInfo pi : playerInfos) {
+                    if (Long.parseLong(pi.getUID()) == packet.getSender())
+                        playerInfo = pi;
+                }
+                if (playerInfo != null) {
+                    CharInWorldPacket charInWorldPacket = new CharInWorldPacket(playerInfo);
+                    charInWorldPacket.setSender(packet.getSender());
+                    networkManager.sendPacket(charInWorldPacket);
+                }
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {

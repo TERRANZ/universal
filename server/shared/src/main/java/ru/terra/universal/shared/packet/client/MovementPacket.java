@@ -14,6 +14,9 @@ public class MovementPacket extends AbstractPacket {
 
     private Long x, y, z, h;
 
+    public MovementPacket() {
+    }
+
     public MovementPacket(Long x, Long y, Long z, Long h) {
         this.x = x;
         this.y = y;

@@ -55,6 +55,7 @@ public interface OpCodes {
         public static final int ISMSG_CHAR_IN_WORLD = 10006;
         public static final int ISMSG_REG_WORLD = 10007;
         public static final int ISMSG_UNREG_CHAR = 10008;
-        public static final int ISMSG_UPDATE_CHAR = 10009;
+        public static final int ISMSG_UPDATE_CHAR = 10010;
+
     }
 }

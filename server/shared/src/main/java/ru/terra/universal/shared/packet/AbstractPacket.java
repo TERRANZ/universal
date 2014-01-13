@@ -59,7 +59,7 @@ public abstract class AbstractPacket {
      */
     public abstract void send(ChannelBuffer buffer);
 
-    protected String readString(ChannelBuffer buffer) {
+    public static String readString(ChannelBuffer buffer) {
         int length = buffer.readShort();
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < length; ++i)
@@ -67,7 +67,7 @@ public abstract class AbstractPacket {
         return builder.toString();
     }
 
-    protected void writeString(ChannelBuffer buffer, String text) {
+    public static void writeString(ChannelBuffer buffer, String text) {
         if (text == null || text.length() == 0)
             return;
         buffer.writeShort(text.length());

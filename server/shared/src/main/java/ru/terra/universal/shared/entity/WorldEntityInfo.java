@@ -23,4 +23,12 @@ public class WorldEntityInfo extends AbstractEntity {
     public void setState(Integer state) {
         this.state = state;
     }
+
+    @Override
+    public String toString() {
+        return "WorldEntityInfo{" +
+                "model=" + model +
+                ", state=" + state +
+                "} " + super.toString();
+    }
 }

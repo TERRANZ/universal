@@ -14,6 +14,9 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class UpdatePlayerPacket extends AbstractPacket {
     private PlayerInfo playerInfo;
 
+    public UpdatePlayerPacket() {
+    }
+
     public UpdatePlayerPacket(PlayerInfo playerInfo) {
         this.playerInfo = playerInfo;
     }
@@ -28,17 +31,11 @@ public class UpdatePlayerPacket extends AbstractPacket {
 
     @Override
     public void get(ChannelBuffer buffer) {
-        playerInfo.readEntityInfo(buffer);
         playerInfo.readPlayerInfo(buffer);
-        playerInfo.setName(readString(buffer));
-        playerInfo.setWorld(readString(buffer));
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
-        playerInfo.writeEntityInfo(buffer);
         playerInfo.writePlayerInfo(buffer);
-        writeString(buffer, playerInfo.getName());
-        writeString(buffer, playerInfo.getWorld());
     }
 }

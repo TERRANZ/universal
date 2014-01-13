@@ -11,8 +11,11 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  */
 @Packet(opCode = OpCodes.Server.SMSG_UPDATE)
 public class UpdatePacket extends AbstractPacket {
-    private int field;
-    private String value;
+    private int field = 0;
+    private String value = "";
+
+    public UpdatePacket() {
+    }
 
     public UpdatePacket(int field, String value) {
         this.field = field;
