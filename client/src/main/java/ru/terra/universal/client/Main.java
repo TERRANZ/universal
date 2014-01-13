@@ -9,6 +9,6 @@ public class Main {
         BasicConfigurator.configure();
         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.INIT);
 //        GuiManager.getInstance().startLoginWindow();
-        new ClientTest().start("127.0.0.1");
+        new ClientTest().start("192.168.1.8");
     }
 }

@@ -27,8 +27,8 @@ public class ChatWorker extends InterserverWorker {
                 RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.ChatOpcodeStart);
                 registerPacket.setEndRange(OpCodes.ChatOpcodeEnd);
-                NetworkManager.getInstance().getChannel().write(helloPacket);
-                NetworkManager.getInstance().getChannel().write(registerPacket);
+                networkManager.sendPacket(helloPacket);
+                networkManager.sendPacket(registerPacket);
             }
             break;
             case InterServer.ISMSG_BOOT_CHAR: {

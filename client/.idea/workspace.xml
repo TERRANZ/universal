@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8dcc54af-fb65-481f-a182-0757b04ff229" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/test/ClientTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_9.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_flexjson_flexjson_2_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../.gitignore" afterPath="$PROJECT_DIR$/../.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/ClientWorker.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" afterPath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterPath="$PROJECT_DIR$/../server/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/Main.java" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" afterPath="$PROJECT_DIR$/../server/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client.iml" afterPath="$PROJECT_DIR$/client.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/.idea/misc.xml" afterPath="$PROJECT_DIR$/../server/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" />
     </list>
     <ignored path="client.iws" />
@@ -97,7 +82,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GuiManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="4" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-              <folding />
+              <folding>
+                <element signature="e#305#306#0" expanded="false" />
+                <element signature="e#336#337#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,7 +94,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/LoginWindow.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="137" column="0" selection-start="7002" selection-end="7578" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="2988">
-              <folding />
+              <folding>
+                <element signature="e#0#8807#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#928#958#0" expanded="false" />
+                <element signature="e#1666#1850#0" expanded="false" />
+                <element signature="e#1839#1840#0" expanded="false" />
+                <element signature="e#1923#2104#0" expanded="false" />
+                <element signature="e#2093#2094#0" expanded="false" />
+                <element signature="e#2285#2471#0" expanded="false" />
+                <element signature="e#2460#2461#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -500,7 +498,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
+    <frame x="-7" y="-12" width="1934" height="1072" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03842049" sideWeight="0.6717724" order="3" side_tool="false" content_ui="tabs" />
@@ -563,7 +561,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="81" selection-start="394" selection-end="394" vertical-scroll-proportion="0.21860987" vertical-offset="0" max-vertical-offset="0">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -585,14 +583,27 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/LoginWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="137" column="0" selection-start="7002" selection-end="7578" vertical-scroll-proportion="0.0" vertical-offset="1890" max-vertical-offset="2988">
-          <folding />
+          <folding>
+            <element signature="e#0#8807#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#928#958#0" expanded="false" />
+            <element signature="e#1666#1850#0" expanded="false" />
+            <element signature="e#1839#1840#0" expanded="false" />
+            <element signature="e#1923#2104#0" expanded="false" />
+            <element signature="e#2093#2094#0" expanded="false" />
+            <element signature="e#2285#2471#0" expanded="false" />
+            <element signature="e#2460#2461#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GuiManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="504">
-          <folding />
+          <folding>
+            <element signature="e#305#306#0" expanded="false" />
+            <element signature="e#336#337#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

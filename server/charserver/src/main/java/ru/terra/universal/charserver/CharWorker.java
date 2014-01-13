@@ -21,7 +21,6 @@ public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
     private List<String> worlds = new ArrayList<>();
-    private NetworkManager networkManager = NetworkManager.getInstance();
 
     @Override
     public void disconnectedFromChannel() {

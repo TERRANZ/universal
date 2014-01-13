@@ -27,8 +27,8 @@ public class WorldserverWorker extends InterserverWorker {
                 RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
                 registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
-                NetworkManager.getInstance().getChannel().write(helloPacket);
-                NetworkManager.getInstance().getChannel().write(registerPacket);
+                networkManager.sendPacket(helloPacket);
+                networkManager.sendPacket(registerPacket);
             }
             break;
             case InterServer.ISMSG_CHAR_IN_WORLD: {

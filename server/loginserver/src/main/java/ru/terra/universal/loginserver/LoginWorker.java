@@ -33,8 +33,8 @@ public class LoginWorker extends InterserverWorker {
                 RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.LoginOpcodeStart);
                 registerPacket.setEndRange(OpCodes.LoginOpcodeEnd);
-                NetworkManager.getInstance().getChannel().write(helloPacket);
-                NetworkManager.getInstance().getChannel().write(registerPacket);
+                networkManager.sendPacket(helloPacket);
+                networkManager.sendPacket(registerPacket);
             }
             break;
             case OpCodes.Client.Login.CMSG_LOGIN: {
@@ -48,15 +48,15 @@ public class LoginWorker extends InterserverWorker {
                 CharRegPacket charRegPacket = new CharRegPacket();
                 charRegPacket.setSender(uid);
                 charRegPacket.setOldId(loginPacket.getSender());
-                NetworkManager.getInstance().getChannel().write(charRegPacket);
-                NetworkManager.getInstance().getChannel().write(okPacket);
+                networkManager.sendPacket(charRegPacket);
+                networkManager.sendPacket(okPacket);
             }
             break;
             case OpCodes.Client.Login.CSMG_BOOT_ME: {
                 log.info("Client sent Boot Me to us");
                 BootCharPacket bootCharPacket = new BootCharPacket();
                 bootCharPacket.setSender(packet.getSender());
-                NetworkManager.getInstance().getChannel().write(bootCharPacket);
+                networkManager.sendPacket(bootCharPacket);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
