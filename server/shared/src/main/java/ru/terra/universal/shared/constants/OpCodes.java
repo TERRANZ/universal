@@ -24,15 +24,26 @@ public interface OpCodes {
             public static final int CMSG_SELECT_SERVER = 11;
         }
 
+        public interface Movement {
+            public static final int CMSG_MOVE_START = 20;
+            public static final int CMSG_MOVE = 21;
+            public static final int CMSG_MOVE_STOP = 22;
+        }
+
         public interface Chat {
             public static final int CMSG_SAY = 202;
             public static final int CMSG_WISP = 203;
         }
+
+
     }
 
     public interface Server {
         public static final int SMSG_OK = 501;
         public static final int SMSG_CHAR_BOOT = 502;
+        public static final int SMSG_UPDATE = 503;
+        public static final int SMSG_SERVER_MSG = 504;
+        public static final int SMSG_WORLD_STATE = 505;
     }
 
     public interface InterServer {
@@ -44,5 +55,6 @@ public interface OpCodes {
         public static final int ISMSG_CHAR_IN_WORLD = 10006;
         public static final int ISMSG_REG_WORLD = 10007;
         public static final int ISMSG_UNREG_CHAR = 10008;
+        public static final int ISMSG_UPDATE_CHAR = 10009;
     }
 }
