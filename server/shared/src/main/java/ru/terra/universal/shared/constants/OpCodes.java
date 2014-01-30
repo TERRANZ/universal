@@ -42,7 +42,7 @@ public interface OpCodes {
         public static final int SMSG_OK = 501;
         public static final int SMSG_CHAR_BOOT = 502;
         public static final int SMSG_UPDATE = 503;
-        public static final int SMSG_SERVER_MSG = 504;
+        public static final int SMSG_CHAT_MESSAGE = 504;
         public static final int SMSG_WORLD_STATE = 505;
     }
 

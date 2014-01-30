@@ -1,7 +1,6 @@
 package ru.terra.universal.chatserver;
 
 import org.apache.log4j.Logger;
-import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
@@ -39,7 +38,13 @@ public class ChatWorker extends InterserverWorker {
                 log.info("Unregistering char with uid = " + packet.getSender());
             }
             break;
+            case OpCodes.Client.Chat.CMSG_SAY: {
 
+            }
+            break;
+            case OpCodes.Client.Chat.CMSG_WISP: {
+            }
+            break;
         }
     }
 
