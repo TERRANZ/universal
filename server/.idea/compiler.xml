@@ -32,13 +32,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="charserver" target="1.7" />
-      <module name="chatserver" target="1.7" />
-      <module name="client" target="1.7" />
-      <module name="frontend" target="1.7" />
-      <module name="loginserver" target="1.7" />
-      <module name="shared" target="1.7" />
-      <module name="worldserver" target="1.7" />
+      <module name="charserver" target="1.8" />
+      <module name="chatserver" target="1.8" />
+      <module name="client" target="1.8" />
+      <module name="frontend" target="1.8" />
+      <module name="loginserver" target="1.8" />
+      <module name="shared" target="1.8" />
+      <module name="worldserver" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

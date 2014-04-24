@@ -8,7 +8,7 @@ import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.PlayerInfo;
-import ru.terra.universal.shared.entity.WorldEntityInfo;
+import ru.terra.universal.shared.entity.WorldEntity;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.BootMePacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
@@ -68,7 +68,7 @@ public class ClientWorker extends InterserverWorker {
             case OpCodes.Server.SMSG_WORLD_STATE: {
                 logger.info("Received world state packet");
                 WorldStatePacket worldStatePacket = (WorldStatePacket) packet;
-                for (WorldEntityInfo worldEntityInfo : worldStatePacket.getEntityInfos()) {
+                for (WorldEntity worldEntityInfo : worldStatePacket.getEntityInfos()) {
                     logger.info("World entity : " + worldEntityInfo.toString());
                 }
                 for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {

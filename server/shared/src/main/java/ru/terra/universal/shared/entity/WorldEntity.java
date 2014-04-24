@@ -4,7 +4,7 @@ package ru.terra.universal.shared.entity;
  * Date: 13.01.14
  * Time: 14:42
  */
-public class WorldEntityInfo extends AbstractEntity {
+public class WorldEntity extends AbstractEntity {
     private Integer model = 0;
     private Integer state = 0;
 
@@ -26,7 +26,7 @@ public class WorldEntityInfo extends AbstractEntity {
 
     @Override
     public String toString() {
-        return "WorldEntityInfo{" +
+        return "WorldEntity{" +
                 "model=" + model +
                 ", state=" + state +
                 "} " + super.toString();
