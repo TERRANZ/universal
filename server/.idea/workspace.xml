@@ -2,15 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldLoader.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/WorldLoader.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/WorldSaver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldLoader.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldLoaderImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldSaver.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldSaverImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" afterPath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterPath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="server.iws" />
@@ -22,6 +30,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="Commander">
+    <leftPanel />
+    <rightPanel />
+    <splitter proportion="0.5" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -74,28 +87,7 @@
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="CharWorker.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="0" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.28073993" vertical-offset="336" max-vertical-offset="1350">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CharLoader.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="22" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -113,21 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/UpdatePacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UpdatePlayerPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MovementPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/WorldStatePacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/ChatPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/ChatPacket.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/ChatSayPacket.java" />
         <option value="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java" />
         <option value="$PROJECT_DIR$/worldserver/pom.xml" />
@@ -145,7 +122,6 @@
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldLoader.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Module.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java" />
@@ -155,15 +131,31 @@
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
         <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/persistance/CharLoader.java" />
         <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/persistance/CharLoaderImpl.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldLoader.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldLoaderImpl.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldSaver.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldSaverImpl.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersistance.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaver.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
         <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
+        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java" />
+        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
+        <option value="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
+        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
       </list>
     </option>
   </component>
@@ -244,315 +236,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="persistance" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shared" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="charserver" />
+              <option name="myItemId" value="client" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -794,14 +478,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3245243" sideWeight="0.49786553" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03842049" sideWeight="0.6717724" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3998935" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39934355" sideWeight="0.49839914" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -809,7 +493,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24279615" sideWeight="0.6717724" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113951" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23961662" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32346722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -845,130 +529,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/GuiManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="31" selection-start="504" selection-end="504" vertical-scroll-proportion="0.37214363" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/LoginWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="557" selection-end="557" vertical-scroll-proportion="0.0" vertical-offset="144" max-vertical-offset="3024" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/BootMePacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="321" selection-end="321" vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/UpdatePacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="27" selection-start="479" selection-end="479" vertical-scroll-proportion="0.31338412" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MovementPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="29" selection-start="462" selection-end="462" vertical-scroll-proportion="0.1577802" vertical-offset="89" max-vertical-offset="1116" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UpdatePlayerPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="33" selection-start="500" selection-end="500" vertical-scroll-proportion="0.2742111" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="0" selection-start="422" selection-end="422" vertical-scroll-proportion="0.19699043" vertical-offset="0" max-vertical-offset="731" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="32" selection-start="495" selection-end="495" vertical-scroll-proportion="0.19699043" vertical-offset="0" max-vertical-offset="731" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.64021885" vertical-offset="0" max-vertical-offset="731" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/WorldStatePacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="24" selection-start="656" selection-end="656" vertical-scroll-proportion="0.26441786" vertical-offset="135" max-vertical-offset="1314" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="28" selection-start="3395" selection-end="3395" vertical-scroll-proportion="0.6866159" vertical-offset="467" max-vertical-offset="1386" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="59" selection-start="901" selection-end="901" vertical-scroll-proportion="-0.0968444" vertical-offset="197" max-vertical-offset="1116" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/ChatSayPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="20" selection-start="364" selection-end="364" vertical-scroll-proportion="0.23452769" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="154" selection-start="937" selection-end="937" vertical-scroll-proportion="0.35179153" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/client.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="35" selection-start="1259" selection-end="1259" vertical-scroll-proportion="0.6058632" vertical-offset="0" max-vertical-offset="921">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="31" selection-start="904" selection-end="904" vertical-scroll-proportion="0.4495114" vertical-offset="0" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/charserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="31" selection-start="904" selection-end="904" vertical-scroll-proportion="0.46905538" vertical-offset="0" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/chatserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="31" selection-start="904" selection-end="904" vertical-scroll-proportion="0.46905538" vertical-offset="0" max-vertical-offset="1080">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="31" selection-start="1586" selection-end="1586" vertical-scroll-proportion="0.62540716" vertical-offset="216" max-vertical-offset="1440">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="31" selection-start="904" selection-end="904" vertical-scroll-proportion="0.4495114" vertical-offset="0" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="31" selection-start="1530" selection-end="1530" vertical-scroll-proportion="0.8208469" vertical-offset="0" max-vertical-offset="954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="31" selection-start="874" selection-end="874" vertical-scroll-proportion="0.46905538" vertical-offset="0" max-vertical-offset="1476">
@@ -1008,13 +568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="65" selection-start="203" selection-end="203" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="17" selection-start="150" selection-end="150" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
@@ -1039,13 +592,6 @@
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/core/ClassSearcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="10" selection-start="391" selection-end="391" vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="265" selection-end="265" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
           <folding />
         </state>
       </provider>
@@ -1084,20 +630,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="113" selection-start="3119" selection-end="3119" vertical-scroll-proportion="0.7845484" vertical-offset="269" max-vertical-offset="1728">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="73" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.35255712" vertical-offset="270" max-vertical-offset="1242">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="10" selection-start="755" selection-end="755" vertical-scroll-proportion="0.48966268" vertical-offset="0" max-vertical-offset="919">
@@ -1113,34 +645,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="35" selection-start="485" selection-end="485" vertical-scroll-proportion="0.29488575" vertical-offset="17" max-vertical-offset="936">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="33" selection-start="796" selection-end="796" vertical-scroll-proportion="0.05984766" vertical-offset="143" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="232" selection-end="232" vertical-scroll-proportion="0.15669206" vertical-offset="0" max-vertical-offset="1422">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="39" selection-start="214" selection-end="214" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="1476">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1169,27 +673,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java">
+    <entry file="file://$PROJECT_DIR$/frontend/.settings/org.eclipse.jdt.core.prefs">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="22" selection-start="218" selection-end="218" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="378">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="4" selection-start="165" selection-end="165" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="29" selection-start="482" selection-end="482" vertical-scroll-proportion="0.33297062" vertical-offset="0" max-vertical-offset="919">
+        <state line="7" column="13" selection-start="188" selection-end="188" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="1476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="64" selection-start="336" selection-end="336" vertical-scroll-proportion="0.11751904" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="113" selection-start="368" selection-end="368" vertical-scroll-proportion="0.23503809" vertical-offset="0" max-vertical-offset="919">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="42" selection-start="298" selection-end="312" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="265" selection-end="265" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="13" selection-start="513" selection-end="513" vertical-scroll-proportion="0.35255712" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../client/lib/jME3-networking.jar!/com/jme3/network/serializing/serializers/CharSerializer.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="13" selection-start="183" selection-end="183" vertical-scroll-proportion="0.10067114" vertical-offset="0" max-vertical-offset="894">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="29" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="30" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.92056584" vertical-offset="0" max-vertical-offset="1422">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="2227" selection-end="2227" vertical-scroll-proportion="0.28073993" vertical-offset="336" max-vertical-offset="1350">
+        <state line="82" column="53" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.7649619" vertical-offset="449" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="135" selection-start="2365" selection-end="2365" vertical-scroll-proportion="0.58986926" vertical-offset="323" max-vertical-offset="1242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/HelloPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="39" selection-start="354" selection-end="354" vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="23" selection-start="434" selection-end="434" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/WorldStatePacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="13" selection-start="518" selection-end="518" vertical-scroll-proportion="0.19586506" vertical-offset="0" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/UpdatePacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="355" selection-end="355" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="27" selection-start="813" selection-end="813" vertical-scroll-proportion="0.5680087" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="16" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.5092492" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="16" selection-start="307" selection-end="307" vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/network/ServerThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="13" selection-start="588" selection-end="588" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="23" selection-start="1686" selection-end="1699" vertical-scroll-proportion="0.8041349" vertical-offset="125" max-vertical-offset="1044">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="4" selection-start="907" selection-end="907" vertical-scroll-proportion="0.040261153" vertical-offset="143" max-vertical-offset="1062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="28" selection-start="102" selection-end="102" vertical-scroll-proportion="-0.29270947" vertical-offset="341" max-vertical-offset="1260">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="13" selection-start="260" selection-end="260" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="87" selection-end="87" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="157" selection-end="157" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="50" selection-start="2104" selection-end="2104" vertical-scroll-proportion="0.1577802" vertical-offset="467" max-vertical-offset="1440">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="22" selection-start="192" selection-end="192" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="1314">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LoginPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="40" selection-start="346" selection-end="346" vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="48" selection-start="3332" selection-end="3332" vertical-scroll-proportion="0.7062024" vertical-offset="251" max-vertical-offset="1296">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="32" selection-start="601" selection-end="601" vertical-scroll-proportion="0.35364527" vertical-offset="17" max-vertical-offset="936">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="25" selection-start="2672" selection-end="2672" vertical-scroll-proportion="0.31447226" vertical-offset="593" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>

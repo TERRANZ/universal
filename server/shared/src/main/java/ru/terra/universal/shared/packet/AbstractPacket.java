@@ -6,32 +6,32 @@ import ru.terra.universal.shared.annoations.Packet;
 import java.io.IOException;
 
 public abstract class AbstractPacket {
-    private int opCode;
-    private long sender;
+    private Integer opCode = 0;
+    private Long sender = 0L;
 
     public AbstractPacket() {
         opCode = getClass().getAnnotation(Packet.class).opCode();
     }
 
-    public long getSender() {
+    public Long getSender() {
         return sender;
     }
 
-    public void setSender(long sender) {
+    public void setSender(Long sender) {
         this.sender = sender;
     }
 
-    public int getOpCode() {
+    public Integer getOpCode() {
         return opCode;
     }
 
-    public void setOpCode(int id) {
+    public void setOpCode(Integer id) {
         this.opCode = id;
     }
 
     public static AbstractPacket read(ChannelBuffer buffer) throws IOException {
-        int opcode = buffer.readUnsignedShort();
-        long sguid = buffer.readLong();
+        Integer opcode = buffer.readUnsignedShort();
+        Long sguid = buffer.readLong();
         AbstractPacket packet = PacketFactory.getInstance().getPacket(opcode, sguid);
         if (packet == null)
             throw new IOException("Bad packet ID: " + opcode);

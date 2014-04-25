@@ -7,6 +7,8 @@ import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.interserver.UnregCharPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.persistance.CharSaver;
+import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
 public class FrontEndServerWorker extends ServerWorker {
 

@@ -12,7 +12,9 @@ import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
 import ru.terra.universal.shared.persistance.CharLoader;
+import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
+import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -22,8 +24,9 @@ public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
     private List<String> worlds = new ArrayList<>();
-    private List<PlayerInfo> playerInfos = new LinkedList<>();
+    private List<PlayerInfo> players = new LinkedList<>();
     private CharLoader charLoader = new JsonCharLoaderImpl();
+    private CharSaver charSaver = new JsonCharSaverImpl();
 
     @Override
     public void disconnectedFromChannel() {
@@ -45,7 +48,7 @@ public class CharWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_BOOT_CHAR: {
                 log.info("Registering character with uid = " + packet.getSender());
-                PlayerInfo playerInfo = charLoader.loadCharacter(String.valueOf(packet.getSender()));
+                PlayerInfo playerInfo = charLoader.loadCharacter(packet.getSender());
                 CharBootPacket charBootPacket = new CharBootPacket();
                 charBootPacket.setPlayerInfo(playerInfo);
 
@@ -54,7 +57,7 @@ public class CharWorker extends InterserverWorker {
                 charBootPacket.setWorlds(worlds);
                 charBootPacket.setSender(packet.getSender());
                 networkManager.sendPacket(charBootPacket);
-                playerInfos.add(playerInfo);
+                players.add(playerInfo);
             }
             break;
             case OpCodes.Client.Char.CMSG_SELECT_SERVER: {
@@ -64,8 +67,8 @@ public class CharWorker extends InterserverWorker {
                 okPacket.setSender(packet.getSender());
                 networkManager.sendPacket(okPacket);
                 PlayerInfo playerInfo = null;
-                for (PlayerInfo pi : playerInfos) {
-                    if (Long.parseLong(pi.getUID()) == packet.getSender())
+                for (PlayerInfo pi : players) {
+                    if (pi.getUID().equals(packet.getSender()))
                         playerInfo = pi;
                 }
                 if (playerInfo != null) {
@@ -77,6 +80,15 @@ public class CharWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + packet.getSender());
+                PlayerInfo playerInfoToRemove = null;
+                for (PlayerInfo playerInfo : players)
+                    if (playerInfo.getUID().equals(packet.getSender())) {
+                        charSaver.save(playerInfo);
+                        playerInfoToRemove = playerInfo;
+                    }
+                if (playerInfoToRemove != null)
+                    players.remove(playerInfoToRemove);
+
             }
             break;
         }

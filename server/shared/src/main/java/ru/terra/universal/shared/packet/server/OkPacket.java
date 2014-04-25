@@ -12,6 +12,8 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  */
 @Packet(opCode = OpCodes.Server.SMSG_OK)
 public class OkPacket extends AbstractPacket {
+    public OkPacket() {
+    }
 
     @Override
     public void get(ChannelBuffer buffer) {

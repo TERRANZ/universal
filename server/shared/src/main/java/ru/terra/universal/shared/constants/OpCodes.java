@@ -44,6 +44,10 @@ public interface OpCodes {
         public static final int SMSG_UPDATE = 503;
         public static final int SMSG_CHAT_MESSAGE = 504;
         public static final int SMSG_WORLD_STATE = 505;
+
+        public interface Login {
+            public static final int SMSG_LOGIN_FAILED = 506;
+        }
     }
 
     public interface InterServer {
@@ -56,6 +60,5 @@ public interface OpCodes {
         public static final int ISMSG_REG_WORLD = 10007;
         public static final int ISMSG_UNREG_CHAR = 10008;
         public static final int ISMSG_UPDATE_CHAR = 10010;
-
     }
 }

@@ -18,7 +18,6 @@ public class WorldserverWorker extends InterserverWorker {
     private Logger log = Logger.getLogger(this.getClass());
     private WorldWorker worldWorker = WorldWorker.getInstance();
 
-
     @Override
     public void disconnectedFromChannel() {
         log.info("Frontend disconnected us");
@@ -45,13 +44,14 @@ public class WorldserverWorker extends InterserverWorker {
                 WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), worldWorker.getPlayers());
                 worldStatePacket.setSender(packet.getSender());
                 networkManager.sendPacket(worldStatePacket);
+
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + packet.getSender());
                 PlayerInfo pi = null;
                 for (PlayerInfo playerInfo : worldWorker.getPlayers()) {
-                    if (Long.parseLong(playerInfo.getUID()) == packet.getSender())
+                    if (playerInfo.getUID().equals(packet.getSender()))
                         pi = playerInfo;
                 }
                 if (pi != null)

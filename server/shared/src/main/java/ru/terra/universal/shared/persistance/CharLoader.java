@@ -9,7 +9,9 @@ import java.util.List;
  * Time: 14:34
  */
 public interface CharLoader {
-    public PlayerInfo loadCharacter(String uid);
+    public PlayerInfo loadCharacter(Long uid);
 
-    public List<String> loadCharacters();
+    public List<PlayerInfo> loadCharacters();
+
+    public Long findCharacter(String login, String pass);
 }

@@ -12,6 +12,7 @@ import ru.terra.universal.shared.entity.WorldEntity;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.BootMePacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
+import ru.terra.universal.shared.packet.server.LoginFailedPacket;
 import ru.terra.universal.shared.packet.server.WorldStatePacket;
 
 /**
@@ -77,7 +78,10 @@ public class ClientWorker extends InterserverWorker {
 
             }
             break;
-
+            case OpCodes.Server.Login.SMSG_LOGIN_FAILED: {
+                logger.error("Unable to login: " + ((LoginFailedPacket) packet).getReason());
+            }
+            break;
         }
     }
 }
