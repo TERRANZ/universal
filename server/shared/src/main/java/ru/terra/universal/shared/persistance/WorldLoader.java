@@ -1,4 +1,4 @@
-package ru.terra.universal.shared.world;
+package ru.terra.universal.shared.persistance;
 
 import ru.terra.universal.shared.entity.WorldEntity;
 

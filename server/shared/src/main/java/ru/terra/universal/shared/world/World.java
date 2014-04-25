@@ -5,6 +5,8 @@ import ru.terra.universal.shared.annoations.Module;
 import ru.terra.universal.shared.config.Config;
 import ru.terra.universal.shared.core.ClassSearcher;
 import ru.terra.universal.shared.entity.WorldEntity;
+import ru.terra.universal.shared.persistance.WorldLoader;
+import ru.terra.universal.shared.persistance.WorldSaver;
 
 import java.util.List;
 

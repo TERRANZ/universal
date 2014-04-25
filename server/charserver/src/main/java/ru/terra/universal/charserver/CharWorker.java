@@ -11,17 +11,19 @@ import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.persistance.CharLoader;
+import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.UUID;
 
 public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
     private List<String> worlds = new ArrayList<>();
     private List<PlayerInfo> playerInfos = new LinkedList<>();
+    private CharLoader charLoader = new JsonCharLoaderImpl();
 
     @Override
     public void disconnectedFromChannel() {
@@ -43,15 +45,12 @@ public class CharWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_BOOT_CHAR: {
                 log.info("Registering character with uid = " + packet.getSender());
-                //TODO: there we load character from db and send
-                PlayerInfo playerInfo = new PlayerInfo();
-                playerInfo.setUID(String.valueOf(packet.getSender()));
-                playerInfo.setName("My Cool player " + playerInfo.getUID());
-                String wuid = UUID.randomUUID().toString();
-                playerInfo.setWorld(wuid);
+                PlayerInfo playerInfo = charLoader.loadCharacter(String.valueOf(packet.getSender()));
                 CharBootPacket charBootPacket = new CharBootPacket();
                 charBootPacket.setPlayerInfo(playerInfo);
-                worlds.add(wuid);
+
+                worlds.add(playerInfo.getWorld());
+
                 charBootPacket.setWorlds(worlds);
                 charBootPacket.setSender(packet.getSender());
                 networkManager.sendPacket(charBootPacket);
