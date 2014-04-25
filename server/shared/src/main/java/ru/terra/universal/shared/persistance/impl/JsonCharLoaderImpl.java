@@ -47,6 +47,15 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
 
     @Override
     public Long findCharacter(String login, String pass) {
-        return null;
+        List<PlayerInfo> playerInfos = loadCharacters();
+        if (playerInfos.size() > 0)
+            return playerInfos.get(0).getUID();
+        Long uid = UUID.randomUUID().getMostSignificantBits();
+        PlayerInfo playerInfo = new PlayerInfo();
+        playerInfo.setUID(uid);
+        playerInfo.setName("My Cool player " + playerInfo.getUID());
+        String wuid = UUID.randomUUID().toString();
+        playerInfo.setWorld(wuid);
+        return uid;
     }
 }

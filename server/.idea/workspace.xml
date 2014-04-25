@@ -2,23 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" afterPath="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterPath="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="server.iws" />
@@ -87,7 +72,19 @@
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="JsonCharLoaderImpl.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="51" column="47" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.7453754" vertical-offset="233" max-vertical-offset="1206">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -142,20 +139,20 @@
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaver.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
-        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java" />
         <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
         <option value="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
         <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
+        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
       </list>
     </option>
   </component>
@@ -275,7 +272,7 @@
       <recent name="ru.terra.universal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.charserver">
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -441,9 +438,30 @@
       <ConfigurationWrapper RunnerId="Run" />
       <method />
     </configuration>
-    <list size="2">
+    <configuration default="false" name="charserver" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="ru.terra.universal.charserver.Main" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file:///virtual/universal" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="charserver" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <list size="3">
       <item index="0" class="java.lang.String" itemvalue="Application.Client" />
       <item index="1" class="java.lang.String" itemvalue="Application.frontend" />
+      <item index="2" class="java.lang.String" itemvalue="Application.charserver" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -478,7 +496,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -493,11 +511,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24279615" sideWeight="0.6717724" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23961662" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23961662" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32346722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.45963755" sideWeight="0.49786553" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4587738" sideWeight="0.49786553" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -529,29 +547,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="31" selection-start="874" selection-end="874" vertical-scroll-proportion="0.46905538" vertical-offset="0" max-vertical-offset="1476">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/local/jdk1.8.0_05/jre/lib/rt.jar!/com/sun/istack/internal/NotNull.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="61" selection-start="496" selection-end="496" vertical-scroll-proportion="0.17841409" vertical-offset="0" max-vertical-offset="908">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/WorldSaver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="64" selection-start="255" selection-end="255" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/WorldLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="51" selection-start="243" selection-end="243" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
@@ -680,15 +675,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="4" selection-start="165" selection-end="165" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="13" selection-start="188" selection-end="188" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="1476">
@@ -726,15 +712,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="13" selection-start="513" selection-end="513" vertical-scroll-proportion="0.35255712" vertical-offset="0" max-vertical-offset="919">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../client/lib/jME3-networking.jar!/com/jme3/network/serializing/serializers/CharSerializer.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="183" selection-end="183" vertical-scroll-proportion="0.10067114" vertical-offset="0" max-vertical-offset="894">
@@ -752,13 +729,6 @@
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="75" column="30" selection-start="1337" selection-end="1337" vertical-scroll-proportion="0.92056584" vertical-offset="0" max-vertical-offset="1422">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="53" selection-start="3829" selection-end="3829" vertical-scroll-proportion="0.7649619" vertical-offset="449" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
@@ -830,22 +800,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="23" selection-start="1686" selection-end="1699" vertical-scroll-proportion="0.8041349" vertical-offset="125" max-vertical-offset="1044">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="907" selection-end="907" vertical-scroll-proportion="0.040261153" vertical-offset="143" max-vertical-offset="1062">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="28" selection-start="102" selection-end="102" vertical-scroll-proportion="-0.29270947" vertical-offset="341" max-vertical-offset="1260">
@@ -913,6 +867,68 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="25" selection-start="2672" selection-end="2672" vertical-scroll-proportion="0.31447226" vertical-offset="593" max-vertical-offset="1530">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="211" selection-end="211" vertical-scroll-proportion="0.4082474" vertical-offset="0" max-vertical-offset="485">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="61" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.556701" vertical-offset="216" max-vertical-offset="1062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/jboss/netty/netty/3.2.9.Final/netty-3.2.9.Final.jar!/org/jboss/netty/channel/SimpleChannelUpstreamHandler.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="16" selection-start="411" selection-end="411" vertical-scroll-proportion="0.3512304" vertical-offset="23" max-vertical-offset="738">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/local/jdk1.8.0_05/src.zip!/java/io/FileWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="82" selection-start="2698" selection-end="2698" vertical-scroll-proportion="0.6659794" vertical-offset="793" max-vertical-offset="1836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="0" selection-start="2387" selection-end="2387" vertical-scroll-proportion="0.6670294" vertical-offset="251" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="835" selection-end="835" vertical-scroll-proportion="0.41240478" vertical-offset="35" max-vertical-offset="954">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="81" column="0" selection-start="3695" selection-end="3695" vertical-scroll-proportion="0.56909686" vertical-offset="611" max-vertical-offset="1530">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="47" selection-start="1869" selection-end="1869" vertical-scroll-proportion="0.7453754" vertical-offset="233" max-vertical-offset="1206">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
