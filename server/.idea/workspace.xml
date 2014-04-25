@@ -2,32 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldLoader.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntityInfo.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/WorldStatePacket.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/WorldStatePacket.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/charserver.iml" afterPath="$PROJECT_DIR$/charserver/charserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/chatserver.iml" afterPath="$PROJECT_DIR$/chatserver/chatserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/client.iml" afterPath="$PROJECT_DIR$/../client/client.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/frontend.iml" afterPath="$PROJECT_DIR$/frontend/frontend.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/loginserver.iml" afterPath="$PROJECT_DIR$/loginserver/loginserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/pom.xml" afterPath="$PROJECT_DIR$/../client/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/pom.xml" afterPath="$PROJECT_DIR$/charserver/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/pom.xml" afterPath="$PROJECT_DIR$/chatserver/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/pom.xml" afterPath="$PROJECT_DIR$/frontend/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/pom.xml" afterPath="$PROJECT_DIR$/loginserver/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/pom.xml" afterPath="$PROJECT_DIR$/shared/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/pom.xml" afterPath="$PROJECT_DIR$/worldserver/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/shared.iml" afterPath="$PROJECT_DIR$/shared/shared.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldLoader.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldSaver.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Module.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" afterPath="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/worldserver.iml" afterPath="$PROJECT_DIR$/worldserver/worldserver.iml" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,7 +74,19 @@
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="StatisticModule.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="10" selection-start="514" selection-end="514" vertical-scroll-proportion="0.43090317" vertical-offset="0" max-vertical-offset="919">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -108,12 +104,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/LoginWindow.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/test/ClientTest.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverWorker.java" />
         <option value="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/movement/AbstractMovementPacket.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MoveStopPacket.java" />
@@ -148,7 +138,6 @@
         <option value="$PROJECT_DIR$/shared/pom.xml" />
         <option value="$PROJECT_DIR$/../client/pom.xml" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldContoller.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldController.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldController.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntityInfo.java" />
@@ -156,9 +145,16 @@
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldLoader.java" />
         <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Module.java" />
+        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldLoader.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldSaver.java" />
+        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
+        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
         <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
+        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java" />
       </list>
     </option>
   </component>
@@ -530,6 +526,7 @@
     <property name="restartRequiresConfirmation" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="FullScreen" value="false" />
+    <property name="SearchEverywhereHistory" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -742,7 +739,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-12" width="1934" height="1072" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
@@ -757,7 +754,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24279615" sideWeight="0.6717724" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113951" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2113951" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32346722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -793,46 +790,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LogoutPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="49" selection-start="273" selection-end="305" vertical-scroll-proportion="0.078175895" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/UpdateField.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="37" selection-start="263" selection-end="263" vertical-scroll-proportion="0.19543974" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MoveStartPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="83" selection-start="533" selection-end="533" vertical-scroll-proportion="0.31270358" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MoveStopPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="8" selection-start="305" selection-end="352" vertical-scroll-proportion="0.15635179" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="40" selection-start="363" selection-end="363" vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="921" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="39" selection-start="523" selection-end="523" vertical-scroll-proportion="0.39173013" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="16" selection-start="609" selection-end="609" vertical-scroll-proportion="0.41131666" vertical-offset="0" max-vertical-offset="919" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="57" selection-start="2015" selection-end="2015" vertical-scroll-proportion="0.8237214" vertical-offset="251" max-vertical-offset="1206" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="62" column="130" selection-start="1750" selection-end="1750" vertical-scroll-proportion="0.56909686" vertical-offset="395" max-vertical-offset="1314" />
@@ -1016,25 +973,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="56" selection-start="175" selection-end="175" vertical-scroll-proportion="0.13680781" vertical-offset="0" max-vertical-offset="921">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="13" selection-start="265" selection-end="265" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="64" selection-start="255" selection-end="255" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1043,7 +986,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="11" column="51" selection-start="243" selection-end="243" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1051,13 +994,6 @@
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="24" selection-start="108" selection-end="108" vertical-scroll-proportion="0.11751904" vertical-offset="0" max-vertical-offset="919">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="73" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.33333334" vertical-offset="390" max-vertical-offset="1242">
           <folding />
         </state>
       </provider>
@@ -1078,18 +1014,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java">
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="35" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.72470075" vertical-offset="0" max-vertical-offset="972">
+        <state line="9" column="17" selection-start="150" selection-end="150" vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Packet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="0" selection-start="233" selection-end="365" vertical-scroll-proportion="0.21545158" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Module.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="0.23503809" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/core/ClassSearcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="10" selection-start="391" selection-end="391" vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="73" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.64635473" vertical-offset="0" max-vertical-offset="1242">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="265" selection-end="265" vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="919">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="39" selection-start="395" selection-end="395" vertical-scroll-proportion="0.41131666" vertical-offset="0" max-vertical-offset="919">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="34" selection-start="409" selection-end="409" vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldSaver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="8" selection-start="358" selection-end="358" vertical-scroll-proportion="0.2742111" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="67" selection-start="412" selection-end="412" vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="95" selection-start="1163" selection-end="1163" vertical-scroll-proportion="0.5288357" vertical-offset="0" max-vertical-offset="954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="15" selection-start="275" selection-end="275" vertical-scroll-proportion="0.2546246" vertical-offset="0" max-vertical-offset="919">
+        <state line="27" column="20" selection-start="757" selection-end="757" vertical-scroll-proportion="0.5288357" vertical-offset="0" max-vertical-offset="919">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="10" selection-start="514" selection-end="514" vertical-scroll-proportion="0.43090317" vertical-offset="0" max-vertical-offset="919">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -1,28 +1,33 @@
 package ru.terra.universal.shared.world;
 
+import org.apache.log4j.Logger;
+import ru.terra.universal.shared.annoations.Module;
 import ru.terra.universal.shared.config.Config;
+import ru.terra.universal.shared.core.ClassSearcher;
 import ru.terra.universal.shared.entity.WorldEntity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Date: 24.04.14
  * Time: 19:56
  */
-public abstract class World {
-    protected WorldLoader worldLoader;
-    protected WorldSaver worldSaver;
-    protected List<WorldEntity> entities;
-    protected String worldUID;
-    protected List<WorldModule> modules = new ArrayList<>();
-    protected Config config = Config.getConfig();
+public class World {
+    private WorldLoader worldLoader;
+    private WorldSaver worldSaver;
+    private List<WorldEntity> entities;
+    private String worldUID;
+    private List<WorldModule> modules;
+    private Config config = Config.getConfig();
+    private Logger logger = Logger.getLogger(this.getClass());
 
-    protected World(WorldLoader worldLoader, WorldSaver worldSaver, String worldUID) {
+    public World(WorldLoader worldLoader, WorldSaver worldSaver, String worldUID) {
         this.worldLoader = worldLoader;
         this.worldSaver = worldSaver;
         this.worldUID = worldUID;
-        //load modules somehow
+        modules = new ClassSearcher<WorldModule>().load("ru.terra.universal.worldserver.module", Module.class);
+        for (WorldModule module : modules)
+            logger.info("Loaded module " + module.getName());
     }
 
     public synchronized void load() {
