@@ -58,10 +58,10 @@ public class MovementPacket extends AbstractPacket {
 
     @Override
     public void get(ChannelBuffer buffer) {
-        x = buffer.getLong(0);
-        y = buffer.getLong(1);
-        z = buffer.getLong(2);
-        h = buffer.getLong(3);
+        x = buffer.readLong();
+        y = buffer.readLong();
+        z = buffer.readLong();
+        h = buffer.readLong();
     }
 
     @Override

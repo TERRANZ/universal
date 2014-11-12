@@ -7,8 +7,6 @@ import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.interserver.UnregCharPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
-import ru.terra.universal.shared.persistance.CharSaver;
-import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
 public class FrontEndServerWorker extends ServerWorker {
 
@@ -41,6 +39,7 @@ public class FrontEndServerWorker extends ServerWorker {
 
     @Override
     public void acceptPacket(AbstractPacket message) {
+        logger.info("Received packet " + message.getOpCode());
         Channel interchan = channelsHolder.getChannel(message.getOpCode());
         if (interchan != null)
             interchan.write(message);
@@ -53,8 +52,8 @@ public class FrontEndServerWorker extends ServerWorker {
     synchronized public void sendHello() {
         logger.info("Player connected");
         OkPacket okPacket = new OkPacket();
-        okPacket.setSender(tempCharactersHolder.size());
-        logger.info("Temporary player uid = " + okPacket.getSender());
+        okPacket.setSender(tempCharactersHolder.getUnusedId());
+        logger.info("Temporary player uid = " + okPacket.getSender() + " with channel " + channel.getId());
         tempCharactersHolder.addTempChannel(okPacket.getSender(), channel);
         channel.write(okPacket);
     }

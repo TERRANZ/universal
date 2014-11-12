@@ -4,6 +4,7 @@ import org.jboss.netty.channel.Channel;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
 /**
  * User: Vadim Korostelev
@@ -21,19 +22,25 @@ public class TempCharactersHolder {
         return instance;
     }
 
-    public synchronized Channel getTempChannel(Long id) {
-        return channels.get(id);
+    public Channel getTempChannel(Long id) {
+        synchronized (channels) {
+            return channels.get(id);
+        }
     }
 
-    public synchronized void addTempChannel(Long id, Channel channel) {
-        channels.put(id, channel);
+    public void addTempChannel(Long id, Channel channel) {
+        synchronized (channels) {
+            channels.put(id, channel);
+        }
     }
 
-    public synchronized long size() {
-        return channels.size();
+    public long getUnusedId() {
+        return UUID.randomUUID().getLeastSignificantBits();
     }
 
-    public synchronized void deleteTempChannel(Long id) {
-        channels.remove(id);
+    public void deleteTempChannel(Long id) {
+        {
+            channels.remove(id);
+        }
     }
 }

@@ -3,7 +3,9 @@ package ru.terra.universal.frontend.server;
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * User: Vadim Korostelev
@@ -27,8 +29,16 @@ public class CharactersHolder {
     }
 
     public synchronized void addCharChannel(Long charUID, Channel channel) {
+        if (channel == null)
+            logger.error("Channel is null");
+        if (charUID == null)
+            logger.error("charUID is null");
         logger.info("Adding channel " + channel.getId() + " for player " + charUID);
         characters.put(charUID, channel);
+    }
+
+    public synchronized List<Long> getChannels() {
+        return new ArrayList<>(characters.keySet());
     }
 
     public synchronized int size() {

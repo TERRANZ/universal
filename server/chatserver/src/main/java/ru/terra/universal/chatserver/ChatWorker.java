@@ -5,6 +5,7 @@ import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.packet.AbstractPacket;
+import ru.terra.universal.shared.packet.client.ChatSayPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
@@ -19,6 +20,7 @@ public class ChatWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
+//        log.info("Received opcode "+packet.getOpCode());
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket();
@@ -39,7 +41,10 @@ public class ChatWorker extends InterserverWorker {
             }
             break;
             case OpCodes.Client.Chat.CMSG_SAY: {
-
+                ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
+                log.info("Player " + packet.getSender() + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
+                chatSayPacket.setSender(chatSayPacket.getTo());
+                networkManager.sendPacket(chatSayPacket);
             }
             break;
             case OpCodes.Client.Chat.CMSG_WISP: {

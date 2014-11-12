@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 public class GameStateHolder {
     private Logger logger = Logger.getLogger(this.getClass());
+    private GameStateChangeNotifier notifier;
 
     public static enum GameState {
         INIT, LOGIN, LOGGED_IN, CHAR_BOOT, SERVER_SELECTED, IN_WORLD;
@@ -16,15 +17,31 @@ public class GameStateHolder {
     }
 
     public static GameStateHolder getInstance() {
-        return instance;
+        synchronized (instance) {
+            return instance;
+        }
     }
 
     public GameState getGameState() {
-        return gameState;
+        synchronized (gameState) {
+            return gameState;
+        }
     }
 
     public void setGameState(GameState gameState) {
-        logger.info("Changing game state from " + getGameState().toString() + " to " + gameState.toString());
-        this.gameState = gameState;
+        synchronized (gameState) {
+            logger.info("Changing game state from " + getGameState().toString() + " to " + gameState.toString());
+            if (notifier != null)
+                notifier.onGameStateChange(getGameState(), gameState);
+            this.gameState = gameState;
+        }
+    }
+
+    public GameStateChangeNotifier getNotifier() {
+        return notifier;
+    }
+
+    public void setNotifier(GameStateChangeNotifier notifier) {
+        this.notifier = notifier;
     }
 }

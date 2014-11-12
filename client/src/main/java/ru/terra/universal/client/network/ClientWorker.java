@@ -29,20 +29,20 @@ public class ClientWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-        logger.info("Packet accepted " + packet.getOpCode());
         switch (packet.getOpCode()) {
             case OpCodes.Server.SMSG_OK: {
                 GameStateHolder.GameState gs = GameStateHolder.getInstance().getGameState();
+                logger.info("OK From server, now gs = " + gs);
                 switch (gs) {
                     case INIT:
                         GUIDHOlder.getInstance().setGuid(packet.getSender());
                         break;
                     case LOGIN:
-                        GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGGED_IN);
                         GUIDHOlder.getInstance().setGuid(packet.getSender());
                         BootMePacket bootMePacket = new BootMePacket();
                         bootMePacket.setSender(GUIDHOlder.getInstance().getGuid());
                         NetworkManager.getInstance().sendPacket(bootMePacket);
+                        GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGGED_IN);
                         break;
                     case LOGGED_IN:
                         break;
@@ -57,13 +57,13 @@ public class ClientWorker extends InterserverWorker {
             }
             break;
             case OpCodes.Server.SMSG_CHAR_BOOT: {
-                GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.CHAR_BOOT);
                 logger.info("Received char boot packet");
                 for (String w : ((CharBootPacket) packet).getWorlds()) {
                     logger.info("Available world: " + w);
                 }
                 GameManager.getInstance().setPlayerInfo(((CharBootPacket) packet).getPlayerInfo());
                 GuiManager.getInstance().publicWorlds(((CharBootPacket) packet).getWorlds());
+                GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.CHAR_BOOT);
             }
             break;
             case OpCodes.Server.SMSG_WORLD_STATE: {

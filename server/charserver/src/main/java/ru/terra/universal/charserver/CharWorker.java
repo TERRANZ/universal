@@ -23,7 +23,6 @@ import java.util.List;
 public class CharWorker extends InterserverWorker {
 
     private Logger log = Logger.getLogger(this.getClass());
-    private List<String> worlds = new ArrayList<>();
     private List<PlayerInfo> players = new LinkedList<>();
     private CharLoader charLoader = new JsonCharLoaderImpl();
     private CharSaver charSaver = new JsonCharSaverImpl();
@@ -51,7 +50,7 @@ public class CharWorker extends InterserverWorker {
                 PlayerInfo playerInfo = charLoader.loadCharacter(packet.getSender());
                 CharBootPacket charBootPacket = new CharBootPacket();
                 charBootPacket.setPlayerInfo(playerInfo);
-
+                List<String> worlds = new ArrayList<>();
                 worlds.add(playerInfo.getWorld());
 
                 charBootPacket.setWorlds(worlds);

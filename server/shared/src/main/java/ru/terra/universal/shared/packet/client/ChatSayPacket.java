@@ -12,25 +12,42 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 @Packet(opCode = OpCodes.Client.Chat.CMSG_SAY)
 public class ChatSayPacket extends AbstractPacket {
     private String message = "";
-    private long from = 0L, to = 0L;
+    private long to = 0L;
 
     public ChatSayPacket() {
     }
 
 
-    public ChatSayPacket(String message, long from, long to) {
+    public ChatSayPacket(String message, long to) {
         this.message = message;
-        this.from = from;
         this.to = to;
     }
 
     @Override
     public void get(ChannelBuffer buffer) {
-
+        message = readString(buffer);
+        to = buffer.readLong();
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
+        writeString(buffer, message);
+        buffer.writeLong(to);
+    }
 
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public long getTo() {
+        return to;
+    }
+
+    public void setTo(long to) {
+        this.to = to;
     }
 }

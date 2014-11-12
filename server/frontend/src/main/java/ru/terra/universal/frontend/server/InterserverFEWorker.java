@@ -23,7 +23,7 @@ public class InterserverFEWorker extends ServerWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-        log.info("AbstractPacket accepted opcode = " + packet.getOpCode());
+//        log.info("AbstractPacket accepted opcode = " + packet.getOpCode());
         if (packet.getOpCode() >= OpCodes.ISOpCodesStart) {
             switch (packet.getOpCode()) {
                 case OpCodes.InterServer.ISMSG_HELLO: {
@@ -71,8 +71,14 @@ public class InterserverFEWorker extends ServerWorker {
         } else {
             if (packet.getOpCode().equals(OpCodes.Server.Login.SMSG_LOGIN_FAILED)) {
                 tempCharactersHolder.getTempChannel(packet.getSender()).write(packet);
-            } else
-                charactersHolder.getCharChannel(packet.getSender()).write(packet);
+            } else {
+                if (packet.getSender().equals(0L)) {
+                    //log.info("Sending packet " + packet.getOpCode() + " to all players");
+                    charactersHolder.getChannels().forEach(chan -> charactersHolder.getCharChannel(chan).write(packet));
+                } else {
+                    charactersHolder.getCharChannel(packet.getSender()).write(packet);
+                }
+            }
         }
     }
 
