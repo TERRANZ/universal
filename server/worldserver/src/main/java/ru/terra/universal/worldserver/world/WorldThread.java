@@ -26,6 +26,11 @@ public class WorldThread implements Runnable, WorldControlInterface {
         world.load();
         while (!stop) {
             world.tick();
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 

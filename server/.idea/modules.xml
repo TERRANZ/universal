@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/charserver/charserver.iml" filepath="$PROJECT_DIR$/charserver/charserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/chatserver/chatserver.iml" filepath="$PROJECT_DIR$/chatserver/chatserver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../client/client.iml" filepath="$PROJECT_DIR$/../client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/frontend/frontend.iml" filepath="$PROJECT_DIR$/frontend/frontend.iml" />
       <module fileurl="file://$PROJECT_DIR$/loginserver/loginserver.iml" filepath="$PROJECT_DIR$/loginserver/loginserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/server.iml" filepath="$PROJECT_DIR$/server.iml" />

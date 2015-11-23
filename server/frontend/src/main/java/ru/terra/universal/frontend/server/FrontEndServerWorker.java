@@ -39,7 +39,7 @@ public class FrontEndServerWorker extends ServerWorker {
 
     @Override
     public void acceptPacket(AbstractPacket message) {
-        logger.info("Received packet " + message.getOpCode());
+//        logger.info("Received packet " + message.getOpCode());
         Channel interchan = channelsHolder.getChannel(message.getOpCode());
         if (interchan != null)
             interchan.write(message);

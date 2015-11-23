@@ -24,7 +24,6 @@
         <processorPath useClasspath="true" />
         <module name="charserver" />
         <module name="chatserver" />
-        <module name="client" />
         <module name="frontend" />
         <module name="loginserver" />
         <module name="shared" />
@@ -34,9 +33,7 @@
     <bytecodeTargetLevel>
       <module name="charserver" target="1.8" />
       <module name="chatserver" target="1.8" />
-      <module name="client" target="1.8" />
       <module name="frontend" target="1.8" />
-      <module name="loginserver" target="1.8" />
       <module name="shared" target="1.8" />
       <module name="worldserver" target="1.8" />
     </bytecodeTargetLevel>

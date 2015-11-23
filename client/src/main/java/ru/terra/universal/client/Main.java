@@ -9,7 +9,7 @@ public class Main {
         BasicConfigurator.configure();
         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.INIT);
 //        GuiManager.getInstance().startLoginWindow();
-        for (int i = 0; i < 50; i++)
-            new ClientTest().start("46.0.69.103");
+//        for (int i = 0; i < 10; i++)
+        new ClientTest().start("46.0.69.103");
     }
 }
