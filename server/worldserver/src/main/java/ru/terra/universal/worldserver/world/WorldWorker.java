@@ -1,12 +1,15 @@
 package ru.terra.universal.worldserver.world;
 
 import org.apache.log4j.Logger;
+import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.entity.WorldEntity;
 import ru.terra.universal.shared.packet.client.MovementPacket;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Date: 13.01.14
@@ -14,11 +17,12 @@ import java.util.List;
  */
 public class WorldWorker {
     private static WorldWorker instance = new WorldWorker();
-    private List<PlayerInfo> players = new LinkedList<>();
+    private final Map<Long, PlayerInfo> players = new HashMap<>();
     private WorldThread worldThread;
     private Logger log = Logger.getLogger(this.getClass());
+    private NetworkManager networkManager = NetworkManager.getInstance();
 
-    public synchronized List<PlayerInfo> getPlayers() {
+    public synchronized Map<Long, PlayerInfo> getPlayers() {
         return players;
     }
 
@@ -31,11 +35,28 @@ public class WorldWorker {
         return instance;
     }
 
-    public void playerMove(MovementPacket movementPacket) {
-        log.info("Received movement packet: " + movementPacket.toString());
+    public void playerMove(MovementPacket packet) {
+        log.info("Received movement packet: " + packet.toString());
+        synchronized (players) {
+            players.values()
+                    .stream()
+                    .filter(p -> !p.getUID().equals(packet.getSender()))
+                    .forEach(p -> networkManager.sendPacket(new MovementPacket(p.getUID(), packet)));
+        }
     }
 
     public List<WorldEntity> getEntities() {
         return worldThread.getEntities();
+    }
+
+    public void updatePlayerPosition(MovementPacket packet) {
+        log.info("Received movement packet: " + packet.toString());
+        synchronized (players) {
+            PlayerInfo playerInfo = getPlayers().get(packet.getSender());
+            playerInfo.setX(packet.getX());
+            playerInfo.setY(packet.getY());
+            playerInfo.setZ(packet.getZ());
+            playerInfo.setH(packet.getH());
+        }
     }
 }

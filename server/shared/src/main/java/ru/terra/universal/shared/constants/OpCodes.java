@@ -12,7 +12,6 @@ public interface OpCodes {
     int ChatOpcodeStart = 201;
     int ChatOpcodeEnd = 300;
 
-
     interface Client {
         interface Login {
             int CMSG_LOGIN = 2;
@@ -24,23 +23,19 @@ public interface OpCodes {
             int CMSG_SELECT_SERVER = 11;
         }
 
-        interface Movement {
-            int CMSG_MOVE_START = 102;
-            int CMSG_MOVE = 103;
-            int CMSG_MOVE_STOP = 104;
-            int CMSG_MOVE_TELEPORT = 105;
-
-            enum DIRECTION {
-                CMSG_MOVE_FORWARD, CMSG_MOVE_BACK, CMSG_MOVE_LEFT, CMSG_MOVE_RIGHT
-            }
-        }
-
         interface Chat {
             int CMSG_SAY = 202;
             int CMSG_WISP = 203;
         }
+    }
 
+    interface Movement {
+        int MSG_MOVE = 103;
+        int MSG_MOVE_TELEPORT = 105;
 
+        enum DIRECTION {
+            MOVE_FORWARD, MOVE_BACK, MOVE_LEFT, MOVE_RIGHT
+        }
     }
 
     interface Server {

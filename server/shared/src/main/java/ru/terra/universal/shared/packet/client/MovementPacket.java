@@ -9,7 +9,7 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  * Date: 13.01.14
  * Time: 13:45
  */
-@Packet(opCode = OpCodes.Client.Movement.CMSG_MOVE)
+@Packet(opCode = OpCodes.Movement.MSG_MOVE)
 public class MovementPacket extends AbstractPacket {
 
     private Float x, y, z;
@@ -25,6 +25,15 @@ public class MovementPacket extends AbstractPacket {
         this.y = y;
         this.z = z;
         this.h = h;
+    }
+
+    public MovementPacket(Long uid, MovementPacket packet) {
+        setSender(uid);
+        this.direction = packet.getDirection();
+        this.x = packet.getX();
+        this.y = packet.getY();
+        this.z = packet.getZ();
+        this.h = packet.getH();
     }
 
     public Float getX() {
@@ -57,6 +66,14 @@ public class MovementPacket extends AbstractPacket {
 
     public void setH(Integer h) {
         this.h = h;
+    }
+
+    public Integer getDirection() {
+        return direction;
+    }
+
+    public void setDirection(Integer direction) {
+        this.direction = direction;
     }
 
     @Override

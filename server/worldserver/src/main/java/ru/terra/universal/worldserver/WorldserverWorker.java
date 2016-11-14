@@ -1,5 +1,6 @@
 package ru.terra.universal.worldserver;
 
+import com.google.common.collect.Lists;
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
@@ -39,35 +40,27 @@ public class WorldserverWorker extends InterserverWorker {
             case InterServer.ISMSG_CHAR_IN_WORLD: {
                 log.info("Character " + packet.getSender() + " is in world now!");
                 PlayerInfo playerInfo = ((CharInWorldPacket) packet).getPlayerInfo();
-                worldWorker.getPlayers().add(playerInfo);
+                worldWorker.getPlayers().put(packet.getSender(), playerInfo);
                 log.info("Character " + playerInfo + " is in world now");
-                WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), worldWorker.getPlayers());
+                WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
                 worldStatePacket.setSender(packet.getSender());
                 networkManager.sendPacket(worldStatePacket);
-
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + packet.getSender());
-                PlayerInfo pi = null;
-                for (PlayerInfo playerInfo : worldWorker.getPlayers()) {
-                    if (playerInfo.getUID().equals(packet.getSender()))
-                        pi = playerInfo;
-                }
+                PlayerInfo pi = worldWorker.getPlayers().get(packet.getSender());
                 if (pi != null)
                     worldWorker.getPlayers().remove(pi);
             }
             break;
-            case OpCodes.Client.Movement.CMSG_MOVE: {
+            case OpCodes.Movement.MSG_MOVE: {
                 worldWorker.playerMove((MovementPacket) packet);
             }
             break;
-            case OpCodes.Client.Movement.CMSG_MOVE_START: {
+            case OpCodes.Movement.MSG_MOVE_TELEPORT: {
+                worldWorker.updatePlayerPosition((MovementPacket) packet);
             }
-            break;
-            case OpCodes.Client.Movement.CMSG_MOVE_STOP: {
-            }
-            break;
         }
     }
 

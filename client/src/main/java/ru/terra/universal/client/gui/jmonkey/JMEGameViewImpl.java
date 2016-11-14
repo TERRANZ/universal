@@ -191,7 +191,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             isMoving = false;
             logger.info("Character walking end.");
             Vector3f lastPos = playerControl.getPhysicsLocation();
-            GameManager.getInstance().sendPlayerMove(OpCodes.Client.Movement.CMSG_MOVE_STOP, lastPos.getX(), lastPos.getY(), lastPos.getZ(), 0);
+            GameManager.getInstance().sendPlayerMove(OpCodes.Movement.MSG_MOVE_TELEPORT, lastPos.getX(), lastPos.getY(), lastPos.getZ(), 0);
             logger.info("sending STOP");
         }
 
@@ -231,28 +231,28 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         if (left) {
             dir = camLeft;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_LEFT.ordinal();
+            direction = OpCodes.Movement.DIRECTION.MOVE_LEFT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (right) {
             dir = camLeft.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_RIGHT.ordinal();
+            direction = OpCodes.Movement.DIRECTION.MOVE_RIGHT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (up) {
             dir = camDir;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_FORWARD.ordinal();
+            direction = OpCodes.Movement.DIRECTION.MOVE_FORWARD.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (down) {
             dir = camDir.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_BACK.ordinal();
+            direction = OpCodes.Movement.DIRECTION.MOVE_BACK.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }

@@ -75,13 +75,15 @@ public class ClientWorker extends InterserverWorker {
                 for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {
                     logger.info("Player entity : " + playerInfo.toString());
                 }
-
             }
             break;
             case OpCodes.Server.Login.SMSG_LOGIN_FAILED: {
                 logger.error("Unable to login: " + ((LoginFailedPacket) packet).getReason());
             }
             break;
+            case OpCodes.Movement.MSG_MOVE: {
+                logger.info("Received movement packet");
+            }
         }
     }
 }

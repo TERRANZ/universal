@@ -7,30 +7,31 @@ import org.jboss.netty.buffer.ChannelBuffer;
  * Time: 14:43
  */
 public abstract class AbstractEntity {
-    protected Integer x = 0, y = 0, z = 0, h = 0, r = 0, map = 0;
+    protected Float x = 0f, y = 0f, z = 0f;
+    protected Integer h = 0, r = 0, map = 0;
     protected Long UID = 0L;
 
-    public Integer getX() {
+    public Float getX() {
         return x;
     }
 
-    public void setX(Integer x) {
+    public void setX(Float x) {
         this.x = x;
     }
 
-    public Integer getY() {
+    public Float getY() {
         return y;
     }
 
-    public void setY(Integer y) {
+    public void setY(Float y) {
         this.y = y;
     }
 
-    public Integer getZ() {
+    public Float getZ() {
         return z;
     }
 
-    public void setZ(Integer z) {
+    public void setZ(Float z) {
         this.z = z;
     }
 
@@ -67,9 +68,9 @@ public abstract class AbstractEntity {
     }
 
     public void writeEntityInfo(ChannelBuffer buffer) {
-        buffer.writeInt(x);
-        buffer.writeInt(y);
-        buffer.writeInt(z);
+        buffer.writeFloat(x);
+        buffer.writeFloat(y);
+        buffer.writeFloat(z);
         buffer.writeInt(h);
         buffer.writeInt(r);
         buffer.writeInt(map);
@@ -77,9 +78,9 @@ public abstract class AbstractEntity {
     }
 
     public void readEntityInfo(ChannelBuffer buffer) {
-        x = buffer.readInt();
-        y = buffer.readInt();
-        z = buffer.readInt();
+        x = buffer.readFloat();
+        y = buffer.readFloat();
+        z = buffer.readFloat();
         h = buffer.readInt();
         r = buffer.readInt();
         map = buffer.readInt();
