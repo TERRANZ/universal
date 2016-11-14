@@ -32,6 +32,8 @@ public class GameManager {
     }
 
     public void sendPlayerMove(Integer direction, float x, float y, float z, int h) {
-        nm.sendPacket(new MovementPacket(direction, x, y, z, h));
+        MovementPacket packet = new MovementPacket(direction, x, y, z, h);
+        packet.setSender(playerInfo.getUID());
+        nm.sendPacket(packet);
     }
 }
