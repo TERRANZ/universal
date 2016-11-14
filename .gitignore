@@ -7,3 +7,5 @@
 /jmeclient/nbproject/private/
 /jmeclient/build/
 target/
+*.iml
+.idea
