@@ -5,6 +5,7 @@
 package ru.terra.universal.client.gui;
 
 import ru.terra.universal.client.game.GameStateHolder;
+import ru.terra.universal.client.game.GameView;
 import ru.terra.universal.client.network.ClientWorker;
 import ru.terra.universal.client.network.GUIDHOlder;
 import ru.terra.universal.interserver.network.NetworkManager;
@@ -153,8 +154,10 @@ public class LoginWindow extends javax.swing.JFrame {
         SelectServerPacket selectServerPacket = new SelectServerPacket();
         selectServerPacket.setTargetWorld("1");
         selectServerPacket.setSender(GUIDHOlder.getInstance().getGuid());
+
         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.SERVER_SELECTED);
         NetworkManager.getInstance().sendPacket(selectServerPacket);
+        new Thread(() -> GameView.getView().init()).start();
     }
 
     // Variables declaration - do not modify

@@ -27,4 +27,9 @@ public class GameManager {
     public void setPlayerInfo(PlayerInfo playerInfo) {
         this.playerInfo = playerInfo;
     }
+
+    public void sendPlayerMove(int cmsgMoveStop, float x, float y, float z, int i) {
+
+        
+    }
 }

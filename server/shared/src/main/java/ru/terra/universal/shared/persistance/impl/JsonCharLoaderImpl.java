@@ -30,8 +30,7 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
         PlayerInfo playerInfo = new PlayerInfo();
         playerInfo.setUID(uid);
         playerInfo.setName("My Cool player " + playerInfo.getUID());
-        String wuid = UUID.randomUUID().toString();
-        playerInfo.setWorld(wuid);
+        playerInfo.setWorld("newScene");
         return playerInfo;
     }
 

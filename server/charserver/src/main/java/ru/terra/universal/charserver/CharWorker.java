@@ -61,7 +61,7 @@ public class CharWorker extends InterserverWorker {
             break;
             case OpCodes.Client.Char.CMSG_SELECT_SERVER: {
                 log.info("Character " + packet.getSender() + " selected server!");
-                //There we checks for worlds availability
+                //There we checking for worlds availability
                 OkPacket okPacket = new OkPacket();
                 okPacket.setSender(packet.getSender());
                 networkManager.sendPacket(okPacket);
