@@ -1,4 +1,4 @@
-package ru.terra.universal.client.game.jmonkey;
+package ru.terra.universal.client.gui.jmonkey;
 
 import com.jme3.app.SimpleApplication;
 import com.jme3.bullet.BulletAppState;
@@ -231,28 +231,28 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         if (left) {
             dir = camLeft;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.CMSG_MOVE_LEFT;
+            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_LEFT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (right) {
             dir = camLeft.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.CMSG_MOVE_RIGHT;
+            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_RIGHT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (up) {
             dir = camDir;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.CMSG_MOVE_FORWARD;
+            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_FORWARD.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (down) {
             dir = camDir.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Client.Movement.CMSG_MOVE_BACK;
+            direction = OpCodes.Client.Movement.DIRECTION.CMSG_MOVE_BACK.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }

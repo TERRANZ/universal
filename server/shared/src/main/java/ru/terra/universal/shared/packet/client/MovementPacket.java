@@ -12,64 +12,79 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 @Packet(opCode = OpCodes.Client.Movement.CMSG_MOVE)
 public class MovementPacket extends AbstractPacket {
 
-    private Long x, y, z, h;
+    private Float x, y, z;
+    private Integer h;
+    private Integer direction;
 
     public MovementPacket() {
     }
 
-    public MovementPacket(Long x, Long y, Long z, Long h) {
+    public MovementPacket(Integer direction, Float x, Float y, Float z, Integer h) {
+        this.direction = direction;
         this.x = x;
         this.y = y;
         this.z = z;
         this.h = h;
     }
 
-    public Long getX() {
+    public Float getX() {
         return x;
     }
 
-    public void setX(Long x) {
+    public void setX(Float x) {
         this.x = x;
     }
 
-    public Long getY() {
+    public Float getY() {
         return y;
     }
 
-    public void setY(Long y) {
+    public void setY(Float y) {
         this.y = y;
     }
 
-    public Long getZ() {
+    public Float getZ() {
         return z;
     }
 
-    public void setZ(Long z) {
+    public void setZ(Float z) {
         this.z = z;
     }
 
-    public Long getH() {
+    public Integer getH() {
         return h;
     }
 
-    public void setH(Long h) {
+    public void setH(Integer h) {
         this.h = h;
     }
 
     @Override
     public void get(ChannelBuffer buffer) {
-        x = buffer.readLong();
-        y = buffer.readLong();
-        z = buffer.readLong();
-        h = buffer.readLong();
+        direction = buffer.readInt();
+        x = buffer.readFloat();
+        y = buffer.readFloat();
+        z = buffer.readFloat();
+        h = buffer.readInt();
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
-        buffer.writeLong(x);
-        buffer.writeLong(y);
-        buffer.writeLong(z);
-        buffer.writeLong(h);
+        buffer.writeInt(direction);
+        buffer.writeFloat(x);
+        buffer.writeFloat(y);
+        buffer.writeFloat(z);
+        buffer.writeInt(h);
+    }
 
+    @Override
+    public String toString() {
+        return "MovementPacket{" +
+                "x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                ", h=" + h +
+                ", direction=" + direction +
+                '}';
     }
 }

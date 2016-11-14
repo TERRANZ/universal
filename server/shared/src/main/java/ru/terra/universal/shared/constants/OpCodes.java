@@ -29,10 +29,10 @@ public interface OpCodes {
             int CMSG_MOVE = 103;
             int CMSG_MOVE_STOP = 104;
             int CMSG_MOVE_TELEPORT = 105;
-            int CMSG_MOVE_FORWARD = 106;
-            int CMSG_MOVE_BACK = 107;
-            int CMSG_MOVE_LEFT = 108;
-            int CMSG_MOVE_RIGHT = 109;
+
+            enum DIRECTION {
+                CMSG_MOVE_FORWARD, CMSG_MOVE_BACK, CMSG_MOVE_LEFT, CMSG_MOVE_RIGHT
+            }
         }
 
         interface Chat {

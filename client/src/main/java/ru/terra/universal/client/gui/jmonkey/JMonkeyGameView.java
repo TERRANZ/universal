@@ -1,4 +1,4 @@
-package ru.terra.universal.client.game.jmonkey;
+package ru.terra.universal.client.gui.jmonkey;
 
 import ru.terra.universal.client.game.GameView;
 import ru.terra.universal.client.game.entity.Entity;

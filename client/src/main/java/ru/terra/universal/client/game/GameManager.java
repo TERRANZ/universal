@@ -1,6 +1,8 @@
 package ru.terra.universal.client.game;
 
+import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.PlayerInfo;
+import ru.terra.universal.shared.packet.client.MovementPacket;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +14,7 @@ import ru.terra.universal.shared.entity.PlayerInfo;
 public class GameManager {
     private static GameManager instance = new GameManager();
     private PlayerInfo playerInfo;
+    private NetworkManager nm = NetworkManager.getInstance();
 
     private GameManager() {
     }
@@ -28,8 +31,7 @@ public class GameManager {
         this.playerInfo = playerInfo;
     }
 
-    public void sendPlayerMove(int cmsgMoveStop, float x, float y, float z, int i) {
-
-        
+    public void sendPlayerMove(Integer direction, float x, float y, float z, int h) {
+        nm.sendPacket(new MovementPacket(direction, x, y, z, h));
     }
 }

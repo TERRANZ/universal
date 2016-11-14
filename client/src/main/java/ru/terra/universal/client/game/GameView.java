@@ -3,7 +3,7 @@ package ru.terra.universal.client.game;
 import ru.terra.universal.client.game.entity.Entity;
 import ru.terra.universal.client.game.entity.MapObject;
 import ru.terra.universal.client.game.entity.Player;
-import ru.terra.universal.client.game.jmonkey.JMonkeyGameView;
+import ru.terra.universal.client.gui.jmonkey.JMonkeyGameView;
 
 public abstract class GameView {
     public abstract void init();
