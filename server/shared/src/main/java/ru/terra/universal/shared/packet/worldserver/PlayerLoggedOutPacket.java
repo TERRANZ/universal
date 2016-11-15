@@ -8,6 +8,8 @@ import ru.terra.universal.shared.constants.OpCodes;
  */
 @Packet(opCode = OpCodes.WorldServer.PLAYER_OUT)
 public class PlayerLoggedOutPacket extends AbstractPlayerLogPacket {
+    public PlayerLoggedOutPacket() {
+    }
 
     public PlayerLoggedOutPacket(Long sender, Long guid) {
         super(sender, guid);

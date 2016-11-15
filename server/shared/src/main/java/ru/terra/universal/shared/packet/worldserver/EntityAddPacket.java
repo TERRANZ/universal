@@ -13,6 +13,9 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class EntityAddPacket extends AbstractPacket {
     private AbstractEntity entity;
 
+    public EntityAddPacket() {
+    }
+
     public EntityAddPacket(Long to, AbstractEntity entity) {
         this.sender = to;
         this.entity = entity;

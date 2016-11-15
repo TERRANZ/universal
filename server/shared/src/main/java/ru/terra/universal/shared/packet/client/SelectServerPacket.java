@@ -7,8 +7,10 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 
 @Packet(opCode = OpCodes.Client.Char.CMSG_SELECT_SERVER)
 public class SelectServerPacket extends AbstractPacket {
-
     private String targetWorld = "";
+
+    public SelectServerPacket() {
+    }
 
     @Override
     public void get(ChannelBuffer buffer) {

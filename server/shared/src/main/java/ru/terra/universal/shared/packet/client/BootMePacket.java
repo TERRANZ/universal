@@ -7,6 +7,9 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 
 @Packet(opCode = OpCodes.Client.Login.CSMG_BOOT_ME)
 public class BootMePacket extends AbstractPacket {
+    public BootMePacket() {
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
 

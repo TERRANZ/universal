@@ -10,6 +10,9 @@ public class RegWorldPacket extends AbstractPacket {
 
     private String worldUid = "";
 
+    public RegWorldPacket() {
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
         worldUid = readString(buffer);

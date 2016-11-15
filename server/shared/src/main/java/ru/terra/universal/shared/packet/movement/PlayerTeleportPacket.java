@@ -9,6 +9,9 @@ import ru.terra.universal.shared.constants.OpCodes;
  */
 @Packet(opCode = OpCodes.WorldServer.Movement.MSG_MOVE_TELEPORT)
 public class PlayerTeleportPacket extends MovementPacket {
+    public PlayerTeleportPacket() {
+    }
+
     public PlayerTeleportPacket(Long uid, MovementPacket packet) {
         super(uid, packet);
     }

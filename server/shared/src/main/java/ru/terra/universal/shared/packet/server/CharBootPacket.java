@@ -15,6 +15,9 @@ public class CharBootPacket extends AbstractPacket {
     private PlayerInfo playerInfo = new PlayerInfo();
     private List<String> worlds = new ArrayList<>();
 
+    public CharBootPacket() {
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
         int count = buffer.readInt();

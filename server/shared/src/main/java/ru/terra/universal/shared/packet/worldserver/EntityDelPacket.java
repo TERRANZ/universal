@@ -12,6 +12,9 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class EntityDelPacket extends AbstractPacket {
     private Long guid;
 
+    public EntityDelPacket() {
+    }
+
     public EntityDelPacket(Long sender, Long guid) {
         this.sender = sender;
         this.guid = guid;

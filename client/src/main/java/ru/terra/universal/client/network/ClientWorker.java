@@ -74,12 +74,13 @@ public class ClientWorker extends InterserverWorker {
             case OpCodes.Server.SMSG_WORLD_STATE: {
                 logger.info("Received world state packet");
                 WorldStatePacket worldStatePacket = (WorldStatePacket) packet;
-                for (AbstractEntity worldEntityInfo : worldStatePacket.getEntityInfos()) {
-                    logger.info("World entity : " + worldEntityInfo.toString());
-                    GameView.getView().entityAdd(((EntityAddPacket) packet).getEntity());
+                for (AbstractEntity entity : worldStatePacket.getEntityInfos()) {
+                    logger.info("World entity : " + entity.toString());
+                    GameView.getView().entityAdd(entity);
                 }
                 for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {
                     logger.info("Player entity : " + playerInfo.toString());
+                    GameView.getView().enemyLoggedIn(((PlayerLoggedInPacket) packet).getPlayerInfo());
                 }
             }
             break;

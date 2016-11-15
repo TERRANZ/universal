@@ -10,6 +10,9 @@ public class HelloPacket extends AbstractPacket {
 
     private String hello;
 
+    public HelloPacket() {
+    }
+
     public String getHello() {
         return hello;
     }
