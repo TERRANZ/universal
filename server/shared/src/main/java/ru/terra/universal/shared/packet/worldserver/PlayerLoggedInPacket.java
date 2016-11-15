@@ -12,9 +12,6 @@ import ru.terra.universal.shared.entity.PlayerInfo;
 public class PlayerLoggedInPacket extends AbstractPlayerLogPacket {
     private PlayerInfo playerInfo;
 
-    public PlayerLoggedInPacket() {
-    }
-
     public PlayerLoggedInPacket(Long sender, Long guid, PlayerInfo playerInfo) {
         super(sender, guid);
         this.sender = sender;

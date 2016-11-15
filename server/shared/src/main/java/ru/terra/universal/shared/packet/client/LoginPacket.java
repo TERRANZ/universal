@@ -10,9 +10,6 @@ public class LoginPacket extends AbstractPacket {
 
     private String login = "", password = "";
 
-    public LoginPacket() {
-    }
-
     @Override
     public void get(ChannelBuffer buffer) {
         login = readString(buffer);
