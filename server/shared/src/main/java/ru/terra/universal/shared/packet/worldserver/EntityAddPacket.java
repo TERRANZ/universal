@@ -13,7 +13,12 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class EntityAddPacket extends AbstractPacket {
     private AbstractEntity entity;
 
+    public EntityAddPacket() {
+        super();
+    }
+
     public EntityAddPacket(Long to, AbstractEntity entity) {
+        super();
         this.sender = to;
         this.entity = entity;
     }

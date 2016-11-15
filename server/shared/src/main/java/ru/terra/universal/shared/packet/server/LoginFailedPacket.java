@@ -13,9 +13,6 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class LoginFailedPacket extends AbstractPacket {
     private String reason = "";
 
-    public LoginFailedPacket() {
-    }
-
     public String getReason() {
         return reason;
     }

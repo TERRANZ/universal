@@ -11,7 +11,7 @@ public class AbstractEntity {
     protected Float x = 0f, y = 0f, z = 0f;
     protected Integer h = 0, r = 0, map = 0;
     protected Long UID = 0L;
-    protected String model = "";
+    protected String model = "default";
     protected Integer state = 0;
 
     public Float getX() {

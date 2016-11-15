@@ -9,7 +9,12 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public abstract class AbstractPlayerLogPacket extends AbstractPacket {
     Long guid;
 
+    public AbstractPlayerLogPacket() {
+        super();
+    }
+
     public AbstractPlayerLogPacket(Long sender, Long guid) {
+        super();
         this.sender = sender;
         this.guid = guid;
     }

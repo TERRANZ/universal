@@ -11,6 +11,7 @@ public class CharInWorldPacket extends AbstractPacket {
     private PlayerInfo playerInfo;
 
     public CharInWorldPacket() {
+        super();
     }
 
     public CharInWorldPacket(PlayerInfo playerInfo) {

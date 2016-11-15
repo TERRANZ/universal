@@ -15,6 +15,7 @@ public class UpdatePacket extends AbstractPacket {
     private String value = "";
 
     public UpdatePacket() {
+        super();
     }
 
     public UpdatePacket(int field, String value) {

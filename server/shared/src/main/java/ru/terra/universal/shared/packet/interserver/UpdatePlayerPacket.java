@@ -15,6 +15,7 @@ public class UpdatePlayerPacket extends AbstractPacket {
     private PlayerInfo playerInfo;
 
     public UpdatePlayerPacket() {
+        super();
     }
 
     public UpdatePlayerPacket(PlayerInfo playerInfo) {

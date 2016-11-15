@@ -52,7 +52,6 @@ public class CharWorker extends InterserverWorker {
                 charBootPacket.setPlayerInfo(playerInfo);
                 List<String> worlds = new ArrayList<>();
                 worlds.add(playerInfo.getWorld());
-
                 charBootPacket.setWorlds(worlds);
                 charBootPacket.setSender(packet.getSender());
                 networkManager.sendPacket(charBootPacket);

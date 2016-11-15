@@ -22,6 +22,7 @@ public class WorldStatePacket extends AbstractPacket {
     private List<PlayerInfo> playerInfos = new ArrayList<>();
 
     public WorldStatePacket() {
+        super();
     }
 
     public WorldStatePacket(List<AbstractEntity> entityInfos, List<PlayerInfo> playerInfos) {

@@ -15,6 +15,7 @@ public class ChatSayPacket extends AbstractPacket {
     private long to = 0L;
 
     public ChatSayPacket() {
+        super();
     }
 
 

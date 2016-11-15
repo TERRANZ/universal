@@ -42,7 +42,6 @@ public class LoginWorker extends InterserverWorker {
                 LoginPacket loginPacket = (LoginPacket) packet;
                 logger.info("Client with login " + loginPacket.getLogin() + " and pass " + loginPacket.getPassword() + " attempting to log in");
                 Long uid = charLoader.findCharacter(loginPacket.getLogin(), loginPacket.getPassword());
-                logger.info("Client with id " + loginPacket.getSender() + " logged in");
                 if (uid != null) {
                     logger.info("Client with id " + loginPacket.getSender() + " logged in");
                     logger.info("Client registered with GUID = " + uid);

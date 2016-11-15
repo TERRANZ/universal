@@ -60,6 +60,7 @@ public class WorldserverWorker extends InterserverWorker {
             case OpCodes.WorldServer.Movement.MSG_MOVE_TELEPORT: {
                 worldWorker.updatePlayerPosition((MovementPacket) packet);
             }
+            break;
         }
     }
 }
