@@ -1,15 +1,18 @@
 package ru.terra.universal.shared.packet.worldserver;
 
 import org.jboss.netty.buffer.ChannelBuffer;
+import ru.terra.universal.shared.annoations.Packet;
+import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 /**
  * Created by Vadim_Korostelev on 11/15/2016.
  */
-public abstract class AbstractPlayerLogPacket extends AbstractPacket {
-    Long guid;
+@Packet(opCode = OpCodes.WorldServer.ENTITY_DEL)
+public class EntityDelPacket extends AbstractPacket {
+    private Long guid;
 
-    public AbstractPlayerLogPacket(Long sender, Long guid) {
+    public EntityDelPacket(Long sender, Long guid) {
         this.sender = sender;
         this.guid = guid;
     }

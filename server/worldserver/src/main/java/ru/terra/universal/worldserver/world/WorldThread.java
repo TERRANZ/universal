@@ -1,6 +1,6 @@
 package ru.terra.universal.worldserver.world;
 
-import ru.terra.universal.shared.entity.WorldEntity;
+import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.world.World;
 import ru.terra.universal.shared.world.WorldControlInterface;
 import ru.terra.universal.shared.persistance.impl.JsonWorldLoaderImpl;
@@ -34,7 +34,7 @@ public class WorldThread implements Runnable, WorldControlInterface {
         }
     }
 
-    public synchronized List<WorldEntity> getEntities() {
+    public synchronized List<AbstractEntity> getEntities() {
         return world.getEntities();
     }
 

@@ -35,7 +35,6 @@ public interface OpCodes {
         int SMSG_OK = 501;
         int SMSG_CHAR_BOOT = 502;
         int SMSG_UPDATE = 503;
-        int SMSG_CHAT_MESSAGE = 504;
         int SMSG_WORLD_STATE = 505;
 
         interface Login {
@@ -58,8 +57,8 @@ public interface OpCodes {
     interface WorldServer {
         int PLAYER_IN = 102;
         int PLAYER_OUT = 103;
-        int ENTITY_CREATE = 104;
-        int ENTITY_DELETE = 105;
+        int ENTITY_ADD = 104;
+        int ENTITY_DEL = 105;
 
         interface Movement {
             int MSG_MOVE = 106;

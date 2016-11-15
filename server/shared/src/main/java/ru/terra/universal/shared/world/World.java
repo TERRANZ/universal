@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 import ru.terra.universal.shared.annoations.Module;
 import ru.terra.universal.shared.config.Config;
 import ru.terra.universal.shared.core.ClassSearcher;
-import ru.terra.universal.shared.entity.WorldEntity;
+import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.persistance.WorldLoader;
 import ru.terra.universal.shared.persistance.WorldSaver;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class World {
     private WorldLoader worldLoader;
     private WorldSaver worldSaver;
-    private List<WorldEntity> entities;
+    private List<AbstractEntity> entities;
     private String worldUID;
     private List<WorldModule> modules;
     private Config config = Config.getConfig();
@@ -45,11 +45,11 @@ public class World {
             worldModule.tick(this);
     }
 
-    public List<WorldEntity> getEntities() {
+    public List<AbstractEntity> getEntities() {
         return entities;
     }
 
-    public void setEntities(List<WorldEntity> entities) {
+    public void setEntities(List<AbstractEntity> entities) {
         this.entities = entities;
     }
 

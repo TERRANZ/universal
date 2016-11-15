@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.persistance.impl;
 
-import ru.terra.universal.shared.entity.WorldEntity;
+import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.persistance.WorldSaver;
 
 import java.util.List;
@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class JsonWorldSaverImpl implements WorldSaver {
     @Override
-    public void save(String worldUID, List<WorldEntity> entities) {
+    public void save(String worldUID, List<AbstractEntity> entities) {
 
     }
 }

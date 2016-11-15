@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.persistance;
 
-import ru.terra.universal.shared.entity.WorldEntity;
+import ru.terra.universal.shared.entity.AbstractEntity;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ import java.util.List;
  * Time: 20:03
  */
 public interface WorldSaver {
-    public void save(String worldUID, List<WorldEntity> entities);
+    public void save(String worldUID, List<AbstractEntity> entities);
 }

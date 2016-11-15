@@ -8,13 +8,17 @@ import ru.terra.universal.client.gui.GuiManager;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
+import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
-import ru.terra.universal.shared.entity.WorldEntity;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.BootMePacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.LoginFailedPacket;
 import ru.terra.universal.shared.packet.server.WorldStatePacket;
+import ru.terra.universal.shared.packet.worldserver.EntityAddPacket;
+import ru.terra.universal.shared.packet.worldserver.EntityDelPacket;
+import ru.terra.universal.shared.packet.worldserver.PlayerLoggedInPacket;
+import ru.terra.universal.shared.packet.worldserver.PlayerLoggedOutPacket;
 
 /**
  * User: Vadim Korostelev
@@ -70,8 +74,9 @@ public class ClientWorker extends InterserverWorker {
             case OpCodes.Server.SMSG_WORLD_STATE: {
                 logger.info("Received world state packet");
                 WorldStatePacket worldStatePacket = (WorldStatePacket) packet;
-                for (WorldEntity worldEntityInfo : worldStatePacket.getEntityInfos()) {
+                for (AbstractEntity worldEntityInfo : worldStatePacket.getEntityInfos()) {
                     logger.info("World entity : " + worldEntityInfo.toString());
+                    GameView.getView().entityAdd(((EntityAddPacket) packet).getEntity());
                 }
                 for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {
                     logger.info("Player entity : " + playerInfo.toString());
@@ -87,10 +92,23 @@ public class ClientWorker extends InterserverWorker {
 
             }
             case OpCodes.WorldServer.PLAYER_IN: {
-
+                logger.info("New player logged in");
+                GameView.getView().enemyLoggedIn(((PlayerLoggedInPacket) packet).getPlayerInfo());
             }
             break;
             case OpCodes.WorldServer.PLAYER_OUT: {
+                logger.info("Player logged out");
+                GameView.getView().enemyLoggedOut(((PlayerLoggedOutPacket) packet).getGuid());
+            }
+            break;
+            case OpCodes.WorldServer.ENTITY_ADD: {
+                logger.info("Entity add");
+                GameView.getView().entityAdd(((EntityAddPacket) packet).getEntity());
+            }
+            break;
+            case OpCodes.WorldServer.ENTITY_DEL: {
+                logger.info("Entity del");
+                GameView.getView().entityDel(((EntityDelPacket) packet).getGuid());
             }
             break;
         }
