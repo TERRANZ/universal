@@ -26,10 +26,9 @@ import com.jme3.scene.shape.Sphere;
 import com.jme3.terrain.geomipmap.TerrainQuad;
 import org.apache.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
-import ru.terra.universal.client.game.entity.Entity;
-import ru.terra.universal.client.game.entity.MapObject;
-import ru.terra.universal.client.game.entity.Player;
 import ru.terra.universal.shared.constants.OpCodes;
+import ru.terra.universal.shared.entity.AbstractEntity;
+import ru.terra.universal.shared.entity.PlayerInfo;
 
 import java.util.HashMap;
 import java.util.concurrent.Callable;
@@ -50,8 +49,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     private float diffY = 50;
     private Geometry controlCube;
 
-    private HashMap<Player, Geometry> players = new HashMap<>();
-    private HashMap<MapObject, Geometry> mapObjects = new HashMap<>();
+    private HashMap<PlayerInfo, Geometry> players = new HashMap<>();
+    private HashMap<AbstractEntity, Geometry> mapObjects = new HashMap<>();
     private HashMap<Long, Geometry> entities = new HashMap<>();
     private HashMap<Long, CharacterControl> playerControls = new HashMap<>();
     private Material mat1;
@@ -191,7 +190,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             isMoving = false;
             logger.info("Character walking end.");
             Vector3f lastPos = playerControl.getPhysicsLocation();
-            GameManager.getInstance().sendPlayerMove(OpCodes.Movement.MSG_MOVE_TELEPORT, lastPos.getX(), lastPos.getY(), lastPos.getZ(), 0);
+            GameManager.getInstance().sendPlayerTeleport(lastPos.getX(), lastPos.getY(), lastPos.getZ(), 0);
             logger.info("sending STOP");
         }
 
@@ -231,28 +230,28 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         if (left) {
             dir = camLeft;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Movement.DIRECTION.MOVE_LEFT.ordinal();
+            direction = OpCodes.WorldServer.Movement.DIRECTION.MOVE_LEFT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (right) {
             dir = camLeft.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Movement.DIRECTION.MOVE_RIGHT.ordinal();
+            direction = OpCodes.WorldServer.Movement.DIRECTION.MOVE_RIGHT.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (up) {
             dir = camDir;
             walkDirection.addLocal(dir);
-            direction = OpCodes.Movement.DIRECTION.MOVE_FORWARD.ordinal();
+            direction = OpCodes.WorldServer.Movement.DIRECTION.MOVE_FORWARD.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
         if (down) {
             dir = camDir.negate();
             walkDirection.addLocal(dir);
-            direction = OpCodes.Movement.DIRECTION.MOVE_BACK.ordinal();
+            direction = OpCodes.WorldServer.Movement.DIRECTION.MOVE_BACK.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
         }
@@ -267,17 +266,17 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     public void loadPlayer() {
     }
 
-    public void addMapObject(MapObject entity) {
+    public void entityAdd(AbstractEntity entity) {
         Box b = new Box(2, 2, 2);
         Geometry g = new Geometry("Box", b);
         g.setMaterial(mat1);
         g.setLocalTranslation(entity.getX(), entity.getY(), entity.getZ());
         rootNode.attachChild(g);
         mapObjects.put(entity, g);
-        entities.put(entity.getGuid(), g);
+        entities.put(entity.getUID(), g);
     }
 
-    public void enemyLoggedIn(final Player enemy) {
+    public void enemyLoggedIn(final PlayerInfo enemy) {
         enqueue(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
@@ -289,20 +288,20 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
                 g.setLocalTranslation(enemy.getX() + 10, enemy.getY() + 10, enemy.getZ() + 10);
                 rootNode.attachChild(g);
                 players.put(enemy, g);
-                entities.put(enemy.getGuid(), g);
+                entities.put(enemy.getUID(), g);
                 CharacterControl control = addCharacterControl();
                 g.addControl(control);
-                playerControls.put(enemy.getGuid(), control);
+                playerControls.put(enemy.getUID(), control);
                 return null;
             }
         });
     }
 
-    public void updateEntityPosition(final Entity entity) {
+    public void updateEntityPosition(final AbstractEntity entity) {
         enqueue(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                CharacterControl c = playerControls.get(entity.getGuid());
+                CharacterControl c = playerControls.get(entity.getUID());
                 if (c != null) {
                     c.setPhysicsLocation(new Vector3f(entity.getX(), entity.getY(), entity.getZ()));
                 }
@@ -345,7 +344,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         guiNode.attachChild(hudText);
     }
 
-    public void playerSay(Player player, String message) {
+    public void playerSay(PlayerInfo player, String message) {
         if (hudText == null)
             hudText = new BitmapText(guiFont, false);
         hudText.setSize(guiFont.getCharSet().getRenderedSize()); // font size
@@ -353,5 +352,13 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         hudText.setText(player.getName() + " : " + message); // the text
         hudText.setLocalTranslation(300, hudText.getLineHeight(), 0); // position
         guiNode.attachChild(hudText);
+    }
+
+    public void entityDel(Long uid) {
+
+    }
+
+    public void enemyLoggedOut(Long uid) {
+        
     }
 }

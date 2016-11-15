@@ -1,4 +1,4 @@
-package ru.terra.universal.shared.packet.client;
+package ru.terra.universal.shared.packet.movement;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import ru.terra.universal.shared.annoations.Packet;
@@ -9,7 +9,7 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  * Date: 13.01.14
  * Time: 13:45
  */
-@Packet(opCode = OpCodes.Movement.MSG_MOVE)
+@Packet(opCode = OpCodes.WorldServer.Movement.MSG_MOVE)
 public class MovementPacket extends AbstractPacket {
 
     private Float x, y, z;

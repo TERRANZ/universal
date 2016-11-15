@@ -40,14 +40,14 @@ public class ChatWorker extends InterserverWorker {
                 log.info("Unregistering char with uid = " + packet.getSender());
             }
             break;
-            case OpCodes.Client.Chat.CMSG_SAY: {
+            case OpCodes.ChatServer.Chat.CMSG_SAY: {
                 ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
                 log.info("Player " + packet.getSender() + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
                 chatSayPacket.setSender(chatSayPacket.getTo());
                 networkManager.sendPacket(chatSayPacket);
             }
             break;
-            case OpCodes.Client.Chat.CMSG_WISP: {
+            case OpCodes.ChatServer.Chat.CMSG_WISP: {
             }
             break;
         }

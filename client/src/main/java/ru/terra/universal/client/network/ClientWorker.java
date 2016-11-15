@@ -3,6 +3,7 @@ package ru.terra.universal.client.network;
 import org.apache.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.client.game.GameStateHolder;
+import ru.terra.universal.client.game.GameView;
 import ru.terra.universal.client.gui.GuiManager;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
@@ -81,9 +82,17 @@ public class ClientWorker extends InterserverWorker {
                 logger.error("Unable to login: " + ((LoginFailedPacket) packet).getReason());
             }
             break;
-            case OpCodes.Movement.MSG_MOVE: {
+            case OpCodes.WorldServer.Movement.MSG_MOVE: {
                 logger.info("Received movement packet");
+
             }
+            case OpCodes.WorldServer.PLAYER_IN: {
+
+            }
+            break;
+            case OpCodes.WorldServer.PLAYER_OUT: {
+            }
+            break;
         }
     }
 }

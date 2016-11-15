@@ -22,19 +22,12 @@ public interface OpCodes {
         interface Char {
             int CMSG_SELECT_SERVER = 11;
         }
+    }
 
+    interface ChatServer {
         interface Chat {
             int CMSG_SAY = 202;
             int CMSG_WISP = 203;
-        }
-    }
-
-    interface Movement {
-        int MSG_MOVE = 103;
-        int MSG_MOVE_TELEPORT = 105;
-
-        enum DIRECTION {
-            MOVE_FORWARD, MOVE_BACK, MOVE_LEFT, MOVE_RIGHT
         }
     }
 
@@ -60,5 +53,21 @@ public interface OpCodes {
         int ISMSG_REG_WORLD = 10007;
         int ISMSG_UNREG_CHAR = 10008;
         int ISMSG_UPDATE_CHAR = 10010;
+    }
+
+    interface WorldServer {
+        int PLAYER_IN = 102;
+        int PLAYER_OUT = 103;
+        int ENTITY_CREATE = 104;
+        int ENTITY_DELETE = 105;
+
+        interface Movement {
+            int MSG_MOVE = 106;
+            int MSG_MOVE_TELEPORT = 107;
+
+            enum DIRECTION {
+                MOVE_FORWARD, MOVE_BACK, MOVE_LEFT, MOVE_RIGHT, NO_MOVE
+            }
+        }
     }
 }

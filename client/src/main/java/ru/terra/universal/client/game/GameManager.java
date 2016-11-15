@@ -1,15 +1,15 @@
 package ru.terra.universal.client.game;
 
 import ru.terra.universal.interserver.network.NetworkManager;
+import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.PlayerInfo;
-import ru.terra.universal.shared.packet.client.MovementPacket;
+import ru.terra.universal.shared.packet.movement.MovementPacket;
+import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 
 /**
- * Created with IntelliJ IDEA.
  * User: terranz
  * Date: 22.09.13
  * Time: 0:47
- * To change this template use File | Settings | File Templates.
  */
 public class GameManager {
     private static GameManager instance = new GameManager();
@@ -35,5 +35,11 @@ public class GameManager {
         MovementPacket packet = new MovementPacket(direction, x, y, z, h);
         packet.setSender(playerInfo.getUID());
         nm.sendPacket(packet);
+    }
+
+    public void sendPlayerTeleport(float x, float y, float z, int h) {
+        MovementPacket packet = new MovementPacket(OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal(), x, y, z, h);
+        PlayerTeleportPacket playerTeleportPacket = new PlayerTeleportPacket(playerInfo.getUID(), packet);
+        nm.sendPacket(playerTeleportPacket);
     }
 }

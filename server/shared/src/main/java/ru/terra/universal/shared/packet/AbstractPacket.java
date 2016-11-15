@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public abstract class AbstractPacket {
     private Integer opCode = 0;
-    private Long sender = 0L;
+    protected Long sender = 0L;
 
     public AbstractPacket() {
         opCode = getClass().getAnnotation(Packet.class).opCode();

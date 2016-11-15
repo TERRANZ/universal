@@ -4,10 +4,12 @@ import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.entity.WorldEntity;
-import ru.terra.universal.shared.packet.client.MovementPacket;
+import ru.terra.universal.shared.packet.movement.MovementPacket;
+import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
+import ru.terra.universal.shared.packet.worldserver.PlayerLoggedInPacket;
+import ru.terra.universal.shared.packet.worldserver.PlayerLoggedOutPacket;
 
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -57,6 +59,26 @@ public class WorldWorker {
             playerInfo.setY(packet.getY());
             playerInfo.setZ(packet.getZ());
             playerInfo.setH(packet.getH());
+            players.values()
+                    .stream()
+                    .filter(p -> !p.getUID().equals(packet.getSender()))
+                    .forEach(p -> networkManager.sendPacket(new PlayerTeleportPacket(p.getUID(), packet)));
         }
+    }
+
+    public void removePlayer(Long sender) {
+        getPlayers().remove(sender);
+        players.values()
+                .stream()
+                .filter(p -> !p.getUID().equals(sender))
+                .forEach(p -> networkManager.sendPacket(new PlayerLoggedOutPacket(p.getUID(), sender)));
+    }
+
+    public void addPlayer(PlayerInfo playerInfo) {
+        getPlayers().put(playerInfo.getUID(), playerInfo);
+        players.values()
+                .stream()
+                .filter(p -> !p.getUID().equals(playerInfo.getUID()))
+                .forEach(p -> networkManager.sendPacket(new PlayerLoggedInPacket(p.getUID(), playerInfo.getUID())));
     }
 }

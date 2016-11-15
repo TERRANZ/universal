@@ -7,7 +7,7 @@ import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.client.MovementPacket;
+import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.interserver.CharInWorldPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
@@ -40,8 +40,9 @@ public class WorldserverWorker extends InterserverWorker {
             case InterServer.ISMSG_CHAR_IN_WORLD: {
                 log.info("Character " + packet.getSender() + " is in world now!");
                 PlayerInfo playerInfo = ((CharInWorldPacket) packet).getPlayerInfo();
-                worldWorker.getPlayers().put(packet.getSender(), playerInfo);
+                worldWorker.addPlayer(playerInfo);
                 log.info("Character " + playerInfo + " is in world now");
+
                 WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
                 worldStatePacket.setSender(packet.getSender());
                 networkManager.sendPacket(worldStatePacket);
@@ -49,19 +50,16 @@ public class WorldserverWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + packet.getSender());
-                PlayerInfo pi = worldWorker.getPlayers().get(packet.getSender());
-                if (pi != null)
-                    worldWorker.getPlayers().remove(pi);
+                worldWorker.removePlayer(packet.getSender());
             }
             break;
-            case OpCodes.Movement.MSG_MOVE: {
+            case OpCodes.WorldServer.Movement.MSG_MOVE: {
                 worldWorker.playerMove((MovementPacket) packet);
             }
             break;
-            case OpCodes.Movement.MSG_MOVE_TELEPORT: {
+            case OpCodes.WorldServer.Movement.MSG_MOVE_TELEPORT: {
                 worldWorker.updatePlayerPosition((MovementPacket) packet);
             }
         }
     }
-
 }
