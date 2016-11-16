@@ -13,6 +13,7 @@ import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.BootMePacket;
 import ru.terra.universal.shared.packet.movement.MovementPacket;
+import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.LoginFailedPacket;
 import ru.terra.universal.shared.packet.server.WorldStatePacket;
@@ -76,9 +77,9 @@ public class ClientWorker extends InterserverWorker {
                 case OpCodes.Server.SMSG_WORLD_STATE: {
                     logger.info("Received world state packet");
                     WorldStatePacket worldStatePacket = (WorldStatePacket) packet;
-                    for (AbstractEntity worldEntityInfo : worldStatePacket.getEntityInfos()) {
-                        logger.info("World entity : " + worldEntityInfo.toString());
-                        GameView.getView().entityAdd(((EntityAddPacket) packet).getEntity());
+                    for (AbstractEntity entityInfo : worldStatePacket.getEntityInfos()) {
+                        logger.info("World entity : " + entityInfo.toString());
+                        GameView.getView().entityAdd(entityInfo);
                     }
                     for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {
                         logger.info("Player entity : " + playerInfo.toString());
@@ -94,7 +95,13 @@ public class ClientWorker extends InterserverWorker {
                 case OpCodes.WorldServer.Movement.MSG_MOVE: {
                     logger.info("Received movement packet");
                     MovementPacket mp = ((MovementPacket) packet);
-                    GameView.getView().entityVectorMove(packet.getSender(), mp.getX(), mp.getY(), mp.getZ(), mp.getH(), mp.getDirection().equals(OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal()));
+                    GameView.getView().entityVectorMove(mp.getMovableId(), mp.getX(), mp.getY(), mp.getZ(), mp.getH(), false);
+                }
+                break;
+                case OpCodes.WorldServer.Movement.MSG_MOVE_TELEPORT: {
+                    logger.info("Received teleport packet");
+                    PlayerTeleportPacket mp = ((PlayerTeleportPacket) packet);
+                    GameView.getView().entityVectorMove(mp.getMovableId(), mp.getX(), mp.getY(), mp.getZ(), mp.getH(), true);
                 }
                 break;
                 case OpCodes.WorldServer.PLAYER_IN: {

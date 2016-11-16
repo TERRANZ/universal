@@ -15,11 +15,15 @@ public class MovementPacket extends AbstractPacket {
     private Float x, y, z;
     private Integer h;
     private Integer direction;
+    private Long movableId;
 
     public MovementPacket() {
+        super();
     }
 
-    public MovementPacket(Integer direction, Float x, Float y, Float z, Integer h) {
+    public MovementPacket(Long movableId, Integer direction, Float x, Float y, Float z, Integer h) {
+        super();
+        this.movableId = movableId;
         this.direction = direction;
         this.x = x;
         this.y = y;
@@ -28,7 +32,9 @@ public class MovementPacket extends AbstractPacket {
     }
 
     public MovementPacket(Long uid, MovementPacket packet) {
+        super();
         setSender(uid);
+        this.movableId = packet.getMovableId();
         this.direction = packet.getDirection();
         this.x = packet.getX();
         this.y = packet.getY();
@@ -76,8 +82,17 @@ public class MovementPacket extends AbstractPacket {
         this.direction = direction;
     }
 
+    public Long getMovableId() {
+        return movableId;
+    }
+
+    public void setMovableId(Long movableId) {
+        this.movableId = movableId;
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
+        movableId = buffer.readLong();
         direction = buffer.readInt();
         x = buffer.readFloat();
         y = buffer.readFloat();
@@ -87,21 +102,11 @@ public class MovementPacket extends AbstractPacket {
 
     @Override
     public void send(ChannelBuffer buffer) {
+        buffer.writeLong(movableId);
         buffer.writeInt(direction);
         buffer.writeFloat(x);
         buffer.writeFloat(y);
         buffer.writeFloat(z);
         buffer.writeInt(h);
-    }
-
-    @Override
-    public String toString() {
-        return "MovementPacket{" +
-                "x=" + x +
-                ", y=" + y +
-                ", z=" + z +
-                ", h=" + h +
-                ", direction=" + direction +
-                '}';
     }
 }

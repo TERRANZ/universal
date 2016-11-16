@@ -32,13 +32,13 @@ public class GameManager {
     }
 
     public void sendPlayerMove(Integer direction, float x, float y, float z, int h) {
-        MovementPacket packet = new MovementPacket(direction, x, y, z, h);
+        MovementPacket packet = new MovementPacket(playerInfo.getUID(), direction, x, y, z, h);
         packet.setSender(playerInfo.getUID());
         nm.sendPacket(packet);
     }
 
     public void sendPlayerTeleport(float x, float y, float z, int h) {
-        MovementPacket packet = new MovementPacket(OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal(), x, y, z, h);
+        MovementPacket packet = new MovementPacket(playerInfo.getUID(), OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal(), x, y, z, h);
         PlayerTeleportPacket playerTeleportPacket = new PlayerTeleportPacket(playerInfo.getUID(), packet);
 
         nm.sendPacket(playerTeleportPacket);

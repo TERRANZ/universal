@@ -280,7 +280,6 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         enqueue(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
-                // TODO Auto-generated method stub
                 Sphere s = new Sphere(10, 10, 5);
                 Geometry g = new Geometry("Sphere", s);
                 Material mat = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
@@ -315,9 +314,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             @Override
             public Long call() throws Exception {
                 CharacterControl control = playerControls.get(guid);
-                // Logger.getLogger(getClass()).info("guid " + guid + " moving "
-                // + " x = " + x + " y = " + y + " z = " + z);
                 if (control != null) {
+                    Logger.getLogger(getClass()).info("guid " + guid + " moving " + " x = " + x + " y = " + y + " z = " + z);
                     if (!stop) {
                         Vector3f dir = new Vector3f();
                         dir.addLocal(new Vector3f(x, y, z));
@@ -359,6 +357,6 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     public void enemyLoggedOut(Long uid) {
-        
+
     }
 }
