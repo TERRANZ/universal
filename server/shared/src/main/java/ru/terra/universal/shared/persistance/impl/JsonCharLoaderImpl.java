@@ -11,6 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -31,6 +32,14 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
         playerInfo.setUID(uid);
         playerInfo.setName("My Cool player " + playerInfo.getUID());
         playerInfo.setWorld("newScene");
+        float min = 0.0f;
+        float max = 20.0f;
+
+        Random rand = new Random();
+
+        playerInfo.setX(rand.nextFloat() * (max - min) + min);
+        playerInfo.setY(rand.nextFloat() * (max - min) + min);
+        playerInfo.setZ(rand.nextFloat() * (max - min) + min);
         return playerInfo;
     }
 

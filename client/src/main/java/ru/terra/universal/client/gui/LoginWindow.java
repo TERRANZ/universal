@@ -138,7 +138,7 @@ public class LoginWindow extends javax.swing.JFrame {
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {
         NetworkManager.getInstance().start(ClientWorker.class, jTextField1.getText(), 12345);
         try {
-            Thread.sleep(5000);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
