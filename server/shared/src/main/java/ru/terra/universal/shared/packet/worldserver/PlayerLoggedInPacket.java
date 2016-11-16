@@ -10,7 +10,7 @@ import ru.terra.universal.shared.entity.PlayerInfo;
  */
 @Packet(opCode = OpCodes.WorldServer.PLAYER_IN)
 public class PlayerLoggedInPacket extends AbstractPlayerLogPacket {
-    private PlayerInfo playerInfo;
+    private PlayerInfo playerInfo = new PlayerInfo();
 
     public PlayerLoggedInPacket() {
     }

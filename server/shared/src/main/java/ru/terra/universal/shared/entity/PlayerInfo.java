@@ -17,8 +17,6 @@ public class PlayerInfo extends AbstractEntity implements Serializable {
     }
 
     public PlayerInfo() {
-        this.name = "";
-        this.world = "";
     }
 
     public String getWorld() {

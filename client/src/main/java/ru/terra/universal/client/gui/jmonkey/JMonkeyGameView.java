@@ -53,8 +53,8 @@ public class JMonkeyGameView extends GameView {
     }
 
     @Override
-    public void entityVectorMove(AbstractEntity entity, float x, float y, float z, float h, boolean stop) {
-        jmeGameViewImpl.entityVectorMove(entity.getUID(), x, y, z, h, stop);
+    public void entityVectorMove(Long uid, float x, float y, float z, float h, boolean stop) {
+        jmeGameViewImpl.entityVectorMove(uid, x, y, z, h, stop);
     }
 
     @Override

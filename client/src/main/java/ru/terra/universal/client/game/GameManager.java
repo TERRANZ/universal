@@ -40,6 +40,7 @@ public class GameManager {
     public void sendPlayerTeleport(float x, float y, float z, int h) {
         MovementPacket packet = new MovementPacket(OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal(), x, y, z, h);
         PlayerTeleportPacket playerTeleportPacket = new PlayerTeleportPacket(playerInfo.getUID(), packet);
+
         nm.sendPacket(playerTeleportPacket);
     }
 }

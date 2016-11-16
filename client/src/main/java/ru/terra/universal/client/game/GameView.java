@@ -13,7 +13,7 @@ public abstract class GameView {
 
     public abstract void entityDel(Long uid);
 
-    public abstract void entityVectorMove(AbstractEntity entity, float x, float y, float z, float h, boolean stop);
+    public abstract void entityVectorMove(Long uid, float x, float y, float z, float h, boolean stop);
 
     public abstract void updateEntityPosition(AbstractEntity entity);
 
