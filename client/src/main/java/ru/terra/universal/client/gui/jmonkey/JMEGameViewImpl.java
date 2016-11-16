@@ -60,13 +60,14 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     private Logger logger = Logger.getLogger(getClass());
     private int pressed = 0;
     private BitmapText hudText;
-    private String worldName = "newScene";
+    private String worldName = "map_0";
 
     public void setWorldName(String worldName) {
         this.worldName = worldName;
     }
 
     public void simpleInitApp() {
+        PlayerInfo playerInfo = GameManager.getInstance().getPlayerInfo();
         /**
          * Set up Physics
          */
@@ -85,7 +86,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         // We load the scene from the zip file and adjust its size.
         // assetManager.registerLocator("town.zip", ZipLocator.class);
         sceneModel = assetManager.loadModel("Scenes/" + worldName + ".j3o");
-        sceneModel.setLocalScale(2f);
+//        sceneModel.setLocalScale(2f);
 
         // We set up collision detection for the scene by creating a
         // compound collision shape and a static RigidBodyControl with mass
@@ -112,7 +113,6 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         controlCube = new Geometry("Box", b);
         mat1 = new Material(assetManager, "Common/MatDefs/Misc/Unshaded.j3md");
         controlCube.setMaterial(mat1);
-        controlCube.setLocalTranslation(10, 10, 10);
         rootNode.attachChild(controlCube);
         // bulletAppState.getPhysicsSpace().add(red);
         flyCam.setEnabled(false);
@@ -127,7 +127,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         // Attach the camNode to the target:
         rootNode.attachChild(camNode);
         controlCube.addControl(playerControl);
-
+        playerControl.setPhysicsLocation(new Vector3f(playerInfo.getX(), playerInfo.getY(), playerInfo.getZ()));
         FilterPostProcessor water;
         water = assetManager.loadFilter("waterFilter.j3f");
         viewPort.addProcessor(water);
@@ -190,7 +190,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
 
         if (pressed == 1 && value && !isMoving) {
             isMoving = true;
-            logger.info("Character walking init.");
+            logger.info("Character walking start.");
         } else if (pressed == 0 & !value) {
             isMoving = false;
             logger.info("Character walking end.");

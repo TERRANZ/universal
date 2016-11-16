@@ -58,6 +58,7 @@ public class ClientWorker extends InterserverWorker {
                             break;
                         case SERVER_SELECTED:
                             GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.IN_WORLD);
+                            new Thread(() -> GameView.getView().start()).start();
                             break;
                         case IN_WORLD:
                             break;

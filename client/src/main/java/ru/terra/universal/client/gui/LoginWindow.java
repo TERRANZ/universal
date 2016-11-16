@@ -157,7 +157,6 @@ public class LoginWindow extends javax.swing.JFrame {
 
         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.SERVER_SELECTED);
         NetworkManager.getInstance().sendPacket(selectServerPacket);
-        new Thread(() -> GameView.getView().init()).start();
     }
 
     // Variables declaration - do not modify

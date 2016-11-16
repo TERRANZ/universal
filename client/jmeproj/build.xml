@@ -17,8 +17,8 @@
     used for execution of your tasks. These targets are usually executed 
     before and after some main targets. They are: 
 
-      -pre-init:                 called before initialization of project properties
-      -post-init:                called after initialization of project properties
+      -pre-start:                 called before initialization of project properties
+      -post-start:                called after initialization of project properties
       -pre-compile:              called before javac compilation
       -post-compile:             called after javac compilation
       -pre-compile-single:       called before javac compilation of single file
@@ -48,10 +48,10 @@
     Another way to customize the build is by overriding existing main targets.
     The targets of interest are: 
 
-      -init-macrodef-javac:     defines macro for javac compilation
-      -init-macrodef-junit:     defines macro for junit execution
-      -init-macrodef-debug:     defines macro for class debugging
-      -init-macrodef-java:      defines macro for class execution
+      -start-macrodef-javac:     defines macro for javac compilation
+      -start-macrodef-junit:     defines macro for junit execution
+      -start-macrodef-debug:     defines macro for class debugging
+      -start-macrodef-java:      defines macro for class execution
       -do-jar-with-manifest:    JAR building (if you are using a manifest)
       -do-jar-without-manifest: JAR building (if you are not using a manifest)
       run:                      execution of project 

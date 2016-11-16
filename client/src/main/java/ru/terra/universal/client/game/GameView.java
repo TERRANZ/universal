@@ -5,7 +5,7 @@ import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
 public abstract class GameView {
-    public abstract void init();
+    public abstract void start();
 
     public abstract void loadPlayer();
 
