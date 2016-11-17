@@ -7,14 +7,17 @@ import com.jme3.bullet.collision.shapes.CollisionShape;
 import com.jme3.bullet.control.CharacterControl;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.bullet.util.CollisionShapeFactory;
+import com.jme3.collision.CollisionResults;
 import com.jme3.font.BitmapText;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
+import com.jme3.input.controls.MouseButtonTrigger;
 import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
 import com.jme3.math.ColorRGBA;
+import com.jme3.math.Ray;
 import com.jme3.math.Vector3f;
 import com.jme3.post.FilterPostProcessor;
 import com.jme3.scene.CameraNode;
@@ -41,13 +44,13 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     private RigidBodyControl landscape;
     private CharacterControl playerControl;
     private Vector3f walkDirection = new Vector3f();
-    private boolean left = false, right = false, up = false, down = false;
+    private boolean left = false, right = false, up = false, down = false, mouse = false;
     private TerrainQuad terrain;
     Material mat_terrain;
     private float currY = 500;
 
     private CameraNode camNode;
-    private float diffY = 50;
+    private float diffY = 20;
     private Geometry controlCube;
 
     private HashMap<PlayerInfo, Geometry> players = new HashMap<>();
@@ -81,7 +84,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         viewPort.setBackgroundColor(new ColorRGBA(0.7f, 0.8f, 1f, 1f));
         // flyCam.setMoveSpeed(100);
         setUpKeys();
-        setUpLight();
+//        setUpLight();
 
         // We load the scene from the zip file and adjust its size.
         // assetManager.registerLocator("town.zip", ZipLocator.class);
@@ -131,6 +134,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         FilterPostProcessor water;
         water = assetManager.loadFilter("waterFilter.j3f");
         viewPort.addProcessor(water);
+
+
     }
 
     private CharacterControl addCharacterControl() {
@@ -174,6 +179,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         inputManager.addListener(this, "Q");
         inputManager.addListener(this, "Z");
         // inputManager.addListener(this, "Jump");
+        inputManager.addMapping("RClick", new MouseButtonTrigger(1));
+        inputManager.addListener(this, "RClick");
     }
 
     /**
@@ -211,10 +218,12 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             // player.jump();
         } else if (binding.equals("Q")) {
             currY = currY + diffY;
-            camNode.setLocalTranslation(new Vector3f(0, currY, 0));
+            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY, controlCube.getLocalTranslation().getZ()));
         } else if (binding.equals("Z")) {
             currY = currY - diffY;
-            camNode.setLocalTranslation(new Vector3f(0, currY, 0));
+            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY, controlCube.getLocalTranslation().getZ()));
+        } else if (binding.equals("RClick")) {
+            mouse = value;
         }
     }
 
@@ -230,7 +239,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         Vector3f camDir = cam.getUp().clone().multLocal(0.4f);
         Vector3f camLeft = cam.getLeft().clone().multLocal(0.4f);
         walkDirection.set(0, 0, 0);
-        int direction;
+        int direction = OpCodes.WorldServer.Movement.DIRECTION.NO_MOVE.ordinal();
         Vector3f dir = new Vector3f(0, 0, 0);
         if (left) {
             dir = camLeft;
@@ -259,6 +268,25 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             direction = OpCodes.WorldServer.Movement.DIRECTION.MOVE_BACK.ordinal();
             sendPlayerMovingVector(dir, direction);
             // isMoving = true;
+        }
+        if (mouse) {
+            Vector3f origin = cam.getWorldCoordinates(inputManager.getCursorPosition(), 0.0f);
+
+            Vector3f directionVec = cam.getWorldCoordinates(inputManager.getCursorPosition(), 0.3f);
+
+            directionVec.subtractLocal(origin).normalizeLocal();
+
+            Ray ray = new Ray(origin, directionVec);
+
+            CollisionResults results = new CollisionResults();
+
+            rootNode.collideWith(ray, results);
+
+            if (results.size() > 0) {
+                Vector3f walkTarget = results.getClosestCollision().getContactPoint();
+                walkDirection = walkTarget.subtract(controlCube.getLocalTranslation()).normalizeLocal();
+                sendPlayerMovingVector(directionVec, direction);
+            }
         }
         playerControl.setWalkDirection(walkDirection);
     }
@@ -364,4 +392,6 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     public void enemyLoggedOut(Long uid) {
 
     }
+
+
 }
