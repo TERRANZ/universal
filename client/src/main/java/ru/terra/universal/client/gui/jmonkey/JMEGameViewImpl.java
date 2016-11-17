@@ -84,12 +84,12 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         viewPort.setBackgroundColor(new ColorRGBA(0.7f, 0.8f, 1f, 1f));
         // flyCam.setMoveSpeed(100);
         setUpKeys();
-//        setUpLight();
+        setUpLight();
 
         // We load the scene from the zip file and adjust its size.
         // assetManager.registerLocator("town.zip", ZipLocator.class);
         sceneModel = assetManager.loadModel("Scenes/" + worldName + ".j3o");
-//        sceneModel.setLocalScale(2f);
+        sceneModel.setLocalScale(2f);
 
         // We set up collision detection for the scene by creating a
         // compound collision shape and a static RigidBodyControl with mass

@@ -32,8 +32,8 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
         playerInfo.setUID(uid);
         playerInfo.setName("My Cool player " + playerInfo.getUID());
         playerInfo.setWorld("newScene");
-        float min = 0.0f;
-        float max = 20.0f;
+        float min = 20.0f;
+        float max = 50.0f;
 
         Random rand = new Random();
 
