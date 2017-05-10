@@ -138,16 +138,10 @@ public class LoginWindow extends javax.swing.JFrame {
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {
         NetworkManager.getInstance().start(ClientWorker.class, jTextField1.getText(), 12345);
         try {
-            Thread.sleep(500);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGIN);
-        LoginPacket loginPacket = new LoginPacket();
-        loginPacket.setLogin("mylogin");
-        loginPacket.setPassword("mypass");
-        loginPacket.setSender(GUIDHOlder.getInstance().getGuid());
-        NetworkManager.getInstance().sendPacket(loginPacket);
     }
 
     private void EnterWorldBtnActionPerformed(java.awt.event.ActionEvent evt) {

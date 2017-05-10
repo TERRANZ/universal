@@ -12,6 +12,7 @@ import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.BootMePacket;
+import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
@@ -44,6 +45,13 @@ public class ClientWorker extends InterserverWorker {
                     switch (gs) {
                         case INIT:
                             GUIDHOlder.getInstance().setGuid(packet.getSender());
+                            logger.info("Server helloed us, now proceed with login");
+                            GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGIN);
+                            LoginPacket loginPacket = new LoginPacket();
+                            loginPacket.setLogin("mylogin");
+                            loginPacket.setPassword("mypass");
+                            loginPacket.setSender(GUIDHOlder.getInstance().getGuid());
+                            NetworkManager.getInstance().sendPacket(loginPacket);
                             break;
                         case LOGIN:
                             GUIDHOlder.getInstance().setGuid(packet.getSender());
