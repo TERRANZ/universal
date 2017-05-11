@@ -93,7 +93,15 @@ public class ClientWorker extends InterserverWorker {
                     for (PlayerInfo playerInfo : worldStatePacket.getPlayerInfos()) {
                         logger.info("Player entity : " + playerInfo.toString());
                         if (!playerInfo.getUID().equals(GameManager.getInstance().getPlayerInfo().getUID()))
-                            GameView.getView().enemyLoggedIn(playerInfo);
+                            new Thread(() -> {
+                                try {
+                                    Thread.sleep(10000);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                                GameView.getView().enemyLoggedIn(playerInfo);
+                            }).start();
+
                     }
                 }
                 break;

@@ -38,7 +38,6 @@ public class WorldWorker {
     }
 
     public void playerMove(MovementPacket packet) {
-        log.info("Received movement packet: " + packet.toString());
         synchronized (players) {
             players.values()
                     .stream()
@@ -52,7 +51,6 @@ public class WorldWorker {
     }
 
     public void updatePlayerPosition(MovementPacket packet) {
-        log.info("Received movement packet: " + packet.toString());
         synchronized (players) {
             PlayerInfo playerInfo = getPlayers().get(packet.getSender());
             playerInfo.setX(packet.getX());

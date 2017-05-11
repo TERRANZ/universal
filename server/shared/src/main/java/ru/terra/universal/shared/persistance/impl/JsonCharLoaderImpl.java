@@ -9,10 +9,7 @@ import ru.terra.universal.shared.persistance.FilePersister;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Date: 25.04.14
@@ -59,7 +56,7 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
 //        List<PlayerInfo> playerInfos = loadCharacters();
 //        if (playerInfos.size() > 0)
 //            return playerInfos.get(0).getUID();
-        Long uid = UUID.randomUUID().getLeastSignificantBits();
-        return uid;
+//        Long uid = ;
+        return new Date().getTime();
     }
 }
