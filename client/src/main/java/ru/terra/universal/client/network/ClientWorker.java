@@ -17,6 +17,7 @@ import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.LoginFailedPacket;
+import ru.terra.universal.shared.packet.server.WorldIsNotAvail;
 import ru.terra.universal.shared.packet.server.WorldStatePacket;
 import ru.terra.universal.shared.packet.worldserver.EntityAddPacket;
 import ru.terra.universal.shared.packet.worldserver.EntityDelPacket;
@@ -139,6 +140,10 @@ public class ClientWorker extends InterserverWorker {
                 case OpCodes.WorldServer.ENTITY_DEL: {
                     logger.info("Entity del");
                     GameView.getView().entityDel(((EntityDelPacket) packet).getGuid());
+                }
+                break;
+                case OpCodes.Server.SMSG_WORLD_NOT_AVAIL: {
+                    logger.info("World " + ((WorldIsNotAvail) packet).getWorld() + " is not available");
                 }
                 break;
             }

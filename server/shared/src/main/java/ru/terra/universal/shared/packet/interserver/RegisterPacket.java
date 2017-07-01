@@ -10,17 +10,20 @@ public class RegisterPacket extends AbstractPacket {
 
     private int startRange = 0;
     private int endRange = 0;
+    private String world = "null";
 
     @Override
     public void get(ChannelBuffer buffer) {
         startRange = buffer.readInt();
         endRange = buffer.readInt();
+        world = readString(buffer);
     }
 
     @Override
     public void send(ChannelBuffer buffer) {
         buffer.writeInt(startRange);
         buffer.writeInt(endRange);
+        writeString(buffer, world);
     }
 
     public int getStartRange() {
@@ -39,4 +42,11 @@ public class RegisterPacket extends AbstractPacket {
         this.endRange = endRange;
     }
 
+    public String getWorld() {
+        return world;
+    }
+
+    public void setWorld(String world) {
+        this.world = world;
+    }
 }

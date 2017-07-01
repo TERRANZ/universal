@@ -5,14 +5,13 @@ import org.jboss.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.interserver.CharRegPacket;
-import ru.terra.universal.shared.packet.interserver.HelloPacket;
-import ru.terra.universal.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.shared.packet.interserver.*;
 
 public class InterserverFEWorker extends ServerWorker {
 
     private Logger log = Logger.getLogger(InterserverFEWorker.class);
     private ChannelsHolder channelsHolder = ChannelsHolder.getInstance();
+    private WorldServersChannelsHolder worldServersChannelsHolder = WorldServersChannelsHolder.getInstance();
     private CharactersHolder charactersHolder = CharactersHolder.getInstance();
     private TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
 
@@ -34,8 +33,14 @@ public class InterserverFEWorker extends ServerWorker {
                     int startRange = ((RegisterPacket) packet).getStartRange();
                     int endRange = ((RegisterPacket) packet).getEndRange();
                     log.info("Registering interserver for range " + startRange + " to " + endRange);
-                    for (int i = startRange; i < endRange; i++) {
-                        channelsHolder.addChannel(i, channel);
+                    if (startRange == OpCodes.WorldOpcodeStart) {
+                        for (int i = startRange; i < endRange; i++) {
+                            worldServersChannelsHolder.addChannel(((RegisterPacket) packet).getWorld(), i, channel);
+                        }
+                    } else {
+                        for (int i = startRange; i < endRange; i++) {
+                            channelsHolder.addChannel(i, channel);
+                        }
                     }
                 }
                 break;
@@ -63,10 +68,23 @@ public class InterserverFEWorker extends ServerWorker {
                 break;
                 case OpCodes.InterServer.ISMSG_CHAR_IN_WORLD: {
                     log.info("Char " + packet.getSender() + " in world now ");
-                    channelsHolder.getChannel(OpCodes.WorldOpcodeStart).write(packet);
+                    Channel wsChan = worldServersChannelsHolder.getChannel(((CharInWorldPacket) packet).getPlayerInfo().getWorld());
+                    if (wsChan != null)
+                        wsChan.write(packet);
                 }
                 break;
-
+                case OpCodes.InterServer.ISMSG_UPDATE_CHAR: {
+                    log.info("Updating player info from world to char server");
+                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).write(packet);
+                }
+                break;
+                case OpCodes.InterServer.ISMSG_IS_WORLD_AVAIL: {
+                    String world = ((ISWorldAvaiPacket) packet).getWorld();
+                    log.info("Char server checking is world " + world + " available");
+                    ((ISWorldAvaiPacket) packet).setAvail(worldServersChannelsHolder.isWorldAvailable(world));
+                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).write(packet);
+                }
+                break;
             }
         } else {
             if (packet.getOpCode().equals(OpCodes.Server.Login.SMSG_LOGIN_FAILED)) {

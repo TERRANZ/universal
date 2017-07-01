@@ -7,10 +7,10 @@ import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.interserver.CharInWorldPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.server.WorldStatePacket;
 import ru.terra.universal.worldserver.world.WorldWorker;
 
@@ -33,6 +33,7 @@ public class WorldserverWorker extends InterserverWorker {
                 RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
                 registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
+                registerPacket.setWorld("newScene");
                 networkManager.sendPacket(helloPacket);
                 networkManager.sendPacket(registerPacket);
             }

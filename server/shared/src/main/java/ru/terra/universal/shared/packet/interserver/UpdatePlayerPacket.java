@@ -16,6 +16,7 @@ public class UpdatePlayerPacket extends AbstractPacket {
 
     public UpdatePlayerPacket() {
         super();
+        playerInfo = new PlayerInfo();
     }
 
     public UpdatePlayerPacket(PlayerInfo playerInfo) {
@@ -37,6 +38,9 @@ public class UpdatePlayerPacket extends AbstractPacket {
 
     @Override
     public void send(ChannelBuffer buffer) {
-        playerInfo.writePlayerInfo(buffer);
+        if (playerInfo == null)
+            System.out.println("Player info is null");
+        else
+            playerInfo.writePlayerInfo(buffer);
     }
 }

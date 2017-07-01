@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
+import ru.terra.universal.shared.packet.interserver.UpdatePlayerPacket;
 import ru.terra.universal.shared.packet.movement.MovementPacket;
 import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 import ru.terra.universal.shared.packet.worldserver.PlayerLoggedInPacket;
@@ -65,8 +66,9 @@ public class WorldWorker {
     }
 
     public void removePlayer(Long sender) {
-        getPlayers().remove(sender);
+        PlayerInfo playerInfo = getPlayers().remove(sender);
         players.values().forEach(p -> networkManager.sendPacket(new PlayerLoggedOutPacket(p.getUID(), sender)));
+        networkManager.sendPacket(new UpdatePlayerPacket(playerInfo));
     }
 
     public void addPlayer(PlayerInfo playerInfo) {

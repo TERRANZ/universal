@@ -14,6 +14,7 @@ public class FrontEndServerWorker extends ServerWorker {
     private TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
     private CharactersHolder charactersHolder = CharactersHolder.getInstance();
     private ChannelsHolder channelsHolder = ChannelsHolder.getInstance();
+    private WorldServersChannelsHolder worldServersChannelsHolder = WorldServersChannelsHolder.getInstance();
 
     @Override
     public void disconnectedFromChannel(Channel removedChannel) {
@@ -23,7 +24,6 @@ public class FrontEndServerWorker extends ServerWorker {
             Channel charChannel = channelsHolder.getChannel(OpCodes.CharOpcodeStart);
             Channel chatChannel = channelsHolder.getChannel(OpCodes.ChatOpcodeStart);
             Channel loginChannel = channelsHolder.getChannel(OpCodes.LoginOpcodeStart);
-            Channel worldChannel = channelsHolder.getChannel(OpCodes.WorldOpcodeStart);
             UnregCharPacket unregCharPacket = new UnregCharPacket();
             unregCharPacket.setSender(removedChar);
             if (charChannel != null)
@@ -32,19 +32,23 @@ public class FrontEndServerWorker extends ServerWorker {
                 chatChannel.write(unregCharPacket);
             if (loginChannel != null)
                 loginChannel.write(unregCharPacket);
-            if (worldChannel != null)
-                worldChannel.write(unregCharPacket);
+            worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.values().forEach(wc -> wc.write(unregCharPacket)));
         }
     }
 
     @Override
     public void acceptPacket(AbstractPacket message) {
 //        logger.info("Received packet " + message.getOpCode());
-        Channel interchan = channelsHolder.getChannel(message.getOpCode());
-        if (interchan != null)
-            interchan.write(message);
-        else {
-            logger.error("Unable to find interserver for opcode " + message.getOpCode());
+        if (message.getOpCode() >= OpCodes.WorldOpcodeStart && message.getOpCode() <= OpCodes.WorldOpcodeEnd) {
+            if (worldServersChannelsHolder.getChannels() != null && worldServersChannelsHolder.getChannels().size() > 0)
+                worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.get(message.getOpCode()).write(message));
+        } else {
+            Channel c = channelsHolder.getChannel(message.getOpCode());
+            if (c != null)
+                c.write(message);
+            else {
+                logger.error("Unable to find interserver for opcode " + message.getOpCode());
+            }
         }
     }
 

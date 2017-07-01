@@ -17,6 +17,7 @@ import ru.terra.universal.shared.persistance.CharLoader;
 import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
 import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
+import ru.terra.universal.shared.util.CryptoUtil;
 
 import java.util.Date;
 
@@ -53,7 +54,7 @@ public class LoginWorker extends InterserverWorker {
                 if (accountInfo == null) {
                     accountInfo = new AccountInfo(
                             loginPacket.getLogin(),
-                            loginPacket.getPassword(),
+                            CryptoUtil.encryptMD5(loginPacket.getPassword()),
                             false,
                             new Date(),
                             0L,

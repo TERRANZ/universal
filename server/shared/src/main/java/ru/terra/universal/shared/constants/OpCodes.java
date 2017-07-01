@@ -40,6 +40,8 @@ public interface OpCodes {
         interface Login {
             int SMSG_LOGIN_FAILED = 506;
         }
+
+        int SMSG_WORLD_NOT_AVAIL = 507;
     }
 
     interface InterServer {
@@ -52,6 +54,7 @@ public interface OpCodes {
         int ISMSG_REG_WORLD = 10007;
         int ISMSG_UNREG_CHAR = 10008;
         int ISMSG_UPDATE_CHAR = 10010;
+        int ISMSG_IS_WORLD_AVAIL = 10011;
     }
 
     interface WorldServer {

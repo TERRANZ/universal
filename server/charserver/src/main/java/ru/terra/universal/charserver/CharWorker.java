@@ -6,17 +6,20 @@ import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.interserver.CharInWorldPacket;
-import ru.terra.universal.shared.packet.interserver.HelloPacket;
-import ru.terra.universal.shared.packet.interserver.RegisterPacket;
+import ru.terra.universal.shared.packet.client.SelectServerPacket;
+import ru.terra.universal.shared.packet.interserver.*;
 import ru.terra.universal.shared.packet.server.CharBootPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
+import ru.terra.universal.shared.packet.server.WorldIsNotAvail;
 import ru.terra.universal.shared.persistance.CharLoader;
 import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
 import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 
 public class CharWorker extends InterserverWorker {
 
@@ -74,33 +77,48 @@ public class CharWorker extends InterserverWorker {
             break;
             case OpCodes.Client.Char.CMSG_SELECT_SERVER: {
                 log.info("Character " + packet.getSender() + " selected server!");
-                //There we checking for worlds availability
-                OkPacket okPacket = new OkPacket();
-                okPacket.setSender(packet.getSender());
-                networkManager.sendPacket(okPacket);
-                PlayerInfo playerInfo = null;
-                for (PlayerInfo pi : players) {
-                    if (pi.getUID().equals(packet.getSender()))
-                        playerInfo = pi;
-                }
-                if (playerInfo != null) {
-                    CharInWorldPacket charInWorldPacket = new CharInWorldPacket(playerInfo);
-                    charInWorldPacket.setSender(packet.getSender());
-                    networkManager.sendPacket(charInWorldPacket);
-                }
+                ISWorldAvaiPacket isWorldAvaiPacket = new ISWorldAvaiPacket(((SelectServerPacket) packet).getTargetWorld());
+                isWorldAvaiPacket.setSender(packet.getSender());
+                networkManager.sendPacket(isWorldAvaiPacket);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + packet.getSender());
                 PlayerInfo playerInfoToRemove = null;
                 for (PlayerInfo playerInfo : players)
-                    if (playerInfo.getUID().equals(packet.getSender())) {
-                        charSaver.save(playerInfo);
+                    if (playerInfo.getUID().equals(packet.getSender()))
                         playerInfoToRemove = playerInfo;
-                    }
+
                 if (playerInfoToRemove != null)
                     players.remove(playerInfoToRemove);
 
+            }
+            break;
+            case InterServer.ISMSG_UPDATE_CHAR: {
+                charSaver.save(((UpdatePlayerPacket) packet).getPlayerInfo());
+            }
+            break;
+            case InterServer.ISMSG_IS_WORLD_AVAIL: {
+                if (((ISWorldAvaiPacket) packet).getAvail()) {
+                    OkPacket okPacket = new OkPacket();
+                    okPacket.setSender(packet.getSender());
+                    networkManager.sendPacket(okPacket);
+                    PlayerInfo playerInfo = null;
+                    for (PlayerInfo pi : players) {
+                        if (pi.getUID().equals(packet.getSender()))
+                            playerInfo = pi;
+                    }
+                    if (playerInfo != null) {
+                        CharInWorldPacket charInWorldPacket = new CharInWorldPacket(playerInfo);
+                        charInWorldPacket.setSender(packet.getSender());
+                        networkManager.sendPacket(charInWorldPacket);
+                    }
+                } else {
+                    WorldIsNotAvail worldIsNotAvail = new WorldIsNotAvail();
+                    worldIsNotAvail.setWorld(((ISWorldAvaiPacket) packet).getWorld());
+                    worldIsNotAvail.setSender(packet.getSender());
+                    networkManager.sendPacket(worldIsNotAvail);
+                }
             }
             break;
         }

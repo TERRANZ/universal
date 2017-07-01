@@ -5,11 +5,9 @@
 package ru.terra.universal.client.gui;
 
 import ru.terra.universal.client.game.GameStateHolder;
-import ru.terra.universal.client.game.GameView;
 import ru.terra.universal.client.network.ClientWorker;
 import ru.terra.universal.client.network.GUIDHOlder;
 import ru.terra.universal.interserver.network.NetworkManager;
-import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.client.SelectServerPacket;
 
 import java.util.List;
@@ -137,16 +135,11 @@ public class LoginWindow extends javax.swing.JFrame {
 
     private void LoginBtnActionPerformed(java.awt.event.ActionEvent evt) {
         NetworkManager.getInstance().start(ClientWorker.class, jTextField1.getText(), 12345);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
 
     private void EnterWorldBtnActionPerformed(java.awt.event.ActionEvent evt) {
         SelectServerPacket selectServerPacket = new SelectServerPacket();
-        selectServerPacket.setTargetWorld("1");
+        selectServerPacket.setTargetWorld(jList1.getSelectedValue().toString());
         selectServerPacket.setSender(GUIDHOlder.getInstance().getGuid());
 
         GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.SERVER_SELECTED);
