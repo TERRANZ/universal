@@ -3,13 +3,16 @@ package ru.terra.universal.shared.persistance.impl;
 import flexjson.JSONDeserializer;
 import ru.terra.universal.shared.config.Config;
 import ru.terra.universal.shared.config.ConfigConstants;
+import ru.terra.universal.shared.entity.AccountInfo;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.persistance.CharLoader;
 import ru.terra.universal.shared.persistance.FilePersister;
+import ru.terra.universal.shared.util.CryptoUtil;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Date: 25.04.14
@@ -17,33 +20,23 @@ import java.util.*;
  */
 public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
 
-    private JSONDeserializer<List<PlayerInfo>> deserializer = new JSONDeserializer<>();
-    private String fileName = Config.getConfig().getValue(ConfigConstants.CHARACTERS_FILE, ConfigConstants.CHARACTERS_FILE_DEFAULT);
+    private JSONDeserializer<List<PlayerInfo>> charsDeserializer = new JSONDeserializer<>();
+    private JSONDeserializer<List<AccountInfo>> accountsDeserializer = new JSONDeserializer<>();
+    private String charactersFileName = Config.getConfig().getValue(ConfigConstants.CHARACTERS_FILE, ConfigConstants.CHARACTERS_FILE_DEFAULT);
+    private String accountsFileName = Config.getConfig().getValue(ConfigConstants.ACCOUNTS_FILE, ConfigConstants.ACCOUNTS_FILE_DEFAULT);
 
     @Override
     public PlayerInfo loadCharacter(Long uid) {
         for (PlayerInfo playerInfo : loadCharacters())
             if (playerInfo.getUID().equals(uid))
                 return playerInfo;
-        PlayerInfo playerInfo = new PlayerInfo();
-        playerInfo.setUID(uid);
-        playerInfo.setName("My Cool player " + playerInfo.getUID());
-        playerInfo.setWorld("newScene");
-        float min = 20.0f;
-        float max = 50.0f;
-
-        Random rand = new Random();
-
-        playerInfo.setX(rand.nextFloat() * (max - min) + min);
-        playerInfo.setY(rand.nextFloat() * (max - min) + min);
-        playerInfo.setZ(rand.nextFloat() * (max - min) + min);
-        return playerInfo;
+        return null;
     }
 
     @Override
     public List<PlayerInfo> loadCharacters() {
         try {
-            return deserializer.use(null, ArrayList.class).use("values", PlayerInfo.class).deserialize(new FileReader(dir + fileName));
+            return charsDeserializer.use(null, ArrayList.class).use("values", PlayerInfo.class).deserialize(new FileReader(dir + charactersFileName));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -51,12 +44,22 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
     }
 
     @Override
-    public Long findCharacter(String login, String pass) {
-        //TODO:
-//        List<PlayerInfo> playerInfos = loadCharacters();
-//        if (playerInfos.size() > 0)
-//            return playerInfos.get(0).getUID();
-//        Long uid = ;
-        return new Date().getTime();
+    public AccountInfo findAccount(String login, String pass) {
+        List<AccountInfo> accounts = loadAccounts();
+        for (AccountInfo ai : accounts) {
+            if (ai.getLogin().equals(login) && ai.getPass().equals(CryptoUtil.encryptMD5(pass)))
+                return ai;
+        }
+        return null;
+    }
+
+    @Override
+    public List<AccountInfo> loadAccounts() {
+        try {
+            return accountsDeserializer.use(null, ArrayList.class).use("values", AccountInfo.class).deserialize(new FileReader(dir + accountsFileName));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 }

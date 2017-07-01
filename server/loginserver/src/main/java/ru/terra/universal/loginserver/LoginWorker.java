@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
+import ru.terra.universal.shared.entity.AccountInfo;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.interserver.BootCharPacket;
@@ -13,12 +14,17 @@ import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 import ru.terra.universal.shared.packet.server.LoginFailedPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
 import ru.terra.universal.shared.persistance.CharLoader;
+import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
+import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
+
+import java.util.Date;
 
 public class LoginWorker extends InterserverWorker {
 
     private Logger logger = Logger.getLogger(this.getClass());
     private CharLoader charLoader = new JsonCharLoaderImpl();
+    private CharSaver charSaver = new JsonCharSaverImpl();
 
     @Override
     public void disconnectedFromChannel() {
@@ -41,14 +47,29 @@ public class LoginWorker extends InterserverWorker {
             case OpCodes.Client.Login.CMSG_LOGIN: {
                 LoginPacket loginPacket = (LoginPacket) packet;
                 logger.info("Client with login " + loginPacket.getLogin() + " and pass " + loginPacket.getPassword() + " attempting to log in");
-                Long uid = charLoader.findCharacter(loginPacket.getLogin(), loginPacket.getPassword());
-                if (uid != null) {
+                AccountInfo accountInfo = charLoader.findAccount(loginPacket.getLogin(), loginPacket.getPassword());
+
+                //TODO:
+                if (accountInfo == null) {
+                    accountInfo = new AccountInfo(
+                            loginPacket.getLogin(),
+                            loginPacket.getPassword(),
+                            false,
+                            new Date(),
+                            0L,
+                            0,
+                            new Date().getTime()
+                    );
+                    charSaver.save(accountInfo);
+                }
+
+                if (accountInfo != null) {
                     logger.info("Client with id " + loginPacket.getSender() + " logged in");
-                    logger.info("Client registered with GUID = " + uid);
+                    logger.info("Client registered with GUID = " + accountInfo.getUid());
                     OkPacket okPacket = new OkPacket();
-                    okPacket.setSender(uid);
+                    okPacket.setSender(accountInfo.getUid());
                     CharRegPacket charRegPacket = new CharRegPacket();
-                    charRegPacket.setSender(uid);
+                    charRegPacket.setSender(accountInfo.getUid());
                     charRegPacket.setOldId(loginPacket.getSender());
                     networkManager.sendPacket(charRegPacket);
                     networkManager.sendPacket(okPacket);

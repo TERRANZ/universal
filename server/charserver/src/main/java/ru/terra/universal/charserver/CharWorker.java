@@ -16,9 +16,7 @@ import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
 import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class CharWorker extends InterserverWorker {
 
@@ -48,6 +46,22 @@ public class CharWorker extends InterserverWorker {
             case InterServer.ISMSG_BOOT_CHAR: {
                 log.info("Registering character with uid = " + packet.getSender());
                 PlayerInfo playerInfo = charLoader.loadCharacter(packet.getSender());
+                if (playerInfo == null) {
+                    playerInfo = new PlayerInfo();
+                    playerInfo.setUID(packet.getSender());
+                    playerInfo.setName("My Cool player " + playerInfo.getUID());
+                    playerInfo.setWorld("newScene");
+                    float min = 20.0f;
+                    float max = 50.0f;
+
+                    Random rand = new Random();
+
+                    playerInfo.setX(rand.nextFloat() * (max - min) + min);
+                    playerInfo.setY(rand.nextFloat() * (max - min) + min);
+                    playerInfo.setZ(rand.nextFloat() * (max - min) + min);
+                    charSaver.save(playerInfo);
+                }
+
                 CharBootPacket charBootPacket = new CharBootPacket();
                 charBootPacket.setPlayerInfo(playerInfo);
                 List<String> worlds = new ArrayList<>();

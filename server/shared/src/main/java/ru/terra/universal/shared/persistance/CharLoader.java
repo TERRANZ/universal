@@ -1,5 +1,6 @@
 package ru.terra.universal.shared.persistance;
 
+import ru.terra.universal.shared.entity.AccountInfo;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
 import java.util.List;
@@ -9,9 +10,11 @@ import java.util.List;
  * Time: 14:34
  */
 public interface CharLoader {
-    public PlayerInfo loadCharacter(Long uid);
+    PlayerInfo loadCharacter(Long uid);
 
-    public List<PlayerInfo> loadCharacters();
+    List<PlayerInfo> loadCharacters();
 
-    public Long findCharacter(String login, String pass);
+    AccountInfo findAccount(String login, String pass);
+
+    List<AccountInfo> loadAccounts();
 }

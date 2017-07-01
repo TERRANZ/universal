@@ -1,5 +1,6 @@
 package ru.terra.universal.shared.persistance;
 
+import ru.terra.universal.shared.entity.AccountInfo;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
 import java.util.List;
@@ -9,7 +10,11 @@ import java.util.List;
  * Time: 14:46
  */
 public interface CharSaver {
-    public void save(PlayerInfo playerInfo);
+    void save(PlayerInfo playerInfo);
 
-    public void save(List<PlayerInfo> playerInfos);
+    void savePlayerInfos(List<PlayerInfo> playerInfos);
+
+    void save(AccountInfo accountInfo);
+
+    void saveAccountInfos(List<AccountInfo> accountInfos);
 }

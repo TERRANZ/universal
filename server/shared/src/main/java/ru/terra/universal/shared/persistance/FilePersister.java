@@ -10,7 +10,7 @@ import java.io.File;
  * Time: 15:05
  */
 public abstract class FilePersister {
-    protected String dir = Config.getConfig().getValue(ConfigConstants.PERSISTANCE_DIR, ConfigConstants.PERSISTANCE_DIR_DEFAULT);
+    protected String dir = Config.getConfig().getValue(ConfigConstants.PERSISTENCE_DIR, ConfigConstants.PERSISTENCE_DIR_DEFAULT);
 
     public FilePersister() {
         File storageDir = new File(dir);
