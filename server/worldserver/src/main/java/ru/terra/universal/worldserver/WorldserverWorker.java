@@ -26,6 +26,7 @@ public class WorldserverWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
+        Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket();
@@ -39,18 +40,18 @@ public class WorldserverWorker extends InterserverWorker {
             }
             break;
             case InterServer.ISMSG_CHAR_IN_WORLD: {
-                log.info("Character " + packet.getSender() + " is in world now!");
+                log.info("Character " + sender + " is in world now!");
                 PlayerInfo playerInfo = ((CharInWorldPacket) packet).getPlayerInfo();
                 worldWorker.addPlayer(playerInfo);
                 log.info("Character " + playerInfo + " is in world now");
 
                 WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
-                worldStatePacket.setSender(packet.getSender());
+                worldStatePacket.setSender(sender);
                 networkManager.sendPacket(worldStatePacket);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
-                log.info("Unregistering char with uid = " + packet.getSender());
+                log.info("Unregistering char with uid = " + sender);
                 worldWorker.removePlayer(packet.getSender());
             }
             break;
