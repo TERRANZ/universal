@@ -2,37 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ru_terra_universal_shared_1.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../client/target/com.googlecode.addjars.mojo.AddJarsMojo/pom-modified.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../client/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterPath="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateChangeNotifier.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateChangeNotifier.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" afterPath="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/charserver/charserver.iml" afterPath="$PROJECT_DIR$/charserver/charserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/chatserver/chatserver.iml" afterPath="$PROJECT_DIR$/chatserver/chatserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frontend/frontend.iml" afterPath="$PROJECT_DIR$/frontend/frontend.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/loginserver.iml" afterPath="$PROJECT_DIR$/loginserver/loginserver.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/loginserver/pom.xml" afterPath="$PROJECT_DIR$/loginserver/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/pom.xml" afterPath="$PROJECT_DIR$/shared/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.iml" afterPath="$PROJECT_DIR$/server.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/shared/shared.iml" afterPath="$PROJECT_DIR$/shared/shared.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/worldserver/worldserver.iml" afterPath="$PROJECT_DIR$/worldserver/worldserver.iml" />
+      <change beforePath="$PROJECT_DIR$/../OpenAL64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OpenAL64.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/OpenAL64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/OpenAL64.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3o" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3odata" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3odata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3o" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3odata" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3odata" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/dirt.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/dirt.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/grass.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/grass.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend0.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend0.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/waterFilter.j3f" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/waterFilter.j3f" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/build.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/liblwjgl.so" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/liblwjgl.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/libopenal.so" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/libopenal.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/lwjgl64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/lwjgl64.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/master-application.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/master-application.jnlp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/assets-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/assets-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/jmeproj/src/mygame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/src/mygame/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lwjgl64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../lwjgl64.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <ignored path="$PROJECT_DIR$/charserver/target/" />
+    <ignored path="$PROJECT_DIR$/loginserver/target/" />
+    <ignored path="$PROJECT_DIR$/chatserver/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/frontend/target/" />
+    <ignored path="$PROJECT_DIR$/shared/target/" />
+    <ignored path="$PROJECT_DIR$/worldserver/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="Commander">
     <leftPanel />
     <rightPanel />
@@ -40,9 +62,6 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DaemonCodeAnalyzer">
-    <disable_hints />
   </component>
   <component name="DebuggerManager">
     <ui_properties converted="true" />
@@ -84,12 +103,22 @@
     </breakpoint_any>
     <breakpoint_rules converted="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="server" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.iml">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.properties">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -104,63 +133,6 @@
       <MyDateState />
     </option>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="changedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntityInfo.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/WorldEntity.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldLoader.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldControlInterface.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Module.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldLoader.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/persistance/JsonWorldSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/WorldModule.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/world/World.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java" />
-        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/persistance/CharLoader.java" />
-        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/persistance/CharLoaderImpl.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldLoader.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldLoaderImpl.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonWorldSaverImpl.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersistance.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/FilePersister.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharSaver.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/AbstractEntity.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/LoginFailedPacket.java" />
-        <option value="$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharSaverImpl.java" />
-        <option value="$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateChangeNotifier.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameStateHolder.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MovementPacket.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/test/ClientTest.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/ChatSayPacket.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java" />
-        <option value="$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" />
-        <option value="$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java" />
-        <option value="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java" />
-        <option value="$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" />
-        <option value="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java" />
-        <option value="$PROJECT_DIR$/shared/pom.xml" />
-        <option value="$PROJECT_DIR$/loginserver/pom.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-      </list>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
@@ -169,7 +141,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
     <option name="y" value="-3" />
     <option name="width" value="1926" />
     <option name="height" value="1052" />
@@ -197,146 +168,42 @@
     </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
     <ConfirmationsSetting value="2" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="universal-server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="loginserver" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
+          <expand>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567444237579" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
@@ -347,253 +214,126 @@
       <recent name="ru.terra.universal" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.charserver">
-    <configuration default="true" type="Remote" factoryName="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
-      <module name="" />
-      <option name="ACTIVITY_CLASS" value="" />
-      <option name="MODE" value="default_activity" />
-      <option name="DEPLOY" value="true" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
-      <module name="" />
-      <option name="TESTING_TYPE" value="0" />
-      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
-      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
-      <option name="PREFERRED_AVD" value="" />
-      <option name="USE_COMMAND_LINE" value="true" />
-      <option name="COMMAND_LINE" value="" />
-      <option name="WIPE_USER_DATA" value="false" />
-      <option name="DISABLE_BOOT_ANIMATION" value="false" />
-      <option name="NETWORK_SPEED" value="full" />
-      <option name="NETWORK_LATENCY" value="none" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
-      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
-      <method />
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-      <method />
-    </configuration>
-    <configuration default="false" name="Client" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="ru.terra.universal.client.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="client" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="frontend" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="ru.terra.universal.frontend.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="frontend" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Debug" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" name="charserver" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="ru.terra.universal.charserver.Main" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file:///virtual/universal" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="charserver" />
-      <envs />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="" />
-        <option name="TRANSPORT" value="0" />
-        <option name="LOCAL" value="true" />
-      </RunnerSettings>
-      <ConfigurationWrapper RunnerId="Debug" />
-      <method />
-    </configuration>
-    <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Application.Client" />
-      <item index="1" class="java.lang.String" itemvalue="Application.frontend" />
-      <item index="2" class="java.lang.String" itemvalue="Application.charserver" />
-    </list>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
     </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false" />
-  <component name="SvnConfiguration" myUseAcceleration="nothing">
+  <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="" />
       <created>1377862610442</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
       <updated>1377862610442</updated>
+      <workItem from="1567444059034" duration="173000" />
     </task>
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="173000" />
+  </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="-3" width="1926" height="1052" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="-3" width="1926" height="1052" extended-state="0" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32932165" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.03842049" sideWeight="0.6717724" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.3998935" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39934355" sideWeight="0.49839914" order="13" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4694737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24279615" sideWeight="0.6717724" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21033014" sideWeight="0.6739496" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4587738" sideWeight="0.49786553" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3245243" sideWeight="0.49786553" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.3369803" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" x="1918" y="0" width="1920" height="1053" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3222698" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Image Layers" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6739496" visible="true" weight="0.21223404" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info auto_hide="true" id="Designer" order="2" sideWeight="0.6717724" weight="0.24279615" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Docker" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Application Servers" order="1" />
+      <window_info anchor="bottom" id="Message" order="2" />
+      <window_info anchor="bottom" id="Find" order="3" visible="true" weight="0.3222698" />
+      <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49786553" weight="0.4587738" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.4694737" />
+      <window_info anchor="bottom" id="TODO" order="8" weight="0.32932165" />
+      <window_info anchor="bottom" id="Changes" order="9" weight="0.32932165" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49786553" weight="0.3245243" />
+      <window_info anchor="bottom" x="1918" y="0" width="1920" height="1053" id="Android" order="12" type="FLOATING" weight="0.3369803" />
+      <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.49839914" side_tool="true" weight="0.39934355" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.3998935" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette&#9;" order="3" sideWeight="0.6717724" weight="0.03842049" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.32977587" />
+      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="JetGradle" order="7" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -601,14 +341,6 @@
     </option>
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
-    </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="myTodoPanelSettings">
-      <TodoPanelSettings />
     </option>
   </component>
   <component name="XDebuggerManager">
@@ -627,7 +359,6 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -635,326 +366,296 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/MovementPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6474429" vertical-offset="197" max-vertical-offset="1116">
-          <caret line="63" column="30" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/BootCharPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/HelloPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegisterPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegWorldPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09793253" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UpdatePlayerPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18060201" vertical-offset="0" max-vertical-offset="897">
+        <state>
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UnregCharPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2006689" vertical-offset="0" max-vertical-offset="897">
+        <state>
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4515778" vertical-offset="557" max-vertical-offset="1476">
+        <state>
           <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2937976" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19586506" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/UpdatePacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17627856" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/chatserver/.classpath">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5288357" vertical-offset="0" max-vertical-offset="919">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/.classpath" />
     <entry file="file://$PROJECT_DIR$/charserver/src/main/java/ru/terra/universal/charserver/CharWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2546246" vertical-offset="270" max-vertical-offset="1476">
+        <state>
           <caret line="48" column="94" selection-start-line="48" selection-start-column="83" selection-end-line="48" selection-end-column="83" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/constants/OpCodes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33297062" vertical-offset="0" max-vertical-offset="1260">
+        <state>
           <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/ChatSayPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49185666" vertical-offset="141" max-vertical-offset="1062">
+        <state>
           <caret line="33" column="27" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/LoginWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45276874" vertical-offset="2067" max-vertical-offset="2988">
+        <state>
           <caret line="156" column="115" selection-start-line="152" selection-start-column="4" selection-end-line="156" selection-end-column="68" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/CharLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2931596" vertical-offset="0" max-vertical-offset="921">
+        <state>
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/TempCharactersHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6872964" vertical-offset="15" max-vertical-offset="936">
+        <state>
           <caret line="36" column="22" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/CharactersHolder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27687296" vertical-offset="285" max-vertical-offset="1206">
+        <state>
           <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/test/ClientTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.98045605" vertical-offset="87" max-vertical-offset="1278">
+        <state>
           <caret line="68" column="49" selection-start-line="68" selection-start-column="49" selection-end-line="68" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/network/ClientWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09663409" vertical-offset="217" max-vertical-offset="1440">
+        <state>
           <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="jar://$PROJECT_DIR$/../client/lib/nifty-default-controls.jar!/de/lessvoid/nifty/controls/ChatTextSendEvent.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.100446425" vertical-offset="0" max-vertical-offset="896">
+        <state>
           <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/chatserver/src/main/java/ru/terra/universal/chatserver/ChatWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23995657" vertical-offset="31" max-vertical-offset="954">
+        <state>
           <caret line="23" column="83" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25770926" vertical-offset="0" max-vertical-offset="908">
-          <caret line="15" column="79" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state>
+          <caret line="15" column="79" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6221498" vertical-offset="0" max-vertical-offset="1602">
-          <caret line="92" column="24" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        <state>
+          <caret line="92" column="24" selection-start-line="92" selection-end-line="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0640608" vertical-offset="157" max-vertical-offset="1080">
+        <state>
           <caret line="18" column="73" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="921">
-          <caret line="15" column="17" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state>
+          <caret line="15" column="17" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/MobsModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21498372" vertical-offset="0" max-vertical-offset="921">
+        <state>
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/WorldserverWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="72" max-vertical-offset="1206">
+        <state>
           <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver/module/StatisticModule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25407165" vertical-offset="0" max-vertical-offset="921">
+        <state>
           <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/persistance/impl/JsonCharLoaderImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45593035" vertical-offset="13" max-vertical-offset="936">
+        <state>
           <caret line="35" column="76" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/server.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="919">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05875952" vertical-offset="0" max-vertical-offset="954">
+        <state>
           <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/loginserver/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07834603" vertical-offset="0" max-vertical-offset="1062">
+        <state>
           <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05875952" vertical-offset="0" max-vertical-offset="919">
+        <state>
           <caret line="3" column="31" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17589577" vertical-offset="0" max-vertical-offset="1476">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state>
+          <caret line="9" column="25" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/client.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="921">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20086862" vertical-offset="517" max-vertical-offset="1440">
+        <state>
           <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29768467" vertical-offset="0" max-vertical-offset="907">
+        <state>
           <caret line="15" column="33" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/client/LoginPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.099228226" vertical-offset="0" max-vertical-offset="907">
+        <state>
           <caret line="8" column="43" selection-start-line="8" selection-start-column="43" selection-end-line="8" selection-end-column="43" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/PacketFrameDecoder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29801324" vertical-offset="0" max-vertical-offset="906">
+        <state>
           <caret line="25" column="33" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/AbstractPacket.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3576159" vertical-offset="0" max-vertical-offset="1278">
+        <state>
           <caret line="31" column="36" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/PacketFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53642386" vertical-offset="0" max-vertical-offset="906">
+        <state>
           <caret line="27" column="34" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3171806" vertical-offset="0" max-vertical-offset="1170">
+        <state>
           <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
           <folding />
         </state>
@@ -962,7 +663,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/ClientPipelineFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3370044" vertical-offset="0" max-vertical-offset="908">
+        <state>
           <caret line="19" column="61" selection-start-line="19" selection-start-column="61" selection-end-line="19" selection-end-column="61" />
           <folding />
         </state>
@@ -970,7 +671,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11894273" vertical-offset="0" max-vertical-offset="908">
+        <state>
           <caret line="14" column="46" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
           <folding />
         </state>
@@ -978,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/NetworkManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3171806" vertical-offset="0" max-vertical-offset="908">
+        <state>
           <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding />
         </state>
@@ -986,7 +687,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/interserver/network/netty/InterserverWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1585903" vertical-offset="0" max-vertical-offset="908">
+        <state>
           <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
@@ -994,11 +695,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5550661" vertical-offset="0" max-vertical-offset="1260">
+        <state>
           <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.properties">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
@@ -1090,4 +797,3 @@
     </states>
   </component>
 </project>
-

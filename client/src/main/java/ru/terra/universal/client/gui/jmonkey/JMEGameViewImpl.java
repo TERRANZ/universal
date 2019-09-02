@@ -82,7 +82,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         // We re-use the flyby camera for rotation, while positioning is handled
         // by physics
         viewPort.setBackgroundColor(new ColorRGBA(0.7f, 0.8f, 1f, 1f));
-        // flyCam.setMoveSpeed(100);
+        flyCam.setMoveSpeed(100);
         setUpKeys();
         setUpLight();
 
@@ -119,23 +119,24 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         controlCube.setMaterial(mat1);
         rootNode.attachChild(controlCube);
         // bulletAppState.getPhysicsSpace().add(red);
-        flyCam.setEnabled(false);
-        camNode = new CameraNode("Camera Node", cam);
-        camNode.setLocalTranslation(playerInfo.getX(), playerInfo.getY() + currY, playerInfo.getZ());
+//        flyCam.setEnabled(false);
+//        camNode = new CameraNode("Camera Node", cam);
+//        camNode.setLocalTranslation(playerInfo.getX(), playerInfo.getY() + currY, playerInfo.getZ());
         // This mode means that camera copies the movements of the target:
-        camNode.setControlDir(CameraControl.ControlDirection.SpatialToCamera);
+//        camNode.setControlDir(CameraControl.ControlDirection.SpatialToCamera);
 
         // Move camNode, e.g. behind and above the target:
 //        camNode.setLocalTranslation(new Vector3f(0, currY, 0));
         // Rotate the camNode to look at the target:
-        camNode.lookAt(controlCube.getLocalTranslation(), Vector3f.UNIT_Z);
+//        camNode.lookAt(controlCube.getLocalTranslation(), Vector3f.UNIT_Z);
         // Attach the camNode to the target:
-        rootNode.attachChild(camNode);
+//        rootNode.attachChild(camNode);
         controlCube.addControl(playerControl);
         playerControl.setPhysicsLocation(new Vector3f(playerInfo.getX(), playerInfo.getY(), playerInfo.getZ()));
         FilterPostProcessor water;
         water = assetManager.loadFilter("waterFilter.j3f");
         viewPort.addProcessor(water);
+        bulletAppState.getPhysicsSpace().add(landscape);
     }
 
     private CharacterControl addCharacterControl(PlayerInfo playerInfo) {
@@ -179,8 +180,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         inputManager.addListener(this, "Q");
         inputManager.addListener(this, "Z");
         // inputManager.addListener(this, "Jump");
-        inputManager.addMapping("RClick", new MouseButtonTrigger(1));
-        inputManager.addListener(this, "RClick");
+//        inputManager.addMapping("RClick", new MouseButtonTrigger(1));
+//        inputManager.addListener(this, "RClick");
     }
 
     /**
@@ -292,7 +293,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     private void sendPlayerMovingVector(Vector3f dir, int direction) {
-        camNode.setLocalTranslation(controlCube.getLocalTranslation().setY(currY));
+//        camNode.setLocalTranslation(controlCube.getLocalTranslation().setY(currY));
         GameManager.getInstance().sendPlayerMove(direction, dir.getX(), dir.getY(), dir.getZ(), 0);
     }
 
