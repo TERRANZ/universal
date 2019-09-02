@@ -34,6 +34,7 @@ public class LoginWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
+        Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket();
@@ -65,19 +66,19 @@ public class LoginWorker extends InterserverWorker {
                 }
 
                 if (accountInfo != null) {
-                    logger.info("Client with id " + loginPacket.getSender() + " logged in");
+                    logger.info("Client with id " + sender + " logged in");
                     logger.info("Client registered with GUID = " + accountInfo.getUid());
                     OkPacket okPacket = new OkPacket();
                     okPacket.setSender(accountInfo.getUid());
                     CharRegPacket charRegPacket = new CharRegPacket();
                     charRegPacket.setSender(accountInfo.getUid());
-                    charRegPacket.setOldId(loginPacket.getSender());
+                    charRegPacket.setOldId(sender);
                     networkManager.sendPacket(charRegPacket);
                     networkManager.sendPacket(okPacket);
                 } else {
                     logger.info("Unable to find character");
                     LoginFailedPacket loginFailedPacket = new LoginFailedPacket();
-                    loginFailedPacket.setSender(loginPacket.getSender());
+                    loginFailedPacket.setSender(sender);
                     loginFailedPacket.setReason("Unable to find player by password and login");
                     networkManager.sendPacket(loginFailedPacket);
                 }
@@ -86,12 +87,12 @@ public class LoginWorker extends InterserverWorker {
             case OpCodes.Client.Login.CSMG_BOOT_ME: {
                 logger.info("Client sent Boot Me to us");
                 BootCharPacket bootCharPacket = new BootCharPacket();
-                bootCharPacket.setSender(packet.getSender());
+                bootCharPacket.setSender(sender);
                 networkManager.sendPacket(bootCharPacket);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
-                logger.info("Unregistering char with uid = " + packet.getSender());
+                logger.info("Unregistering char with uid = " + sender);
             }
             break;
         }

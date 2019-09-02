@@ -14,7 +14,7 @@ public class ClientPipelineFactory implements ChannelPipelineFactory {
     }
 
     @Override
-    public ChannelPipeline getPipeline() throws Exception {
+    public ChannelPipeline getPipeline() {
         PacketFrameDecoder decoder = new PacketFrameDecoder();
         PacketFrameEncoder encoder = new PacketFrameEncoder();
         return Channels.pipeline(decoder, encoder, new InterserverHandler(decoder, encoder, workerClass));

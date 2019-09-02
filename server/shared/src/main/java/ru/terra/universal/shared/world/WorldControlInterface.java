@@ -5,5 +5,5 @@ package ru.terra.universal.shared.world;
  * Time: 12:21
  */
 public interface WorldControlInterface {
-    public void stop();
+    void stop();
 }

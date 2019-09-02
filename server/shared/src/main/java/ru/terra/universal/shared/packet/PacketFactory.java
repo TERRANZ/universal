@@ -32,9 +32,7 @@ public class PacketFactory {
                 packet = packet.getClass().newInstance();
                 packet.setSender(sender);
                 return packet;
-            } catch (InstantiationException e) {
-                return null;
-            } catch (IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException e) {
                 return null;
             }
         }

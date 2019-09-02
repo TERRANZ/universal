@@ -25,9 +25,7 @@ public class ClassSearcher<T> {
             Object o = null;
             try {
                 o = c.newInstance();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InstantiationException | IllegalAccessException e) {
                 e.printStackTrace();
             }
             if (o != null)

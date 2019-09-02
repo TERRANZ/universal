@@ -21,6 +21,7 @@ public class ChatWorker extends InterserverWorker {
     @Override
     public void acceptPacket(AbstractPacket packet) {
 //        log.info("Received opcode "+packet.getOpCode());
+        Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
                 HelloPacket helloPacket = new HelloPacket();
@@ -33,16 +34,16 @@ public class ChatWorker extends InterserverWorker {
             }
             break;
             case InterServer.ISMSG_BOOT_CHAR: {
-                log.info("Registering char with uid = " + packet.getSender());
+                log.info("Registering char with uid = " + sender);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
-                log.info("Unregistering char with uid = " + packet.getSender());
+                log.info("Unregistering char with uid = " + sender);
             }
             break;
             case OpCodes.ChatServer.Chat.CMSG_SAY: {
                 ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
-                log.info("Player " + packet.getSender() + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
+                log.info("Player " + sender + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
                 chatSayPacket.setSender(chatSayPacket.getTo());
                 networkManager.sendPacket(chatSayPacket);
             }
