@@ -1,0 +1,40 @@
+apply plugin: 'java'
+
+group 'ru.terra.universal'
+version '2'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+subprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+    }
+
+    apply plugin: "java"
+    apply plugin: "application"
+
+    dependencies {
+
+        compile "org.jboss.netty:netty:3.2.9.Final"
+        compile "log4j:log4j:1.2.17"
+        compile "org.reflections:reflections:0.9.8"
+        compile "net.sf.flexjson:flexjson:2.1"
+        compile "commons-configuration:commons-configuration:1.9"
+
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+
+    mainClassName = 'ru.terra.universal.server.Main'
+    jar {
+        manifest.attributes("Main-Class": mainClassName)
+        from {
+            configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+
+}
+

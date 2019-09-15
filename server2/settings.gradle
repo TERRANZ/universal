@@ -1,0 +1,8 @@
+rootProject.name = 'server'
+
+include ":shared"
+include ":charserver"
+include ":chatserver"
+include ":frontend"
+include ":loginserver"
+include ":worldserver"
