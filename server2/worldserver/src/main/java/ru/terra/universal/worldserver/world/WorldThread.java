@@ -1,10 +1,10 @@
 package ru.terra.universal.worldserver.world;
 
 import ru.terra.universal.shared.entity.AbstractEntity;
-import ru.terra.universal.shared.world.World;
-import ru.terra.universal.shared.world.WorldControlInterface;
 import ru.terra.universal.shared.persistance.impl.JsonWorldLoaderImpl;
 import ru.terra.universal.shared.persistance.impl.JsonWorldSaverImpl;
+import ru.terra.universal.shared.world.World;
+import ru.terra.universal.shared.world.WorldControlInterface;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ public class WorldThread implements Runnable, WorldControlInterface {
     private World world;
     private boolean stop = false;
 
-    public WorldThread() {
+    WorldThread() {
         world = new World(new JsonWorldLoaderImpl(), new JsonWorldSaverImpl(), "uid");
     }
 
@@ -34,7 +34,7 @@ public class WorldThread implements Runnable, WorldControlInterface {
         }
     }
 
-    public synchronized List<AbstractEntity> getEntities() {
+    synchronized List<AbstractEntity> getEntities() {
         return world.getEntities();
     }
 

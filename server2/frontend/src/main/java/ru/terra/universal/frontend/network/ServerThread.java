@@ -15,10 +15,10 @@ import java.util.concurrent.TimeUnit;
 public class ServerThread implements Runnable {
     private int port;
     private String bindAddr;
-    private Logger log = Logger.getLogger(ServerThread.class);
-    private Class<? extends ServerWorker> serverWorker;
+    private final Logger log = Logger.getLogger(ServerThread.class);
+    private final Class<? extends ServerWorker> serverWorker;
 
-    public ServerThread(int port, String bindAddr, Class<? extends ServerWorker> serverWorker) {
+    public ServerThread(final int port, final String bindAddr, Class<? extends ServerWorker> serverWorker) {
         this.port = port;
         this.bindAddr = bindAddr;
         this.serverWorker = serverWorker;
@@ -27,15 +27,15 @@ public class ServerThread implements Runnable {
     @Override
     public void run() {
         log.info("Server thread with " + serverWorker.getCanonicalName() + " started");
-        ExecutorService bossExec = new OrderedMemoryAwareThreadPoolExecutor(1, 400000000, 2000000000, 60, TimeUnit.SECONDS);
-        ExecutorService ioExec = new OrderedMemoryAwareThreadPoolExecutor(4 /* число рабочих потоков */, 400000000, 2000000000, 60, TimeUnit.SECONDS);
-        ServerBootstrap networkServer = new ServerBootstrap(new NioServerSocketChannelFactory(bossExec, ioExec, 4 /*
-                                                           * то же самое число рабочих потоков
-														   */));
+        final ExecutorService bossExec = new OrderedMemoryAwareThreadPoolExecutor(1, 400000000, 2000000000, 60, TimeUnit.SECONDS);
+        final ExecutorService ioExec = new OrderedMemoryAwareThreadPoolExecutor(4 /* число рабочих потоков */, 400000000, 2000000000, 60, TimeUnit.SECONDS);
+        final ServerBootstrap networkServer = new ServerBootstrap(new NioServerSocketChannelFactory(bossExec, ioExec, 4 /*
+         * то же самое число рабочих потоков
+         */));
         networkServer.setOption("backlog", 500);
         networkServer.setOption("connectTimeoutMillis", 10000);
         networkServer.setPipelineFactory(new ServerPipelineFactory(serverWorker));
-        Channel channel = networkServer.bind(new InetSocketAddress(bindAddr, port));
+        final Channel channel = networkServer.bind(new InetSocketAddress(bindAddr, port));
     }
 
 }

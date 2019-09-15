@@ -9,5 +9,5 @@ import java.util.List;
  * Time: 20:03
  */
 public interface WorldSaver {
-    public void save(String worldUID, List<AbstractEntity> entities);
+    void save(final String worldUID, final List<AbstractEntity> entities);
 }

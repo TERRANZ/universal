@@ -17,8 +17,8 @@ public class ISWorldAvaiPacket extends AbstractPacket {
         super();
     }
 
-    public ISWorldAvaiPacket(String world) {
-        super();
+    public ISWorldAvaiPacket(final Long sender, final String world) {
+        super(sender);
         this.world = world;
     }
 

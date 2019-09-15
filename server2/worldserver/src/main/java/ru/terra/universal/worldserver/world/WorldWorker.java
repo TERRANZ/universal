@@ -19,11 +19,11 @@ import java.util.Map;
  * Time: 14:41
  */
 public class WorldWorker {
-    private static WorldWorker instance = new WorldWorker();
+    private static final WorldWorker instance = new WorldWorker();
     private final Map<Long, PlayerInfo> players = new HashMap<>();
     private WorldThread worldThread;
-    private Logger log = Logger.getLogger(this.getClass());
-    private NetworkManager networkManager = NetworkManager.getInstance();
+    private final Logger log = Logger.getLogger(this.getClass());
+    private final NetworkManager networkManager = NetworkManager.getInstance();
 
     public synchronized Map<Long, PlayerInfo> getPlayers() {
         return players;
@@ -53,7 +53,7 @@ public class WorldWorker {
 
     public void updatePlayerPosition(MovementPacket packet) {
         synchronized (players) {
-            PlayerInfo playerInfo = getPlayers().get(packet.getSender());
+            final PlayerInfo playerInfo = getPlayers().get(packet.getSender());
             playerInfo.setX(packet.getX());
             playerInfo.setY(packet.getY());
             playerInfo.setZ(packet.getZ());
@@ -66,7 +66,7 @@ public class WorldWorker {
     }
 
     public void removePlayer(Long sender) {
-        PlayerInfo playerInfo = getPlayers().remove(sender);
+        final PlayerInfo playerInfo = getPlayers().remove(sender);
         players.values().forEach(p -> networkManager.sendPacket(new PlayerLoggedOutPacket(p.getUID(), sender)));
         networkManager.sendPacket(new UpdatePlayerPacket(playerInfo));
     }

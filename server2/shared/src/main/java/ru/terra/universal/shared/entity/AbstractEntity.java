@@ -8,11 +8,11 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  * Time: 14:43
  */
 public class AbstractEntity {
-    protected Float x = 0f, y = 0f, z = 0f;
-    protected Integer h = 0, r = 0, map = 0;
-    protected Long UID = 0L;
-    protected String model = "default";
-    protected Integer state = 0;
+    private Float x = 0f, y = 0f, z = 0f;
+    private Integer h = 0, r = 0, map = 0;
+    private Long UID = 0L;
+    private String model = "default";
+    private Integer state = 0;
 
     public Float getX() {
         return x;
@@ -70,7 +70,7 @@ public class AbstractEntity {
         this.UID = UID;
     }
 
-    public void writeEntityInfo(ChannelBuffer buffer) {
+    public void writeEntityInfo(final ChannelBuffer buffer) {
         buffer.writeFloat(x);
         buffer.writeFloat(y);
         buffer.writeFloat(z);
@@ -82,7 +82,7 @@ public class AbstractEntity {
         buffer.writeLong(UID);
     }
 
-    public void readEntityInfo(ChannelBuffer buffer) {
+    public void readEntityInfo(final ChannelBuffer buffer) {
         x = buffer.readFloat();
         y = buffer.readFloat();
         z = buffer.readFloat();

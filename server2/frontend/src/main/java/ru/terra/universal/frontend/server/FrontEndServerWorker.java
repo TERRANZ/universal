@@ -10,22 +10,21 @@ import ru.terra.universal.shared.packet.server.OkPacket;
 
 public class FrontEndServerWorker extends ServerWorker {
 
-    private Logger logger = Logger.getLogger(this.getClass());
-    private TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
-    private CharactersHolder charactersHolder = CharactersHolder.getInstance();
-    private ChannelsHolder channelsHolder = ChannelsHolder.getInstance();
-    private WorldServersChannelsHolder worldServersChannelsHolder = WorldServersChannelsHolder.getInstance();
+    private final Logger logger = Logger.getLogger(this.getClass());
+    private final TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
+    private final CharactersHolder charactersHolder = CharactersHolder.getInstance();
+    private final ChannelsHolder channelsHolder = ChannelsHolder.getInstance();
+    private final WorldServersChannelsHolder worldServersChannelsHolder = WorldServersChannelsHolder.getInstance();
 
     @Override
-    public void disconnectedFromChannel(Channel removedChannel) {
+    public void disconnectedFromChannel(final Channel removedChannel) {
         logger.info("Player disconnected");
-        Long removedChar = charactersHolder.removeChar(removedChannel);
+        final Long removedChar = charactersHolder.removeChar(removedChannel);
         if (removedChar != null) {
-            Channel charChannel = channelsHolder.getChannel(OpCodes.CharOpcodeStart);
-            Channel chatChannel = channelsHolder.getChannel(OpCodes.ChatOpcodeStart);
-            Channel loginChannel = channelsHolder.getChannel(OpCodes.LoginOpcodeStart);
-            UnregCharPacket unregCharPacket = new UnregCharPacket();
-            unregCharPacket.setSender(removedChar);
+            final Channel charChannel = channelsHolder.getChannel(OpCodes.CharOpcodeStart);
+            final Channel chatChannel = channelsHolder.getChannel(OpCodes.ChatOpcodeStart);
+            final Channel loginChannel = channelsHolder.getChannel(OpCodes.LoginOpcodeStart);
+            final UnregCharPacket unregCharPacket = new UnregCharPacket(removedChar);
             if (charChannel != null)
                 charChannel.write(unregCharPacket);
             if (chatChannel != null)
@@ -37,13 +36,12 @@ public class FrontEndServerWorker extends ServerWorker {
     }
 
     @Override
-    public void acceptPacket(AbstractPacket message) {
-//        logger.info("Received packet " + message.getOpCode());
+    public void acceptPacket(final AbstractPacket message) {
         if (message.getOpCode() >= OpCodes.WorldOpcodeStart && message.getOpCode() <= OpCodes.WorldOpcodeEnd) {
             if (worldServersChannelsHolder.getChannels() != null && worldServersChannelsHolder.getChannels().size() > 0)
                 worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.get(message.getOpCode()).write(message));
         } else {
-            Channel c = channelsHolder.getChannel(message.getOpCode());
+            final Channel c = channelsHolder.getChannel(message.getOpCode());
             if (c != null)
                 c.write(message);
             else {
@@ -55,8 +53,7 @@ public class FrontEndServerWorker extends ServerWorker {
     @Override
     synchronized public void sendHello() {
         logger.info("Player connected");
-        OkPacket okPacket = new OkPacket();
-        okPacket.setSender(tempCharactersHolder.getUnusedId());
+        final OkPacket okPacket = new OkPacket(tempCharactersHolder.getUnusedId());
         logger.info("Temporary player uid = " + okPacket.getSender() + " with channel " + channel.getId());
         tempCharactersHolder.addTempChannel(okPacket.getSender(), channel);
         channel.write(okPacket);

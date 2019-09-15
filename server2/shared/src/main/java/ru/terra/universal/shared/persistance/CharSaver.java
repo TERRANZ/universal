@@ -10,11 +10,11 @@ import java.util.List;
  * Time: 14:46
  */
 public interface CharSaver {
-    void save(PlayerInfo playerInfo);
+    void save(final PlayerInfo playerInfo);
 
-    void savePlayerInfos(List<PlayerInfo> playerInfos);
+    void savePlayerInfos(final List<PlayerInfo> playerInfos);
 
-    void save(AccountInfo accountInfo);
+    void save(final AccountInfo accountInfo);
 
-    void saveAccountInfos(List<AccountInfo> accountInfos);
+    void saveAccountInfos(final List<AccountInfo> accountInfos);
 }

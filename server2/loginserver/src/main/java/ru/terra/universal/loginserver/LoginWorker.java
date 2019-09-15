@@ -11,7 +11,6 @@ import ru.terra.universal.shared.packet.interserver.BootCharPacket;
 import ru.terra.universal.shared.packet.interserver.CharRegPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
-import ru.terra.universal.shared.packet.server.LoginFailedPacket;
 import ru.terra.universal.shared.packet.server.OkPacket;
 import ru.terra.universal.shared.persistance.CharLoader;
 import ru.terra.universal.shared.persistance.CharSaver;
@@ -34,12 +33,12 @@ public class LoginWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-        Long sender = packet.getSender();
+        final Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
-                HelloPacket helloPacket = new HelloPacket();
+                final HelloPacket helloPacket = new HelloPacket();
                 helloPacket.setHello("login server");
-                RegisterPacket registerPacket = new RegisterPacket();
+                final RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.LoginOpcodeStart);
                 registerPacket.setEndRange(OpCodes.LoginOpcodeEnd);
                 networkManager.sendPacket(helloPacket);
@@ -47,13 +46,10 @@ public class LoginWorker extends InterserverWorker {
             }
             break;
             case OpCodes.Client.Login.CMSG_LOGIN: {
-                LoginPacket loginPacket = (LoginPacket) packet;
+                final LoginPacket loginPacket = (LoginPacket) packet;
                 logger.info("Client with login " + loginPacket.getLogin() + " and pass " + loginPacket.getPassword() + " attempting to log in");
-                AccountInfo accountInfo = charLoader.findAccount(loginPacket.getLogin(), loginPacket.getPassword());
-
-                //TODO:
-                if (accountInfo == null) {
-                    accountInfo = new AccountInfo(
+                final AccountInfo accountInfo = charLoader.findAccount(loginPacket.getLogin(), loginPacket.getPassword()).orElseGet(() -> {
+                    final AccountInfo newAccountInfo = new AccountInfo(
                             loginPacket.getLogin(),
                             CryptoUtil.encryptMD5(loginPacket.getPassword()),
                             false,
@@ -62,33 +58,23 @@ public class LoginWorker extends InterserverWorker {
                             0,
                             new Date().getTime()
                     );
-                    charSaver.save(accountInfo);
-                }
+                    charSaver.save(newAccountInfo);
+                    return newAccountInfo;
+                });
 
-                if (accountInfo != null) {
-                    logger.info("Client with id " + sender + " logged in");
-                    logger.info("Client registered with GUID = " + accountInfo.getUid());
-                    OkPacket okPacket = new OkPacket();
-                    okPacket.setSender(accountInfo.getUid());
-                    CharRegPacket charRegPacket = new CharRegPacket();
-                    charRegPacket.setSender(accountInfo.getUid());
-                    charRegPacket.setOldId(sender);
-                    networkManager.sendPacket(charRegPacket);
-                    networkManager.sendPacket(okPacket);
-                } else {
-                    logger.info("Unable to find character");
-                    LoginFailedPacket loginFailedPacket = new LoginFailedPacket();
-                    loginFailedPacket.setSender(sender);
-                    loginFailedPacket.setReason("Unable to find player by password and login");
-                    networkManager.sendPacket(loginFailedPacket);
-                }
+                logger.info("Client with id " + sender + " logged in");
+                logger.info("Client registered with GUID = " + accountInfo.getUid());
+
+                final CharRegPacket charRegPacket = new CharRegPacket(accountInfo.getUid());
+                charRegPacket.setOldId(sender);
+                networkManager.sendPacket(charRegPacket);
+                networkManager.sendPacket(new OkPacket(accountInfo.getUid()));
+
             }
             break;
             case OpCodes.Client.Login.CSMG_BOOT_ME: {
                 logger.info("Client sent Boot Me to us");
-                BootCharPacket bootCharPacket = new BootCharPacket();
-                bootCharPacket.setSender(sender);
-                networkManager.sendPacket(bootCharPacket);
+                networkManager.sendPacket(new BootCharPacket(sender));
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {

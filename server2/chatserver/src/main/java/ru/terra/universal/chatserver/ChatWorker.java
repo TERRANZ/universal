@@ -20,13 +20,12 @@ public class ChatWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-//        log.info("Received opcode "+packet.getOpCode());
-        Long sender = packet.getSender();
+        final Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
-                HelloPacket helloPacket = new HelloPacket();
+                final HelloPacket helloPacket = new HelloPacket();
                 helloPacket.setHello("chat server");
-                RegisterPacket registerPacket = new RegisterPacket();
+                final RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.ChatOpcodeStart);
                 registerPacket.setEndRange(OpCodes.ChatOpcodeEnd);
                 networkManager.sendPacket(helloPacket);
@@ -42,7 +41,7 @@ public class ChatWorker extends InterserverWorker {
             }
             break;
             case OpCodes.ChatServer.Chat.CMSG_SAY: {
-                ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
+                final ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
                 log.info("Player " + sender + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
                 chatSayPacket.setSender(chatSayPacket.getTo());
                 networkManager.sendPacket(chatSayPacket);

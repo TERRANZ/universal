@@ -1,8 +1,6 @@
 package ru.terra.universal.shared.persistance.impl;
 
 import flexjson.JSONDeserializer;
-import ru.terra.universal.shared.config.Config;
-import ru.terra.universal.shared.config.ConfigConstants;
 import ru.terra.universal.shared.entity.AccountInfo;
 import ru.terra.universal.shared.entity.PlayerInfo;
 import ru.terra.universal.shared.persistance.CharLoader;
@@ -13,6 +11,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
+import static ru.terra.universal.shared.config.Config.getConfig;
+import static ru.terra.universal.shared.config.ConfigConstants.*;
 
 /**
  * Date: 25.04.14
@@ -20,17 +22,17 @@ import java.util.List;
  */
 public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
 
-    private JSONDeserializer<List<PlayerInfo>> charsDeserializer = new JSONDeserializer<>();
-    private JSONDeserializer<List<AccountInfo>> accountsDeserializer = new JSONDeserializer<>();
-    private String charactersFileName = Config.getConfig().getValue(ConfigConstants.CHARACTERS_FILE, ConfigConstants.CHARACTERS_FILE_DEFAULT);
-    private String accountsFileName = Config.getConfig().getValue(ConfigConstants.ACCOUNTS_FILE, ConfigConstants.ACCOUNTS_FILE_DEFAULT);
+    private final JSONDeserializer<List<PlayerInfo>> charsDeserializer = new JSONDeserializer<>();
+    private final JSONDeserializer<List<AccountInfo>> accountsDeserializer = new JSONDeserializer<>();
+    private final String charactersFileName = getConfig().getValue(CHARACTERS_FILE, CHARACTERS_FILE_DEFAULT);
+    private final String accountsFileName = getConfig().getValue(ACCOUNTS_FILE, ACCOUNTS_FILE_DEFAULT);
 
     @Override
-    public PlayerInfo loadCharacter(Long uid) {
+    public Optional<PlayerInfo> loadCharacter(Long uid) {
         for (PlayerInfo playerInfo : loadCharacters())
             if (playerInfo.getUID().equals(uid))
-                return playerInfo;
-        return null;
+                return Optional.of(playerInfo);
+        return Optional.empty();
     }
 
     @Override
@@ -44,13 +46,13 @@ public class JsonCharLoaderImpl extends FilePersister implements CharLoader {
     }
 
     @Override
-    public AccountInfo findAccount(String login, String pass) {
+    public Optional<AccountInfo> findAccount(String login, String pass) {
         List<AccountInfo> accounts = loadAccounts();
         for (AccountInfo ai : accounts) {
             if (ai.getLogin().equals(login) && ai.getPass().equals(CryptoUtil.encryptMD5(pass)))
-                return ai;
+                return Optional.of(ai);
         }
-        return null;
+        return Optional.empty();
     }
 
     @Override

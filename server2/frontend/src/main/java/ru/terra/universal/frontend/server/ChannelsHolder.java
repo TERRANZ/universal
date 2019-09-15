@@ -4,22 +4,22 @@ import org.jboss.netty.channel.Channel;
 
 import java.util.HashMap;
 
-public class ChannelsHolder {
-    private static ChannelsHolder instance = new ChannelsHolder();
-    private HashMap<Integer, Channel> channels = new HashMap<>();
+class ChannelsHolder {
+    private static final ChannelsHolder instance = new ChannelsHolder();
+    private final HashMap<Integer, Channel> channels = new HashMap<>();
 
     private ChannelsHolder() {
     }
 
-    public static ChannelsHolder getInstance() {
+    static ChannelsHolder getInstance() {
         return instance;
     }
 
-    public synchronized Channel getChannel(int opCode) {
+    synchronized Channel getChannel(final int opCode) {
         return channels.get(opCode);
     }
 
-    public synchronized void addChannel(int opCode, Channel channel) {
+    synchronized void addChannel(final int opCode, final Channel channel) {
         channels.put(opCode, channel);
     }
 }

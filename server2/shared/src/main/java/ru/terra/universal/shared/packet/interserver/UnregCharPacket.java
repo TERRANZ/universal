@@ -12,6 +12,12 @@ import ru.terra.universal.shared.packet.AbstractPacket;
  */
 @Packet(opCode = OpCodes.InterServer.ISMSG_UNREG_CHAR)
 public class UnregCharPacket extends AbstractPacket {
+    public UnregCharPacket() {
+    }
+
+    public UnregCharPacket(final Long sender) {
+        super(sender);
+    }
 
     @Override
     public void get(ChannelBuffer buffer) {

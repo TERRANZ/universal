@@ -11,36 +11,34 @@ import java.util.UUID;
  * Date: 02.09.13
  * Time: 11:39
  */
-public class TempCharactersHolder {
-    private static TempCharactersHolder instance = new TempCharactersHolder();
-    private Map<Long, Channel> channels = new HashMap<>();
+class TempCharactersHolder {
+    private static final TempCharactersHolder instance = new TempCharactersHolder();
+    private final Map<Long, Channel> channels = new HashMap<>();
 
     private TempCharactersHolder() {
     }
 
-    public static TempCharactersHolder getInstance() {
+    static TempCharactersHolder getInstance() {
         return instance;
     }
 
-    public Channel getTempChannel(Long id) {
+    Channel getTempChannel(final Long id) {
         synchronized (channels) {
             return channels.get(id);
         }
     }
 
-    public void addTempChannel(Long id, Channel channel) {
+    void addTempChannel(final Long id, final Channel channel) {
         synchronized (channels) {
             channels.put(id, channel);
         }
     }
 
-    public long getUnusedId() {
+    long getUnusedId() {
         return UUID.randomUUID().getLeastSignificantBits();
     }
 
-    public void deleteTempChannel(Long id) {
-        {
-            channels.remove(id);
-        }
+    void deleteTempChannel(final Long id) {
+        channels.remove(id);
     }
 }

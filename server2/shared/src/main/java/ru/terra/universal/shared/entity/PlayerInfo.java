@@ -67,7 +67,7 @@ public class PlayerInfo extends AbstractEntity implements Serializable {
         this.level = level;
     }
 
-    public void writePlayerInfo(ChannelBuffer buffer) {
+    public void writePlayerInfo(final ChannelBuffer buffer) {
         writeEntityInfo(buffer);
         buffer.writeInt(hp);
         buffer.writeInt(mp);
@@ -77,7 +77,7 @@ public class PlayerInfo extends AbstractEntity implements Serializable {
         AbstractPacket.writeString(buffer, world);
     }
 
-    public void readPlayerInfo(ChannelBuffer buffer) {
+    public void readPlayerInfo(final ChannelBuffer buffer) {
         readEntityInfo(buffer);
         hp = buffer.readInt();
         mp = buffer.readInt();

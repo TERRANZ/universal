@@ -16,10 +16,11 @@ import ru.terra.universal.shared.persistance.CharSaver;
 import ru.terra.universal.shared.persistance.impl.JsonCharLoaderImpl;
 import ru.terra.universal.shared.persistance.impl.JsonCharSaverImpl;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
+
+import static com.google.common.collect.Lists.newArrayList;
 
 public class CharWorker extends InterserverWorker {
 
@@ -49,44 +50,37 @@ public class CharWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_BOOT_CHAR: {
                 log.info("Registering character with uid = " + sender);
-                PlayerInfo playerInfo = charLoader.loadCharacter(sender);
-                if (playerInfo == null) {
-                    playerInfo = new PlayerInfo();
-                    playerInfo.setUID(sender);
-                    playerInfo.setName("My Cool player " + playerInfo.getUID());
-                    playerInfo.setWorld("newScene");
-                    float min = 20.0f;
-                    float max = 50.0f;
+                final PlayerInfo playerInfo = charLoader.loadCharacter(sender).orElseGet(() -> {
+                    final PlayerInfo newPlayerInfo = new PlayerInfo();
+                    newPlayerInfo.setUID(sender);
+                    newPlayerInfo.setName("My Cool player " + newPlayerInfo.getUID());
+                    newPlayerInfo.setWorld("newScene");
+                    final float min = 20.0f;
+                    final float max = 50.0f;
 
-                    Random rand = new Random();
+                    final Random rand = new Random();
 
-                    playerInfo.setX(rand.nextFloat() * (max - min) + min);
-                    playerInfo.setY(rand.nextFloat() * (max - min) + min);
-                    playerInfo.setZ(rand.nextFloat() * (max - min) + min);
-                    charSaver.save(playerInfo);
-                }
+                    newPlayerInfo.setX(rand.nextFloat() * (max - min) + min);
+                    newPlayerInfo.setY(rand.nextFloat() * (max - min) + min);
+                    newPlayerInfo.setZ(rand.nextFloat() * (max - min) + min);
+                    charSaver.save(newPlayerInfo);
 
-                CharBootPacket charBootPacket = new CharBootPacket();
-                charBootPacket.setPlayerInfo(playerInfo);
-                List<String> worlds = new ArrayList<>();
-                worlds.add(playerInfo.getWorld());
-                charBootPacket.setWorlds(worlds);
-                charBootPacket.setSender(sender);
-                networkManager.sendPacket(charBootPacket);
+                    return newPlayerInfo;
+                });
+
+                networkManager.sendPacket(new CharBootPacket(sender, playerInfo, newArrayList(playerInfo.getWorld())));
                 players.add(playerInfo);
             }
             break;
             case OpCodes.Client.Char.CMSG_SELECT_SERVER: {
                 log.info("Character " + sender + " selected server!");
-                ISWorldAvaiPacket isWorldAvaiPacket = new ISWorldAvaiPacket(((SelectServerPacket) packet).getTargetWorld());
-                isWorldAvaiPacket.setSender(sender);
-                networkManager.sendPacket(isWorldAvaiPacket);
+                networkManager.sendPacket(new ISWorldAvaiPacket(sender, ((SelectServerPacket) packet).getTargetWorld()));
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + sender);
                 PlayerInfo playerInfoToRemove = null;
-                for (PlayerInfo playerInfo : players)
+                for (final PlayerInfo playerInfo : players)
                     if (playerInfo.getUID().equals(sender))
                         playerInfoToRemove = playerInfo;
 
@@ -101,24 +95,17 @@ public class CharWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_IS_WORLD_AVAIL: {
                 if (((ISWorldAvaiPacket) packet).getAvail()) {
-                    OkPacket okPacket = new OkPacket();
-                    okPacket.setSender(sender);
-                    networkManager.sendPacket(okPacket);
+                    networkManager.sendPacket(new OkPacket(sender));
                     PlayerInfo playerInfo = null;
                     for (PlayerInfo pi : players) {
                         if (pi.getUID().equals(sender))
                             playerInfo = pi;
                     }
                     if (playerInfo != null) {
-                        CharInWorldPacket charInWorldPacket = new CharInWorldPacket(playerInfo);
-                        charInWorldPacket.setSender(sender);
-                        networkManager.sendPacket(charInWorldPacket);
+                        networkManager.sendPacket(new CharInWorldPacket(sender, playerInfo));
                     }
                 } else {
-                    WorldIsNotAvail worldIsNotAvail = new WorldIsNotAvail();
-                    worldIsNotAvail.setWorld(((ISWorldAvaiPacket) packet).getWorld());
-                    worldIsNotAvail.setSender(sender);
-                    networkManager.sendPacket(worldIsNotAvail);
+                    networkManager.sendPacket(new WorldIsNotAvail(sender, ((ISWorldAvaiPacket) packet).getWorld()));
                 }
             }
             break;

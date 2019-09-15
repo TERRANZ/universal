@@ -20,16 +20,15 @@ public class World {
     private List<AbstractEntity> entities;
     private String worldUID;
     private List<WorldModule> modules;
-    private Config config = Config.getConfig();
-    private Logger logger = Logger.getLogger(this.getClass());
+    private final Config config = Config.getConfig();
+    private final Logger logger = Logger.getLogger(this.getClass());
 
-    public World(WorldLoader worldLoader, WorldSaver worldSaver, String worldUID) {
+    public World(final WorldLoader worldLoader, final WorldSaver worldSaver, final String worldUID) {
         this.worldLoader = worldLoader;
         this.worldSaver = worldSaver;
         this.worldUID = worldUID;
         modules = new ClassSearcher<WorldModule>().load("ru.terra.universal.worldserver.module", Module.class);
-        for (WorldModule module : modules)
-            logger.info("Loaded module " + module.getName());
+        modules.stream().map(module -> "Loaded module " + module.getName()).forEach(logger::info);
     }
 
     public synchronized void load() {
@@ -41,15 +40,14 @@ public class World {
     }
 
     public synchronized void tick() {
-        for (WorldModule worldModule : modules)
-            worldModule.tick(this);
+        modules.forEach(worldModule -> worldModule.tick(this));
     }
 
     public List<AbstractEntity> getEntities() {
         return entities;
     }
 
-    public void setEntities(List<AbstractEntity> entities) {
+    public void setEntities(final List<AbstractEntity> entities) {
         this.entities = entities;
     }
 
@@ -57,7 +55,7 @@ public class World {
         return worldUID;
     }
 
-    public void setWorldUID(String worldUID) {
+    public void setWorldUID(final String worldUID) {
         this.worldUID = worldUID;
     }
 }

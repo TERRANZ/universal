@@ -12,7 +12,7 @@ public abstract class WorldModule {
 
     public abstract void tick(World world);
 
-    public String getName() {
+    String getName() {
         return this.getClass().getAnnotation(Module.class).value();
     }
 }

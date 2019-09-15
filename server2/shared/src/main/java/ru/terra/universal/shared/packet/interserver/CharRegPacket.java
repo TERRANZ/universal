@@ -9,6 +9,13 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class CharRegPacket extends AbstractPacket {
     private Long oldId = 0l;
 
+    public CharRegPacket() {
+    }
+
+    public CharRegPacket(final Long sender) {
+        super(sender);
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
         oldId = buffer.readLong();

@@ -12,6 +12,14 @@ import ru.terra.universal.shared.packet.AbstractPacket;
 public class WorldIsNotAvail extends AbstractPacket {
     private String world;
 
+    public WorldIsNotAvail() {
+    }
+
+    public WorldIsNotAvail(final Long sender, final String world) {
+        super(sender);
+        this.world = world;
+    }
+
     @Override
     public void get(ChannelBuffer buffer) {
         world = readString(buffer);

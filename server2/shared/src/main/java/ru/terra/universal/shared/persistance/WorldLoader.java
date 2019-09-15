@@ -9,5 +9,5 @@ import java.util.List;
  * Time: 20:02
  */
 public interface WorldLoader {
-    public List<AbstractEntity> load(String worldUID);
+    List<AbstractEntity> load(final String worldUID);
 }

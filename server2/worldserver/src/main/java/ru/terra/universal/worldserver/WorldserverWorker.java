@@ -26,12 +26,12 @@ public class WorldserverWorker extends InterserverWorker {
 
     @Override
     public void acceptPacket(AbstractPacket packet) {
-        Long sender = packet.getSender();
+        final Long sender = packet.getSender();
         switch (packet.getOpCode()) {
             case InterServer.ISMSG_HELLO: {
-                HelloPacket helloPacket = new HelloPacket();
+                final HelloPacket helloPacket = new HelloPacket();
                 helloPacket.setHello("world server");
-                RegisterPacket registerPacket = new RegisterPacket();
+                final RegisterPacket registerPacket = new RegisterPacket();
                 registerPacket.setStartRange(OpCodes.WorldOpcodeStart);
                 registerPacket.setEndRange(OpCodes.WorldOpcodeEnd);
                 registerPacket.setWorld("newScene");
@@ -41,11 +41,11 @@ public class WorldserverWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_CHAR_IN_WORLD: {
                 log.info("Character " + sender + " is in world now!");
-                PlayerInfo playerInfo = ((CharInWorldPacket) packet).getPlayerInfo();
+                final PlayerInfo playerInfo = ((CharInWorldPacket) packet).getPlayerInfo();
                 worldWorker.addPlayer(playerInfo);
                 log.info("Character " + playerInfo + " is in world now");
 
-                WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
+                final WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
                 worldStatePacket.setSender(sender);
                 networkManager.sendPacket(worldStatePacket);
             }

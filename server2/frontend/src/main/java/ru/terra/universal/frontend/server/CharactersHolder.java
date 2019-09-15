@@ -13,22 +13,22 @@ import java.util.List;
  * Time: 11:03
  */
 public class CharactersHolder {
-    private static CharactersHolder instance = new CharactersHolder();
-    private HashMap<Long, Channel> characters = new HashMap<>();
-    private Logger logger = Logger.getLogger(this.getClass());
+    private static final CharactersHolder instance = new CharactersHolder();
+    private final HashMap<Long, Channel> characters = new HashMap<>();
+    private final Logger logger = Logger.getLogger(this.getClass());
 
-    protected CharactersHolder() {
+    private CharactersHolder() {
     }
 
-    public static CharactersHolder getInstance() {
+    static CharactersHolder getInstance() {
         return instance;
     }
 
-    public synchronized Channel getCharChannel(Long charUID) {
+    synchronized Channel getCharChannel(final Long charUID) {
         return characters.get(charUID);
     }
 
-    public synchronized void addCharChannel(Long charUID, Channel channel) {
+    synchronized void addCharChannel(final Long charUID, final Channel channel) {
         if (channel == null)
             logger.error("Channel is null");
         if (charUID == null)
@@ -37,7 +37,7 @@ public class CharactersHolder {
         characters.put(charUID, channel);
     }
 
-    public synchronized List<Long> getChannels() {
+    synchronized List<Long> getChannels() {
         return new ArrayList<>(characters.keySet());
     }
 
@@ -45,7 +45,7 @@ public class CharactersHolder {
         return characters.size();
     }
 
-    public synchronized Long removeChar(Channel channel) {
+    synchronized Long removeChar(final Channel channel) {
         Long removedPlayer = null;
         for (Long guid : characters.keySet()) {
             if (characters.get(guid).equals(channel))

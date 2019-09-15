@@ -28,11 +28,11 @@ public class NetworkManager {
         return channel;
     }
 
-    public void setChannel(Channel channel) {
+    public void setChannel(final Channel channel) {
         this.channel = channel;
     }
 
-    public void sendPacket(AbstractPacket p) {
+    public void sendPacket(final AbstractPacket p) {
         getChannel().write(p);
     }
 
