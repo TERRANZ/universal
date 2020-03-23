@@ -2,43 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7f65411f-de3a-47fd-8be3-7628e40e41f4" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../OpenAL64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../OpenAL64.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/client.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/OpenAL64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/OpenAL64.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3o" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3odata" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/map_0.j3odata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3o" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3odata" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Scenes/newScene.j3odata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/dirt.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/dirt.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/grass.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/grass.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/stone_wall2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend0.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/map_0-terrain-map_0-alphablend2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend0.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend1.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend2.png" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/Textures/terrain-alpha/newScene-terrain-newScene-alphablend2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/assets/waterFilter.j3f" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/assets/waterFilter.j3f" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/liblwjgl.so" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/liblwjgl.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/libopenal.so" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/libopenal.so" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/lwjgl64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/lwjgl64.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/master-application.jnlp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/master-application.jnlp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/assets-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/assets-impl.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/build-impl.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/genfiles.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/nbproject/project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/jmeproj/src/mygame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/jmeproj/src/mygame/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/game/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../client/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lwjgl64.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../lwjgl64.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/charserver/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/chatserver/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/loginserver/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worldserver/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server2/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server2/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server2/docker.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ru_terra_universal_shared_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/charserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/charserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/chatserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/chatserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loginserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/loginserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/worldserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/worldserver/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server2/charserver/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/charserver/build.gradle" afterDir="false" />
     </list>
     <ignored path="server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -109,13 +90,21 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server.iml">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/frontend/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="820">
+              <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server.properties">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/frontend/Dockerfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -133,17 +122,76 @@
       <MyDateState />
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/server.properties" />
+        <option value="$PROJECT_DIR$/charserver/Dockerfile" />
+        <option value="$PROJECT_DIR$/loginserver/Dockerfile" />
+        <option value="$PROJECT_DIR$/worldserver/Dockerfile" />
+        <option value="$PROJECT_DIR$/charserver/pom.xml" />
+        <option value="$PROJECT_DIR$/chatserver/pom.xml" />
+        <option value="$PROJECT_DIR$/frontend/pom.xml" />
+        <option value="$PROJECT_DIR$/loginserver/pom.xml" />
+        <option value="$PROJECT_DIR$/worldserver/pom.xml" />
+        <option value="$PROJECT_DIR$/chatserver/Dockerfile" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/frontend/Dockerfile" />
+      </list>
+    </option>
+  </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="importAutomatically" value="true" />
       </MavenImportingSettings>
     </option>
+    <option name="enabledProfiles">
+      <list>
+        <option value="docker" />
+      </list>
+    </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="-3" />
-    <option name="width" value="1926" />
-    <option name="height" value="1052" />
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="frontend" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="frontend" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="frontend" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="dockerfile" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="worldserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="worldserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="worldserver" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Plugins" type="7aea1407:MavenProjectsStructure$PluginsNode" />
+          <item name="dockerfile" type="36feed69:MavenProjectsStructure$PluginNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="width" value="1804" />
+    <option name="height" value="1046" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -178,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,10 +233,37 @@
               <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="charserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="loginserver" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="universal-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="worldserver" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -202,16 +276,20 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567444237579" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1572973889378" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="recentsLimit" value="5" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/worldserver/src/main/java/ru/terra/universal/worldserver" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="ru.terra.universal" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/worldserver" />
+      <recent name="$PROJECT_DIR$/loginserver" />
+      <recent name="$PROJECT_DIR$/frontend" />
+      <recent name="$PROJECT_DIR$/chatserver" />
+      <recent name="$PROJECT_DIR$/charserver" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -286,24 +364,27 @@
       <option name="presentableId" value="Default" />
       <updated>1377862610442</updated>
       <workItem from="1567444059034" duration="173000" />
+      <workItem from="1567444731197" duration="22000" />
+      <workItem from="1568563325679" duration="1606000" />
+      <workItem from="1568564966766" duration="1211000" />
+      <workItem from="1568566498540" duration="438000" />
+      <workItem from="1572972423730" duration="1612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173000" />
+    <option name="totallyTimeSpent" value="5062000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-3" width="1926" height="1052" extended-state="0" />
+    <frame x="-2" y="-1" width="1924" height="1057" extended-state="7" />
     <layout>
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Image Layers" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6739496" visible="true" weight="0.21223404" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6739496" visible="true" weight="0.22310969" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info auto_hide="true" id="Designer" order="2" sideWeight="0.6717724" weight="0.24279615" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Docker" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Terminal" order="0" />
       <window_info anchor="bottom" id="Application Servers" order="1" />
       <window_info anchor="bottom" id="Message" order="2" />
@@ -311,25 +392,27 @@
       <window_info anchor="bottom" id="Debug" order="4" sideWeight="0.49786553" weight="0.4587738" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.4694737" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.60149574" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32932165" />
       <window_info anchor="bottom" id="Changes" order="9" weight="0.32932165" />
       <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Messages" order="11" sideWeight="0.49786553" weight="0.3245243" />
       <window_info anchor="bottom" x="1918" y="0" width="1920" height="1053" id="Android" order="12" type="FLOATING" weight="0.3369803" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.49839914" side_tool="true" weight="0.39934355" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Docker" order="14" />
+      <window_info anchor="bottom" id="Database Changes" order="15" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.3998935" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24973376" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette&#9;" order="3" sideWeight="0.6717724" weight="0.03842049" />
       <window_info anchor="right" id="Preview" order="4" weight="0.32977587" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
       <window_info anchor="right" id="JetGradle" order="7" />
+      <window_info active="true" anchor="right" id="Maven" order="8" visible="true" weight="0.1368477" />
+      <window_info anchor="right" id="Capture Analysis" order="9" />
+      <window_info anchor="right" id="Database" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="11" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,69 +449,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharInWorldPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/CharRegPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/HelloPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegisterPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/RegWorldPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UpdatePlayerPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/interserver/UnregCharPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/entity/PlayerInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="81" column="16" selection-start-line="81" selection-start-column="16" selection-end-line="81" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/CharBootPacket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="22" column="30" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/packet/server/OkPacket.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -580,27 +600,6 @@
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/server.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/shared/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="21" selection-start-line="3" selection-start-column="21" selection-end-line="3" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loginserver/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="3" column="31" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -610,13 +609,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../client/client.iml">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="39" column="19" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/shared/src/main/java/ru/terra/universal/shared/annoations/Packet.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -681,7 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -693,19 +684,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
+    <entry file="file://$PROJECT_DIR$/server.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
-          <folding />
+          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server.iml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="9" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+        </state>
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server.properties">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/shared/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="24" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="43" column="45" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="52" selection-start-line="52" selection-end-line="59" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="52" selection-start-line="52" selection-end-line="76" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/chatserver/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="75" column="10" selection-start-line="75" selection-start-column="10" selection-end-line="75" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/worldserver/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/charserver/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/loginserver/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="820">
+          <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/Dockerfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

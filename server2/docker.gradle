@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.com.palantir.gradle.docker:gradle-docker:0.22.1"
+    }
+}
+
+apply plugin: "com.palantir.docker"
+
+docker {
+    dependsOn build
+    name "$dockerImageName:$dockerImageVersion"
+    tags "$dockerImageVersion"
+
+    //located in the build context which is a folder in build/docker
+    dockerfile file("../Dockerfile")
+
+    //directly reference the Jar file in the Dockerfile
+    def artifact = "$projectName-${projectVersion}.jar"
+    // copies artifact + Dockerfile to the build context
+    files "$libsDir/$artifact", "$projectDir/docker/$dockerImageName/Dockerfile"
+
+    //passing in the jar file location via --build-arg key=value
+    buildArgs(['JAR_FILE'     : artifact])
+    pull false
+    noCache true
+}
