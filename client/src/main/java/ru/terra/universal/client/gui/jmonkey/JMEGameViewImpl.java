@@ -12,7 +12,6 @@ import com.jme3.font.BitmapText;
 import com.jme3.input.KeyInput;
 import com.jme3.input.controls.ActionListener;
 import com.jme3.input.controls.KeyTrigger;
-import com.jme3.input.controls.MouseButtonTrigger;
 import com.jme3.light.AmbientLight;
 import com.jme3.light.DirectionalLight;
 import com.jme3.material.Material;
@@ -24,21 +23,20 @@ import com.jme3.scene.CameraNode;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
-import com.jme3.scene.control.CameraControl;
 import com.jme3.scene.shape.Box;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.terrain.geomipmap.TerrainQuad;
+import java.util.HashMap;
+import java.util.concurrent.Callable;
 import org.apache.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
-import java.util.HashMap;
-import java.util.concurrent.Callable;
-
 public class JMEGameViewImpl extends SimpleApplication implements ActionListener {
 
+    Material mat_terrain;
     private Spatial sceneModel;
     private BulletAppState bulletAppState;
     private RigidBodyControl landscape;
@@ -46,7 +44,6 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     private Vector3f walkDirection = new Vector3f();
     private boolean left = false, right = false, up = false, down = false, mouse = false;
     private TerrainQuad terrain;
-    Material mat_terrain;
     private float currY = 500;
 
     private CameraNode camNode;
@@ -162,8 +159,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     /**
-     * We over-write some navigational key mappings here, so we can add
-     * physics-controlled walking and jumping:
+     * We over-write some navigational key mappings here, so we can add physics-controlled walking and jumping:
      */
     private void setUpKeys() {
         inputManager.addMapping("Left", new KeyTrigger(KeyInput.KEY_A));
@@ -185,8 +181,8 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     /**
-     * These are our custom actions triggered by key presses. We do not walk
-     * yet, we just keep track of the direction the user pressed.
+     * These are our custom actions triggered by key presses. We do not walk yet, we just keep track of the direction
+     * the user pressed.
      */
 
     public void onAction(String binding, boolean value, float tpf) {
@@ -219,21 +215,21 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             // player.jump();
         } else if (binding.equals("Q")) {
             currY = currY + diffY;
-            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY, controlCube.getLocalTranslation().getZ()));
+            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY,
+                controlCube.getLocalTranslation().getZ()));
         } else if (binding.equals("Z")) {
             currY = currY - diffY;
-            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY, controlCube.getLocalTranslation().getZ()));
+            camNode.setLocalTranslation(new Vector3f(controlCube.getLocalTranslation().getX(), currY,
+                controlCube.getLocalTranslation().getZ()));
         } else if (binding.equals("RClick")) {
             mouse = value;
         }
     }
 
     /**
-     * This is the main event loop--walking happens here. We check in which
-     * direction the player is walking by interpreting the camera direction
-     * forward (camDir) and to the side (camLeft). The setWalkDirection()
-     * command is what lets a physics-controlled player walk. We also make sure
-     * here that the camera moves with player.
+     * This is the main event loop--walking happens here. We check in which direction the player is walking by
+     * interpreting the camera direction forward (camDir) and to the side (camLeft). The setWalkDirection() command is
+     * what lets a physics-controlled player walk. We also make sure here that the camera moves with player.
      */
     @Override
     public void simpleUpdate(float tpf) {
@@ -343,13 +339,15 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
         });
     }
 
-    public void entityVectorMove(final Long guid, final float x, final float y, final float z, float h, final boolean stop) {
+    public void entityVectorMove(final Long guid, final float x, final float y, final float z, float h,
+        final boolean stop) {
         enqueue(new Callable<Long>() {
             @Override
             public Long call() throws Exception {
                 CharacterControl control = playerControls.get(guid);
                 if (control != null) {
-                    Logger.getLogger(getClass()).info("guid " + guid + " moving " + " x = " + x + " y = " + y + " z = " + z);
+                    Logger.getLogger(getClass())
+                        .info("guid " + guid + " moving " + " x = " + x + " y = " + y + " z = " + z);
                     if (!stop) {
                         Vector3f dir = new Vector3f();
                         dir.addLocal(new Vector3f(x, y, z));
@@ -367,8 +365,9 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     public void serverMessage(String message) {
-        if (hudText == null)
+        if (hudText == null) {
             hudText = new BitmapText(guiFont, false);
+        }
         hudText.setSize(guiFont.getCharSet().getRenderedSize()); // font size
         hudText.setColor(ColorRGBA.Blue); // font color
         hudText.setText(message); // the text
@@ -377,8 +376,9 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     }
 
     public void playerSay(PlayerInfo player, String message) {
-        if (hudText == null)
+        if (hudText == null) {
             hudText = new BitmapText(guiFont, false);
+        }
         hudText.setSize(guiFont.getCharSet().getRenderedSize()); // font size
         hudText.setColor(ColorRGBA.Red); // font color
         hudText.setText(player.getName() + " : " + message); // the text

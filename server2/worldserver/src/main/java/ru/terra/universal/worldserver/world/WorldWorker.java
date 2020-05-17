@@ -1,5 +1,8 @@
 package ru.terra.universal.worldserver.world;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import org.apache.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.AbstractEntity;
@@ -10,15 +13,11 @@ import ru.terra.universal.shared.packet.movement.PlayerTeleportPacket;
 import ru.terra.universal.shared.packet.worldserver.PlayerLoggedInPacket;
 import ru.terra.universal.shared.packet.worldserver.PlayerLoggedOutPacket;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
- * Date: 13.01.14
- * Time: 14:41
+ * Date: 13.01.14 Time: 14:41
  */
 public class WorldWorker {
+
     private static final WorldWorker instance = new WorldWorker();
     private final Map<Long, PlayerInfo> players = new HashMap<>();
     private WorldThread worldThread;
@@ -41,9 +40,9 @@ public class WorldWorker {
     public void playerMove(MovementPacket packet) {
         synchronized (players) {
             players.values()
-                    .stream()
-                    .filter(p -> !p.getUID().equals(packet.getSender()))
-                    .forEach(p -> networkManager.sendPacket(new MovementPacket(p.getUID(), packet)));
+                .stream()
+                .filter(p -> !p.getUID().equals(packet.getSender()))
+                .forEach(p -> networkManager.sendPacket(new MovementPacket(p.getUID(), packet)));
         }
     }
 
@@ -59,20 +58,27 @@ public class WorldWorker {
             playerInfo.setZ(packet.getZ());
             playerInfo.setH(packet.getH());
             players.values()
-                    .stream()
-                    .filter(p -> !p.getUID().equals(packet.getSender()))
-                    .forEach(p -> networkManager.sendPacket(new PlayerTeleportPacket(p.getUID(), packet)));
+                .stream()
+                .filter(p -> !p.getUID().equals(packet.getSender()))
+                .forEach(p -> networkManager.sendPacket(new PlayerTeleportPacket(p.getUID(), packet)));
         }
     }
 
     public void removePlayer(Long sender) {
         final PlayerInfo playerInfo = getPlayers().remove(sender);
-        players.values().forEach(p -> networkManager.sendPacket(new PlayerLoggedOutPacket(p.getUID(), sender)));
+        players.values().forEach(p -> {
+            try {
+                networkManager.sendPacket(new PlayerLoggedOutPacket(p.getUID(), sender));
+            } catch (Exception e) {
+
+            }
+        });
         networkManager.sendPacket(new UpdatePlayerPacket(playerInfo));
     }
 
     public void addPlayer(PlayerInfo playerInfo) {
-        players.values().forEach(p -> networkManager.sendPacket(new PlayerLoggedInPacket(p.getUID(), playerInfo.getUID(), playerInfo)));
+        players.values().forEach(
+            p -> networkManager.sendPacket(new PlayerLoggedInPacket(p.getUID(), playerInfo.getUID(), playerInfo)));
         getPlayers().put(playerInfo.getUID(), playerInfo);
     }
 }

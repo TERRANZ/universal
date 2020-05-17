@@ -2,7 +2,7 @@ package ru.terra.universal.shared.config;
 
 public interface ConfigConstants {
     public static final String FRONTEND_IP = "frontend.ip";
-    public static final String FRONTEND_IP_DEFAULT = "127.0.0.1";
+    public static final String FRONTEND_IP_DEFAULT = "frontend";
     public static final String PERSISTENCE_DIR = "persistence.dir";
     public static final String PERSISTENCE_DIR_DEFAULT = "saves/";
     public static final String CHARACTERS_FILE = "persistence.characters.filename";

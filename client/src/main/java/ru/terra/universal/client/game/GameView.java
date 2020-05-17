@@ -5,6 +5,11 @@ import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
 public abstract class GameView {
+
+    public static GameView getView() {
+        return JMonkeyGameView.getInstance();
+    }
+
     public abstract void start();
 
     public abstract void loadPlayer();
@@ -16,10 +21,6 @@ public abstract class GameView {
     public abstract void entityVectorMove(Long uid, float x, float y, float z, float h, boolean stop);
 
     public abstract void updateEntityPosition(AbstractEntity entity);
-
-    public static GameView getView() {
-        return JMonkeyGameView.getInstance();
-    }
 
     public abstract void enemyLoggedIn(PlayerInfo enemy);
 

@@ -1,5 +1,7 @@
 package ru.terra.universal.client.test;
 
+import java.util.Date;
+import java.util.UUID;
 import org.apache.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.client.game.GameStateHolder;
@@ -10,14 +12,15 @@ import ru.terra.universal.shared.packet.client.ChatSayPacket;
 import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.client.SelectServerPacket;
 
-import java.util.Date;
-import java.util.UUID;
-
 /**
- * Date: 18.12.13
- * Time: 13:01
+ * Date: 18.12.13 Time: 13:01
  */
 public class ClientTest {
+
+    public void start(String ip) {
+        new Thread(new TestThread(ip)).start();
+    }
+
     private class TestThread implements Runnable {
 
         private String ip;
@@ -29,39 +32,16 @@ public class ClientTest {
 
         @Override
         public void run() {
-            NetworkManager.getInstance().start(ClientWorker.class, ip, 12345);
+            NetworkManager.getInstance().start(TestWorker.class, ip, 12345);
             try {
-                Thread.sleep(5000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.LOGIN);
-            LoginPacket loginPacket = new LoginPacket();
-            loginPacket.setLogin("mylogin " + UUID.randomUUID().toString());
-            loginPacket.setPassword("mypass");
-            loginPacket.setSender(GUIDHOlder.getInstance().getGuid());
-            NetworkManager.getInstance().sendPacket(loginPacket);
-
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            GameStateHolder.getInstance().setGameState(GameStateHolder.GameState.SERVER_SELECTED);
-            SelectServerPacket selectServerPacket = new SelectServerPacket();
-            selectServerPacket.setTargetWorld(GameManager.getInstance().getPlayerInfo().getWorld());
-            selectServerPacket.setSender(GUIDHOlder.getInstance().getGuid());
-            NetworkManager.getInstance().sendPacket(selectServerPacket);
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+//
             while (true) {
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(10);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -72,9 +52,5 @@ public class ClientTest {
             }
         }
 
-    }
-
-    public void start(String ip) {
-        new Thread(new TestThread(ip)).start();
     }
 }

@@ -1,5 +1,6 @@
 package ru.terra.universal.frontend.server;
 
+import java.nio.channels.ClosedChannelException;
 import org.apache.log4j.Logger;
 import org.jboss.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
@@ -25,26 +26,38 @@ public class FrontEndServerWorker extends ServerWorker {
             final Channel chatChannel = channelsHolder.getChannel(OpCodes.ChatOpcodeStart);
             final Channel loginChannel = channelsHolder.getChannel(OpCodes.LoginOpcodeStart);
             final UnregCharPacket unregCharPacket = new UnregCharPacket(removedChar);
-            if (charChannel != null)
+            if (charChannel != null) {
                 charChannel.write(unregCharPacket);
-            if (chatChannel != null)
+            }
+            if (chatChannel != null) {
                 chatChannel.write(unregCharPacket);
-            if (loginChannel != null)
+            }
+            if (loginChannel != null) {
                 loginChannel.write(unregCharPacket);
-            worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.values().forEach(wc -> wc.write(unregCharPacket)));
+            }
+            worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.values().forEach(wc -> {
+                try {
+                    wc.write(unregCharPacket);
+                } catch (Exception e) {
+//                    logger.error("Channel already closed");
+                }
+            }));
         }
     }
 
     @Override
     public void acceptPacket(final AbstractPacket message) {
         if (message.getOpCode() >= OpCodes.WorldOpcodeStart && message.getOpCode() <= OpCodes.WorldOpcodeEnd) {
-            if (worldServersChannelsHolder.getChannels() != null && worldServersChannelsHolder.getChannels().size() > 0)
-                worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.get(message.getOpCode()).write(message));
+            if (worldServersChannelsHolder.getChannels() != null
+                && worldServersChannelsHolder.getChannels().size() > 0) {
+                worldServersChannelsHolder.getChannels().values()
+                    .forEach(wch -> wch.get(message.getOpCode()).write(message));
+            }
         } else {
             final Channel c = channelsHolder.getChannel(message.getOpCode());
-            if (c != null)
+            if (c != null) {
                 c.write(message);
-            else {
+            } else {
                 logger.error("Unable to find interserver for opcode " + message.getOpCode());
             }
         }

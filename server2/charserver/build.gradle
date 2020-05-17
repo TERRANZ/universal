@@ -4,5 +4,29 @@ dependencies {
     compile project(':shared')
 }
 
+/*
+buildscript {
+    repositories {
+      maven {
+        url "https://plugins.gradle.org/m2/"
+      }
+      mavenCentral()
+    }
+    dependencies {
+        classpath('com.google.cloud.tools.jib:com.google.cloud.tools.jib.gradle.plugin:1.8.0')
+    }
+}
+apply plugin: 'com.google.cloud.tools.jib'
 
-apply from: '../docker.gradle'
+jib {
+  extraDirectories.paths = ['build/libs/*.jar', '/app/app.jar']
+  from {
+    image = 'openjdk:8-jre-slim'
+  }
+  container {
+    entrypoint = ['java', '-XX:+UnlockExperimentalVMOptions', '-XX:+UseCGroupMemoryLimitForHeap', '-Djava.security.egd=file:/dev/./urandom','-jar','/app/app.jar']
+    ports = ['12345', '12346']
+  }
+}
+
+*/

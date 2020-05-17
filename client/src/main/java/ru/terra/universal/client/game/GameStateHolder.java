@@ -3,16 +3,11 @@ package ru.terra.universal.client.game;
 import org.apache.log4j.Logger;
 
 public class GameStateHolder {
+
+    private static GameStateHolder instance = new GameStateHolder();
     private Logger logger = Logger.getLogger(this.getClass());
     private GameStateChangeNotifier notifier;
-
-    public static enum GameState {
-        INIT, LOGIN, LOGGED_IN, CHAR_BOOT, SERVER_SELECTED, IN_WORLD;
-    }
-
     private GameState gameState = GameState.INIT;
-    private static GameStateHolder instance = new GameStateHolder();
-
     private GameStateHolder() {
     }
 
@@ -31,8 +26,9 @@ public class GameStateHolder {
     public void setGameState(GameState gameState) {
         synchronized (gameState) {
             logger.info("Changing game state from " + getGameState().toString() + " to " + gameState.toString());
-            if (notifier != null)
+            if (notifier != null) {
                 notifier.onGameStateChange(getGameState(), gameState);
+            }
             this.gameState = gameState;
         }
     }
@@ -43,5 +39,9 @@ public class GameStateHolder {
 
     public void setNotifier(GameStateChangeNotifier notifier) {
         this.notifier = notifier;
+    }
+
+    public static enum GameState {
+        INIT, LOGIN, LOGGED_IN, CHAR_BOOT, SERVER_SELECTED, IN_WORLD;
     }
 }

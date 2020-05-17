@@ -9,6 +9,7 @@ import com.jme3.scene.shape.Box;
 import com.jme3.system.AppSettings;
 
 public class GameWindow extends SimpleApplication {
+
     public GameWindow() {
         this.showSettings = false;
         AppSettings settings = new AppSettings(true);

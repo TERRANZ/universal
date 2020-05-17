@@ -5,9 +5,9 @@ import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
 
 public class JMonkeyGameView extends GameView {
-    private JMEGameViewImpl jmeGameViewImpl;
 
     private static JMonkeyGameView instance = new JMonkeyGameView();
+    private JMEGameViewImpl jmeGameViewImpl;
 
     private JMonkeyGameView() {
 

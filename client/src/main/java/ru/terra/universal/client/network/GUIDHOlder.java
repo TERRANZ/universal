@@ -1,20 +1,18 @@
 package ru.terra.universal.client.network;
 
+import java.util.Date;
 import org.apache.log4j.Logger;
 
-import java.util.Date;
-
 /**
- * User: Vadim Korostelev
- * Date: 02.09.13
- * Time: 12:29
+ * User: Vadim Korostelev Date: 02.09.13 Time: 12:29
  */
 public class GUIDHOlder {
+
     private static GUIDHOlder instance = new GUIDHOlder();
     private long guid = new Date().getTime();
     private Logger logger = Logger.getLogger(this.getClass());
 
-    private GUIDHOlder() {
+    public GUIDHOlder() {
     }
 
     public static GUIDHOlder getInstance() {

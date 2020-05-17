@@ -3,6 +3,7 @@ package ru.terra.universal.client.gui;
 import java.util.List;
 
 public class GuiManager {
+
     private static GuiManager instance = new GuiManager();
     private LoginWindow loginWindow;
 
@@ -19,6 +20,6 @@ public class GuiManager {
     }
 
     public void publicWorlds(List<String> worlds) {
-        loginWindow.publicWorlds( worlds);
+        loginWindow.publicWorlds(worlds);
     }
 }

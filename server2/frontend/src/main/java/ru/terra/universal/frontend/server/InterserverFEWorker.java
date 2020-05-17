@@ -5,7 +5,11 @@ import org.jboss.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.interserver.*;
+import ru.terra.universal.shared.packet.interserver.CharInWorldPacket;
+import ru.terra.universal.shared.packet.interserver.CharRegPacket;
+import ru.terra.universal.shared.packet.interserver.HelloPacket;
+import ru.terra.universal.shared.packet.interserver.ISWorldAvaiPacket;
+import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
 public class InterserverFEWorker extends ServerWorker {
 
@@ -67,9 +71,11 @@ public class InterserverFEWorker extends ServerWorker {
                 break;
                 case OpCodes.InterServer.ISMSG_CHAR_IN_WORLD: {
                     log.info("Char " + packet.getSender() + " in world now ");
-                    final Channel wsChan = worldServersChannelsHolder.getChannel(((CharInWorldPacket) packet).getPlayerInfo().getWorld());
-                    if (wsChan != null)
+                    final Channel wsChan = worldServersChannelsHolder
+                        .getChannel(((CharInWorldPacket) packet).getPlayerInfo().getWorld());
+                    if (wsChan != null) {
                         wsChan.write(packet);
+                    }
                 }
                 break;
                 case OpCodes.InterServer.ISMSG_UPDATE_CHAR: {
@@ -93,7 +99,10 @@ public class InterserverFEWorker extends ServerWorker {
                     //log.info("Sending packet " + packet.getOpCode() + " to all players");
                     charactersHolder.getChannels().forEach(chan -> charactersHolder.getCharChannel(chan).write(packet));
                 } else {
-                    charactersHolder.getCharChannel(packet.getSender()).write(packet);
+                    try {
+                        charactersHolder.getCharChannel(packet.getSender()).write(packet);
+                    } catch (Exception e) {
+                    }
                 }
             }
         }

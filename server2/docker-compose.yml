@@ -1,16 +1,24 @@
-version: '2.2'
+version: '2.4'
 
 services:
-  charserver:
-    image: universal/charserver:latest
-  chatserver:
-    image: universal/chatserver:latest
-  loginserver:
-    image: universal/loginserver:latest
-  worldserver:
-    image: universal/worldserver:latest
   frontend:
-    image: universal/frontend:latest
+    image: frontend:1.0.0
     ports:
       - 12345:12345
       - 12346:12346
+  charserver:
+    image: charserver:1.0.0
+    depends_on:
+      - frontend
+  chatserver:
+    image: chatserver:1.0.0
+    depends_on:
+      - frontend
+  loginserver:
+    image: loginserver:1.0.0
+    depends_on:
+      - frontend    
+  worldserver:
+    image: worldserver:1.0.0
+    depends_on:
+      - frontend    
