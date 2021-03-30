@@ -5,13 +5,13 @@ import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.packet.AbstractPacket;
-import ru.terra.universal.shared.packet.client.ChatSayPacket;
 import ru.terra.universal.shared.packet.interserver.HelloPacket;
 import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
 public class ChatWorker extends InterserverWorker {
 
-    private Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = Logger.getLogger(this.getClass());
+    private final ChatHandler chatHandler = new ChatHandler(networkManager);
 
     @Override
     public void disconnectedFromChannel() {
@@ -34,20 +34,20 @@ public class ChatWorker extends InterserverWorker {
             break;
             case InterServer.ISMSG_BOOT_CHAR: {
                 log.info("Registering char with uid = " + sender);
+                chatHandler.handleBootChar(sender);
             }
             break;
             case InterServer.ISMSG_UNREG_CHAR: {
                 log.info("Unregistering char with uid = " + sender);
+                chatHandler.handlerUnregChar(sender);
             }
             break;
             case OpCodes.ChatServer.Chat.CMSG_SAY: {
-                final ChatSayPacket chatSayPacket = (ChatSayPacket) packet;
-                log.info("Player " + sender + " says: " + chatSayPacket.getMessage() + " to: " + chatSayPacket.getTo());
-                chatSayPacket.setSender(chatSayPacket.getTo());
-                networkManager.sendPacket(chatSayPacket);
+                chatHandler.handleSay(sender, packet);
             }
             break;
             case OpCodes.ChatServer.Chat.CMSG_WISP: {
+                chatHandler.handleWisp(sender, packet);
             }
             break;
         }
