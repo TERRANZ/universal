@@ -1,389 +1,485 @@
 # Universal
 
-A multiplayer game server and client framework built in Java with JMonkeyEngine, supporting real-time 3D world traversal, player communication, and persistent game state.
+Universal is an experimental, multiplayer 3D game prototype written in Java. It pairs a
+**JMonkeyEngine 3** desktop client with a set of **Netty 3** backend services that handle
+login, characters, chat and world simulation behind a single routing front end.
 
-## Table of Contents
+The codebase is intentionally small and low-level: the network protocol, packet
+serialization, entity model and persistence are all hand-rolled rather than built on a
+game framework or engine networking layer.
+
+> Status: prototype / research project. Expect rough edges (see
+> [Known issues](#known-issues)).
+
+## Table of contents
 
 - [Overview](#overview)
 - [Architecture](#architecture)
-- [Project Structure](#project-structure)
+- [Repository layout](#repository-layout)
 - [Prerequisites](#prerequisites)
 - [Building](#building)
 - [Running](#running)
-- [Networking Protocol](#networking-protocol)
+- [Configuration](#configuration)
+- [Networking protocol](#networking-protocol)
 - [Entities](#entities)
-- [Modules](#modules)
+- [World modules](#world-modules)
 - [Persistence](#persistence)
 - [Client](#client)
-- [Configuration](#configuration)
-- [Docker Deployment](#docker-deployment)
+- [Docker](#docker)
+- [Development](#development)
+- [Known issues](#known-issues)
 
 ## Overview
 
-Universal is a client-server multiplayer game system designed for 3D world exploration and interaction. It features:
-
-- **Real-time multiplayer**: Multiple players can traverse shared 3D worlds simultaneously
-- **Modular server architecture**: Separate services for login, characters, chat, and world management
-- **3D client with physics**: Powered by JMonkeyEngine with Bullet physics engine integration
-- **Persistent data**: Account and character data stored in JSON format
-- **Custom network protocol**: Efficient packet-based communication using Netty
+- **One entry point for clients.** All client traffic lands on the *frontend*, which
+  forwards packets to the backend service that owns the packet's operation code.
+- **Service per domain.** Login, character boot, chat and world simulation each run as a
+  separate process and register their opcode range with the frontend on startup.
+- **Custom binary protocol.** Packets are identified by a 2-byte opcode and carry the
+  sender's GUID plus a packet-specific payload.
+- **JSON persistence.** Accounts and characters are stored as JSON files, with passwords
+  hashed using MD5.
+- **JME3 client.** The client renders the world with JMonkeyEngine and Bullet physics, and
+  streams movement to the world server.
 
 ## Architecture
 
-The system follows a multi-service architecture where each server component runs as an independent process:
-
 ```
-┌─────────────┐     ┌──────────────┐     ┌──────────────────────────────────────┐
-│   Client    │────▶│   Frontend   │────▶│            Server Layer              │
-│  (JME 3D)   │     │  (ports      │     │                                      │
-│             │◀────│  12345,12346) │     │  ┌──────────┬──────────┬──────────┐ │
-│             │     │              │◀────▶│  │ Login    │  Char    │  World   │ │ │
-└─────────────┘     └──────────────┘     │  │ Server   │ Server │  Server  │ │ │
-                                          │  └──────────┴──────────┴──────────┘ │ │
-                                          │  ┌──────────┐                          │ │
-                                          │  │ Chat     │                          │ │
-                                          │  │ Server   │                          │ │
-                                          │  └──────────┘                          │ │
-                                          └──────────────────────────────────────┘
+        TCP 12345                         TCP 12346
+ ┌──────────────┐                  ┌──────────────────┐
+ │    Client    │                  │  Backend service │  (login / char / chat / world)
+ │  (JME3 3D)   │                  │   InterserverWorker
+ └──────┬───────┘                  └────────┬─────────┘
+        │                                   │  registers opcode range
+        │ connect                           │  (ISMSG_REG)
+        ▼                                   ▼
+ ┌──────────────────────────────────────────────────────┐
+ │                      Frontend                        │
+ │  FrontEndServerWorker :12345  (clients)              │
+ │  InterserverFEWorker  :12346  (backend services)     │
+ │                                                      │
+ │  Opcode router: 1-10 login · 11-100 char             │
+ │                 101-200 world · 201-300 chat         │
+ └──────────────────────────────────────────────────────┘
 ```
 
-### Service Roles
+The frontend never interprets payloads. It reads only the opcode (and, for world opcodes,
+the target world name) and routes the raw packet to the owning backend channel.
 
-| Service | Port | Responsibility |
-|---------|------|----------------|
-| **Frontend** | 12345 (client), 12346 (interserver) | Entry point for client connections, routes packets to backend services |
-| **Login Server** | — | Authenticates accounts, manages sessions, handles account registration |
-| **Character Server** | — | Manages character boot (load), world assignment, character state |
-| **World Server** | — | Runs game worlds, manages entities, broadcasts player movement and actions |
-| **Chat Server** | — | Handles chat messages (say, wisp) between players |
+### Services
 
-### Communication Layers
+| Module | Opcode range | Responsibility |
+|--------|--------------|----------------|
+| `frontend` | - | Listens on `12345` (clients) and `12346` (interservers), routes packets by opcode, tracks connected characters and assigns temporary GUIDs |
+| `loginserver` | 1-10 | Authenticates accounts, auto-registers unknown logins, hashes passwords, assigns a permanent GUID |
+| `charserver` | 11-100 | Loads/creates the player character and its world, validates the chosen world, pushes updates back to persistence |
+| `worldserver` | 101-200 | Runs a world tick, tracks players, broadcasts movement/teleports, spawns entities |
+| `chatserver` | 201-300 | Relays "say" and "wisp" (private) chat messages |
 
-- **Client-Frontend**: TCP connections on ports 12345 (direct) and 12346 (interserver), using custom binary protocol
-- **Frontend-Backend**: TCP connections between services, using the same custom binary protocol
-- **All communication**: Packet-based with operation codes (OpCodes) for message type identification
+### Connection flow
 
-## Project Structure
+1. Client connects to the frontend on `12345` and receives `SMSG_OK` carrying a temporary GUID.
+2. Client sends `CMSG_LOGIN`; login server verifies or creates the account and issues the real GUID (`ISMSG_CHAR_REG` + `SMSG_OK`).
+3. Client requests `CSMG_BOOT_ME`; the character server returns `SMSG_CHAR_BOOT` with the player and the list of worlds.
+4. Client sends `CMSG_SELECT_SERVER`; the character server asks the frontend whether the world is live (`ISMSG_IS_WORLD_AVAIL`) and, if so, sends `ISMSG_CHAR_IN_WORLD`.
+5. The world server adds the player and replies with `SMSG_WORLD_STATE` (all entities and players). Movement is broadcast via `MSG_MOVE` / `MSG_MOVE_TELEPORT`.
+
+## Repository layout
 
 ```
 universal/
-├── client/                          # Java client (Maven project)
+├── client/                       # Desktop client (Maven)
 │   ├── pom.xml
-│   ├── lib/                         # JMonkeyEngine and dependency JARs
-│   ├── jmeproj/                     # Legacy JME project assets
+│   ├── lib/                      # Bundled JME3 / LWJGL / Netty JARs (added via addjars plugin)
+│   │   ├── assets.jar            # Scenes + textures, packaged as a classpath resource
+│   │   └── lwjgl/native/         # Linux + Windows LWJGL natives
+│   ├── jmeproj/                  # Legacy NetBeans JME project + raw assets (Scenes, Textures)
 │   └── src/main/java/ru/terra/universal/client/
-│       ├── Main.java                # Client entry point
-│       ├── game/                    # Game logic (GameManager, GameState)
-│       ├── gui/                     # UI layers (LoginWindow, GameWindow)
-│       │   └── jmonkey/             # JME3 rendering implementation
-│       ├── network/                 # Client network worker
-│       └── test/                    # Client test utilities
-├── server/                          # Java server (Gradle multi-project)
-│   ├── shared/                      # Shared code (packets, entities, config)
-│   │   └── src/main/java/ru/terra/universal/shared/
-│   │       ├── entity/              # AccountInfo, PlayerInfo, AbstractEntity
-│   │       ├── packet/              # Network packet definitions
-│   │       │   ├── client/          # Client-to-server packets
-│   │       │   ├── server/          # Server-to-client packets
-│   │       │   ├── interserver/     # Inter-service packets
-│   │       │   └── movement/        # Movement-related packets
-│   │       ├── world/               # World abstractions
-│   │       ├── persistance/         # JSON file-based data storage
-│   │       ├── config/              # Configuration loader
-│   │       ├── constants/           # OpCodes and constants
-│   │       └── util/                # Utilities (CryptoUtil)
-│   ├── frontend/                    # Frontend server
-│   ├── loginserver/                 # Login authentication service
-│   ├── charserver/                  # Character management service
-│   ├── worldserver/                 # World/game loop service
-│   └── chatserver/                  # Chat messaging service
-├── saves/                           # Persistent data directory
-│   ├── accounts.json                # Account storage
-│   └── characters.json              # Character storage
-├── server.properties                # Server configuration
-├── docker-compose.yml               # Docker deployment
-├── liblwjgl64.so                    # Linux LWJGL native library
-├── libopenal64.so                   # Linux OpenAL native library
-├── lwjgl64.dll                      # Windows LWJGL native library
-└── OpenAL64.dll                     # Windows OpenAL native library
+│       ├── Main.java             # Entry point (starts the Swing login window)
+│       ├── game/                 # GameManager, GameView, GameStateHolder
+│       ├── gui/                  # GuiManager, LoginWindow
+│       │   └── jmonkey/          # JMEGameViewImpl (SimpleApplication)
+│       ├── network/              # ClientWorker, GUIDHOlder
+│       └── test/                 # Headless client test harness
+├── server2/                      # Backend (Gradle multi-project)
+│   ├── settings.gradle           # shared, frontend, loginserver, charserver, worldserver, chatserver
+│   ├── build.gradle              # Common deps + fat-jar config for all subprojects
+│   ├── shared/                   # Packets, entities, persistence, config, network core
+│   ├── frontend/
+│   ├── loginserver/
+│   ├── charserver/
+│   ├── worldserver/
+│   ├── chatserver/
+│   ├── saves/                    # Runtime character/account storage (created on demand)
+│   ├── Dockerfile                # Shared image definition for all services
+│   ├── docker-compose.yml
+│   └── build.sh                  # Builds all service images locally
+├── docker-compose.yml            # Top-level compose (uses universal/<service>:latest)
+├── server.properties             # Default frontend host for the root run
+├── liblwjgl64.so / libopenal64.so    # Linux natives (repo root copies)
+└── lwjgl64.dll / OpenAL64.dll        # Windows natives (repo root copies)
 ```
 
 ## Prerequisites
 
-- **Java Development Kit 8** (JDK 8) — both client and server compile with `sourceCompatibility = 1.8`
-- **Maven 3.x** — for building the client
-- **Gradle** — for building the server
-- **LWJGL native libraries** — included for Linux (`*.so`) and Windows (`*.dll`); macOS `.jnilib` files should be added if needed
+- **JDK 8** - both projects target Java 1.8 (`sourceCompatibility`/`targetCompatibility`).
+- **Gradle** - a wrapper is included in `server2/` (Gradle 6.2.1), so no local install is required.
+- **Maven 3.x** - for building the client.
+- **A desktop environment with 3D acceleration** - required to run the JME3 client.
+- **LWJGL / OpenAL natives** - bundled for Linux and Windows under `client/lib/lwjgl/native/`.
 
 ## Building
 
-### Server
-
-Navigate to the server directory and use Gradle:
+### Server (Gradle)
 
 ```bash
 cd server2
 ./gradlew build
 ```
 
-The server uses Netty for networking and includes these key dependencies:
-- `org.jboss.netty:netty:3.2.9.Final` — network I/O framework
-- `log4j:log4j:1.2.17` — logging
-- `org.reflections:reflections:0.9.8` — runtime class scanning for modules and packets
-- `net.sf.flexjson:flexjson:2.1` — JSON serialization
-- `commons-configuration:commons_configuration:1.9` — properties configuration
+Each module produces a **fat JAR** (all compile dependencies shaded in) named
+`<module>-1.0.0.jar` under `<module>/build/libs/`, e.g.:
 
-### Client
+```
+server2/frontend/build/libs/frontend-1.0.0.jar
+server2/loginserver/build/libs/loginserver-1.0.0.jar
+server2/charserver/build/libs/charserver-1.0.0.jar
+server2/worldserver/build/libs/worldserver-1.0.0.jar
+server2/chatserver/build/libs/chatserver-1.0.0.jar
+```
 
-Navigate to the client directory and use Maven:
+Key dependencies (declared once in `server2/build.gradle` and inherited by every module):
+
+| Dependency | Version | Purpose |
+|------------|---------|---------|
+| `org.jboss.netty:netty` | 3.2.9.Final | NIO networking + codecs |
+| `log4j:log4j` | 1.2.17 | Logging |
+| `org.reflections:reflections` | 0.9.8 | Runtime scanning of `@Packet` / `@Module` classes |
+| `net.sf.flexjson:flexjson` | 2.1 | JSON serialization |
+| `commons-configuration:commons-configuration` | 1.9 | `server.properties` loading |
+| `junit:junit` | 4.12 | Tests (test scope) |
+
+### Client (Maven)
 
 ```bash
 cd client
 mvn package
 ```
 
-This produces a fat JAR with all dependencies bundled, using the `maven-assembly-plugin` with the `jar-with-dependencies` descriptor. The client depends on the shared server module and uses JMonkeyEngine (jME3) for rendering.
+This compiles against `ru.terra.universal:shared:1` and bundles everything
+(`lib/*.jar` via `addjars-maven-plugin`, plus `maven-assembly-plugin`'s
+`jar-with-dependencies` descriptor) into:
+
+```
+client/target/client-1-jar-with-dependencies.jar
+```
+
+> The `shared` artifact is consumed from your local Maven repository. If Maven cannot
+> resolve `ru.terra.universal:shared:1`, install a matching JAR first
+> (`mvn install:install-file ...`).
 
 ## Running
 
 ### Server
 
-Build the server JAR (which is shaded with all dependencies via Gradle's `jar` block configuration). Run each service by specifying its main class:
+Run the frontend first, then any combination of backend services. Each service is a fat
+JAR whose manifest `Main-Class` is `ru.terra.universal.server.Main`:
 
 ```bash
-# Frontend (ports 12345 for clients, 12346 for interserver communication)
-java -cp server.jar ru.terra.universal.frontend.Main
-
-# Login Server
-java -cp server.jar ru.terra.universal.loginserver.Main
-
-# Character Server
-java -cp server.jar ru.terra.universal.charserver.Main
-
-# World Server
-java -cp server.jar ru.terra.universal.worldserver.Main
-
-# Chat Server
-java -cp server.jar ru.terra.universal.chatserver.Main
+java -jar server2/frontend/build/libs/frontend-1.0.0.jar       # binds 0.0.0.0:12345 and 0.0.0.0:12346
+java -jar server2/loginserver/build/libs/loginserver-1.0.0.jar
+java -jar server2/charserver/build/libs/charserver-1.0.0.jar
+java -jar server2/worldserver/build/libs/worldserver-1.0.0.jar
+java -jar server2/chatserver/build/libs/chatserver-1.0.0.jar
 ```
 
-### Client
+Alternatively, `./gradlew :<module>:run` from `server2/`.
 
-Run the built JAR (after building with Maven):
+Each backend service reads `frontend.ip`/`persistence.*` from a `server.properties` on the
+classpath (or the working directory), then opens a single persistent client connection to
+the frontend on port `12346` (`NetworkThread` -> `NetworkManager`).
+
+### Client
 
 ```bash
 java -jar client/target/client-1-jar-with-dependencies.jar
 ```
 
-The client will display a login window. Upon successful login, it connects to the frontend server (default `127.0.0.1:12345`) and launches the JME3 3D game view when a world is selected.
-
-**Note**: Ensure LWJGL native libraries are in the library path. Set `java.library.path` if needed:
+If the LWJGL natives are not found, point the JVM at them:
 
 ```bash
-java -Djava.library.path=client/lib/lwjgl/native/linux -jar client/target/client-1-jar-with-dependencies.jar
+java -Djava.library.path=client/lib/lwjgl/native/linux \
+     -jar client/target/client-1-jar-with-dependencies.jar
 ```
 
-## Networking Protocol
-
-The custom binary protocol uses operation codes to identify message types. All packets are serialized/deserialized through `AbstractPacket` using Netty's `ChannelBuffer`.
-
-### Packet Format
-
-```
-[OpCode: 2 bytes] [Sender GUID: 8 bytes] [Payload: variable]
-```
-
-### Operation Code Ranges
-
-| Range | Service |
-|-------|---------|
-| 1–10 | Login server (authentication) |
-| 11–100 | Character server |
-| 101–200 | World server (gameplay) |
-| 201–300 | Chat server |
-| 501–507 | Server response codes |
-| 10001–10011 | Inter-service communication |
-
-### Client Packets
-
-| OpCode | Description |
-|--------|-------------|
-| `CMSG_LOGIN (2)` | Send credentials (login + password) to login server |
-| `CMSG_LOGOUT (3)` | Logout from server |
-| `CSMG_BOOT_ME (4)` | Request character boot (load all characters for this account) |
-| `CMSG_SELECT_SERVER (11)` | Select a world to enter |
-| `CMSG_SAY (202)` | Send chat message to all nearby players |
-| `CMSG_WISP (203)` | Send private chat message to a specific player |
-
-### Server Packets
-
-| OpCode | Description |
-|--------|-------------|
-| `SMSG_OK (501)` | General acknowledgment |
-| `SMSG_CHAR_BOOT (502)` | Send list of player's characters and available worlds |
-| `SMSG_UPDATE (503)` | Generic update packet |
-| `SMSG_WORLD_STATE (505)` | Initial world state with all entities and players |
-| `SMSG_LOGIN_FAILED (506)` | Login rejection with reason |
-| `SMSG_WORLD_NOT_AVAIL (507)` | Selected world is unavailable |
-
-### Movement Packets
-
-| OpCode | Description |
-|--------|-------------|
-| `MSG_MOVE (106)` | Broadcast player movement direction/position to other players in the world |
-| `MSG_MOVE_TELEPORT (107)` | Player teleportation event |
-
-### Inter-Server Packets
-
-| OpCode | Description |
-|--------|-------------|
-| `ISMSG_HELLO (10001)` | Service registration handshake |
-| `ISMSG_REG (10002)` | Register service with frontend |
-| `ISMSG_UNREG (10003)` | Unregister service |
-| `ISMSG_BOOT_CHAR (10004)` | Request character boot for a user |
-| `ISMSG_CHAR_REG (10005)` | Register character with frontend |
-| `ISMSG_CHAR_IN_WORLD (10006)` | Notify that a character is in a world |
-| `ISMSG_REG_WORLD (10007)` | Register world with frontend |
-| `ISMSG_UPDATE_CHAR (10010)` | Update character state |
-| `ISMSG_IS_WORLD_AVAIL (10011)` | Check world availability |
-
-## Entities
-
-### AbstractEntity
-
-The base class for all in-world objects. Contains:
-
-- `x, y, z` — 3D position coordinates
-- `h, r` — heading and roll rotation values
-- `map` — map/scene identifier
-- `UID` — unique identifier (Long)
-- `model` — model name string
-- `state` — entity state integer
-
-### PlayerInfo
-
-Extends `AbstractEntity` with game-specific attributes:
-
-- `name` — player's display name
-- `world` — current world/scene name
-- `hp` — health points
-- `mp` — mana points
-- `xp` — experience points
-- `level` — player level (default: 1)
-
-### AccountInfo
-
-Authentication and account management:
-
-- `login` — username
-- `pass` — password (MD5 hashed)
-- `banned` — ban status flag
-- `lastLogin` — timestamp of last login
-- `banTime` — ban duration
-- `attemptsToLogin` — failed login attempt counter
-- `uid` — unique account identifier
-
-## Modules
-
-The server uses a plugin-style module system powered by the `@Module` annotation and `ClassSearcher` reflection utility. Modules are automatically discovered at runtime:
-
-- **MobsModule** — Non-player monster/enemy management in worlds
-- **StatisticModule** — Player and world statistics tracking
-
-World modules extend `WorldModule` and interface through `WorldControlInterface`, loaded by `WorldWorker` via reflection scanning.
-
-## Persistence
-
-All game data is stored in JSON files in the `saves/` directory using FlexJSON serialization:
-
-| File | Contents |
-|------|----------|
-| `saves/accounts.json` | All registered accounts |
-| `saves/characters.json` | All player characters with their stats and positions |
-
-### Persistence Interfaces
-
-- `CharLoader` / `JsonCharLoaderImpl` — Load accounts and characters
-- `CharSaver` / `JsonCharSaverImpl` — Save accounts and characters
-- `WorldLoader` / `JsonWorldLoaderImpl` — Load world state
-- `WorldSaver` / `JsonWorldSaverImpl` — Save world state
-- `FilePersister` — Base interface for file-based persistence
-
-Accounts are auto-created on first login with an MD5-hashed password. World state is loaded from scene files (`.j3o` format) in the client assets.
-
-## Client
-
-### Game Engine
-
-The client uses **JMonkeyEngine 3** (jME3) for 3D rendering and **Bullet Physics** for collision detection and character movement.
-
-### Key Client Components
-
-- **`Main.java`** — Entry point; initializes logging and starts the login window
-- **`GuiManager`** — Manages UI states (login screen, world selection, game view)
-- **`LoginWindow`** — Authentication UI for entering credentials
-- **`GameManager`** — Client-side game state management; handles movement packet sending
-- **`GameStateHolder`** — Tracks connection state machine (INIT → LOGIN → LOGGED_IN → CHAR_BOOT → SERVER_SELECTED → IN_WORLD)
-- **`JMEGameViewImpl`** — Full 3D game implementation extending `SimpleApplication`
-
-### Controls (WASD)
-
-| Key | Action |
-|-----|--------|
-| W | Move forward |
-| A | Move left |
-| S | Move back |
-| D | Move right |
-| Z | Zoom out camera |
-| Q | Zoom in camera |
-
-### World Loading
-
-Worlds are loaded from `.j3o` scene files in the client assets directory (`assets/Scenes/`). The project includes sample scenes:
-- `newScene.j3o` / `newScene.j3odata`
-- `map_0.j3o` / `map_0.j3odata`
-
-Terrain textures (`.jpg`) and the water filter (`waterFilter.j3f`) define visual appearance.
+The client opens a Swing login window (Russian labels) where you enter the **server IP**,
+click **Вход** to connect, pick a world from the list and click **Вход в мир** to launch
+the 3D view. See [Client](#client) for details.
 
 ## Configuration
 
-Server settings are managed through `server.properties` using `Commons Configuration`:
+Server settings are read through `ru.terra.universal.shared.config.Config`, a singleton
+wrapper around Apache Commons Configuration backed by `server.properties`
+(auto-save enabled).
 
-```properties
-frontend.ip=127.0.0.1
+| Key | Default | Meaning |
+|-----|---------|---------|
+| `frontend.ip` | `frontend` | Host the backend service connects to |
+| `persistence.dir` | `saves/` | Directory for JSON storage |
+| `persistence.characters.filename` | `characters.json` | Characters file name |
+| `persistence.accounts.filename` | `accounts.json` | Accounts file name |
+
+The inter-server port is a constant: `ConfigConstants.FRONTEND_PORT = 12346`.
+
+Each module ships its own `src/main/resources/server.properties`. The root
+`server.properties` sets `frontend.ip=127.0.0.1` for local runs.
+
+## Networking protocol
+
+All traffic uses the same framing; only the opcode ranges differ between services.
+Serialization is done directly against Netty's `ChannelBuffer` from `AbstractPacket`.
+
+### Frame format
+
+```
++--------+---------------------+-------------------------------+
+| opcode |     sender GUID     |            payload            |
+| 2 byte |        8 byte       |           variable            |
++--------+---------------------+-------------------------------+
 ```
 
-The `Config` class provides a singleton accessor (`Config.getConfig()`) for reading and writing configuration values with auto-save enabled.
+- **opcode** - written with `writeChar` / read with `readUnsignedShort`.
+- **sender GUID** - a `long` identifying the player the packet belongs to (`0` means
+  "broadcast to all players").
+- **strings** - encoded as a `short` length followed by UTF-16 code units
+  (`writeString` / `readString`). Note: empty strings write no length prefix.
 
-## Docker Deployment
+### Opcode map
 
-The project includes Docker Compose configuration for deploying all services:
+Ranges are declared in `shared/.../constants/OpCodes.java`:
+
+| Range | Owner |
+|-------|-------|
+| 1-10 | Login server |
+| 11-100 | Character server |
+| 101-200 | World server |
+| 201-300 | Chat server |
+| 501-507 | Server responses (routed by sender) |
+| 10001+ | Inter-server control |
+
+#### Client to server
+
+| Opcode | Value | Packet | Description |
+|--------|-------|--------|-------------|
+| `CMSG_LOGIN` | 2 | `LoginPacket` | Login + password |
+| `CMSG_LOGOUT` | 3 | `LogoutPacket` | Logout |
+| `CSMG_BOOT_ME` | 4 | `BootMePacket` | Request character boot |
+| `CMSG_SELECT_SERVER` | 11 | `SelectServerPacket` | Choose a world to enter |
+| `MSG_MOVE` | 106 | `MovementPacket` | Movement direction/vector |
+| `MSG_MOVE_TELEPORT` | 107 | `PlayerTeleportPacket` | Absolute position update |
+| `CMSG_SAY` | 202 | `ChatSayPacket` | Chat message |
+| `CMSG_WISP` | 203 | `WispSayPacket` | Private message (see [Known issues](#known-issues)) |
+
+#### Server to client
+
+| Opcode | Value | Packet | Description |
+|--------|-------|--------|-------------|
+| `PLAYER_IN` | 102 | `PlayerLoggedInPacket` | Another player entered the world |
+| `PLAYER_OUT` | 103 | `PlayerLoggedOutPacket` | Another player left the world |
+| `ENTITY_ADD` | 104 | `EntityAddPacket` | Entity added to the world |
+| `ENTITY_DEL` | 105 | `EntityDelPacket` | Entity removed from the world |
+| `SMSG_OK` | 501 | `OkPacket` | Generic acknowledgement / GUID assignment |
+| `SMSG_CHAR_BOOT` | 502 | `CharBootPacket` | Player character + available worlds |
+| `SMSG_UPDATE` | 503 | `UpdatePacket` | Field update (`UpdateField.HP/MP/XP/LEVEL`) |
+| `SMSG_WORLD_STATE` | 505 | `WorldStatePacket` | Full snapshot of entities and players |
+| `SMSG_LOGIN_FAILED` | 506 | `LoginFailedPacket` | Login rejected (+ reason) |
+| `SMSG_WORLD_NOT_AVAIL` | 507 | `WorldIsNotAvail` | Selected world is offline |
+
+#### Inter-server
+
+| Opcode | Value | Packet | Description |
+|--------|-------|--------|-------------|
+| `ISMSG_HELLO` | 10001 | `HelloPacket` | Greeting |
+| `ISMSG_REG` | 10002 | `RegisterPacket` | Register an opcode range (and world name for world servers) |
+| `ISMSG_UNREG` | 10003 | - | Unregister (not implemented) |
+| `ISMSG_BOOT_CHAR` | 10004 | `BootCharPacket` | Character boot request |
+| `ISMSG_CHAR_REG` | 10005 | `CharRegPacket` | Rebind temporary GUID to real character GUID |
+| `ISMSG_CHAR_IN_WORLD` | 10006 | `CharInWorldPacket` | Player entered a world |
+| `ISMSG_REG_WORLD` | 10007 | `RegWorldPacket` | Register a world |
+| `ISMSG_UNREG_CHAR` | 10008 | `UnregCharPacket` | Character disconnected |
+| `ISMSG_UPDATE_CHAR` | 10010 | `UpdatePlayerPacket` | Persist updated character |
+| `ISMSG_IS_WORLD_AVAIL` | 10011 | `ISWorldAvaiPacket` | World availability query/response |
+
+Packets are discovered at runtime by `PacketFactory`, which scans
+`ru.terra.universal.shared.packet` for classes annotated with `@Packet(opCode = ...)`.
+
+## Entities
+
+### `AbstractEntity`
+
+Base class for anything placeable in a world:
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `x`, `y`, `z` | `Float` | Position |
+| `h`, `r` | `Integer` | Heading / roll |
+| `map` | `Integer` | Map id |
+| `UID` | `Long` | Unique id |
+| `model` | `String` | Model name (`"default"`) |
+| `state` | `Integer` | State flag |
+
+### `PlayerInfo`
+
+Extends `AbstractEntity` and adds `name`, `world`, `hp`, `mp`, `xp` and `level`
+(default `1`). It is `Serializable` and provides `writePlayerInfo` / `readPlayerInfo`
+helpers alongside the entity helpers.
+
+### `AccountInfo`
+
+| Field | Description |
+|-------|-------------|
+| `login` | Username |
+| `pass` | MD5 hash of the password |
+| `banned` | Ban flag |
+| `lastLogin` | Last login `Date` |
+| `banTime` | Ban timestamp |
+| `attemptsToLogin` | Failed attempt counter |
+| `uid` | Permanent account GUID |
+
+## World modules
+
+Worlds tick through `WorldThread` (every 1 ms), which drives the `World.tick()` loop.
+Modules are discovered via `ClassSearcher` scanning `ru.terra.universal.worldserver.module`
+for classes annotated with `@Module("name")`:
+
+- **`MobsModule`** (`@Module("mobs")`) - placeholder for non-player entity logic.
+- **`StatisticModule`** (`@Module("statistic")`) - tracks tick timing.
+
+A module extends `WorldModule` and implements `tick(World world)`.
+
+## Persistence
+
+`FilePersister` resolves the storage directory from config and creates it if necessary.
+Two implementations use FlexJSON:
+
+| Interface | Implementation | Stores |
+|-----------|----------------|--------|
+| `CharLoader` / `CharSaver` | `JsonCharLoaderImpl` / `JsonCharSaverImpl` | Accounts and characters |
+| `WorldLoader` / `WorldSaver` | `JsonWorldLoaderImpl` / `JsonWorldSaverImpl` | World entities |
+
+- Accounts are **auto-created on first login** with an MD5-hashed password
+  (`CryptoUtil.encryptMD5`).
+- Writes are read-modify-write: the saver loads the current file, replaces the matching
+  entry (by `uid` for players, by `login` for accounts) and rewrites the file.
+- Default location is `saves/` relative to the working directory, containing
+  `accounts.json` and `characters.json`.
+
+A sample `server2/saves/accounts.json` shows the on-disk shape (FlexJSON adds a `class`
+field).
+
+## Client
+
+### Frameworks
+
+- **JMonkeyEngine 3** for rendering (`SimpleApplication`), terrain, and water filter.
+- **jBullet** for physics: a `CharacterControl` per player and a `RigidBodyControl` for the
+  scene mesh.
+
+### Flow and classes
+
+- `Main` -> `GuiManager.startLoginWindow()`.
+- `LoginWindow` (Swing) collects the server IP, connects via `NetworkManager`, and lets the
+  player pick a world and enter it.
+- `ClientWorker` handles incoming packets and drives the
+  `GameStateHolder.GameState` machine: `INIT -> LOGIN -> LOGGED_IN -> CHAR_BOOT ->
+  SERVER_SELECTED -> IN_WORLD`.
+- `GameManager` tracks the local `PlayerInfo` and sends movement/teleport packets.
+- `GameView` -> `JMonkeyGameView` -> `JMEGameViewImpl` wraps the JME app and exposes
+  `entityAdd`, `enemyLoggedIn`, `entityVectorMove`, etc.
+
+> Credentials are currently hard-coded in `ClientWorker` (`mylogin` / `mypass`); the login
+> window only sends the server IP.
+
+### Controls
+
+| Key | Action |
+|-----|--------|
+| `W` | Move forward |
+| `S` | Move back |
+| `A` | Move left |
+| `D` | Move right |
+| `Q` | Raise camera |
+| `Z` | Lower camera |
+
+The scene is loaded from `Scenes/<world>.j3o`. `assets.jar` bundles two sample scenes
+(`map_0`, `newScene`), terrain textures and `waterFilter.j3f`; the raw files also live in
+`client/jmeproj/assets`.
+
+## Docker
+
+There are two compose files:
+
+- **`server2/docker-compose.yml`** - builds/uses local images tagged `frontend:1.0.0`,
+  `loginserver:1.0.0`, `charserver:1.0.0`, `worldserver:1.0.0`, `chatserver:1.0.0`. The
+  frontend publishes `12345` and `12346`; backends `depends_on` it and reach it by the
+  `frontend` hostname.
+- **Root `docker-compose.yml`** - the same topology but referencing
+  `universal/<service>:latest` images.
+
+The shared `server2/Dockerfile` runs on `openjdk:8-jre-slim` and launches
+`/app/app.jar`. Build all images locally with:
 
 ```bash
-docker-compose -f docker-compose.yml up
+cd server2
+./build.sh
 ```
 
-The compose file defines these services:
-- `charserver` — Character management
-- `chatserver` — Chat messaging
-- `loginserver` — Authentication
-- `worldserver` — World/game loop
-- `frontend` — Entry point (ports 12345 and 12346 published)
-
-Docker images are expected at `universal/charserver:latest`, `universal/loginserver:latest`, etc. Individual service Dockerfiles are available in the `server2/docker-compose.yml` directory.
+or with the Palantir Gradle Docker plugin configured in `server2/docker.gradle`.
 
 ## Development
 
-### Adding a New Packet
+### Add a packet
 
-1. Define the OpCode in `OpCodes.java` interface
-2. Create a new class extending `AbstractPacket` with `@Packet(opCode = X)` annotation
-3. Implement `get(ChannelBuffer buffer)` for deserialization
-4. Implement `send(ChannelBuffer buffer)` for serialization
-5. Register packet handling in the appropriate `Worker.acceptPacket()` method
+1. Add the opcode constant to `OpCodes.java` (in the right range).
+2. Create a class extending `AbstractPacket` annotated with `@Packet(opCode = ...)`.
+3. Implement `get(ChannelBuffer)` for deserialization and `send(ChannelBuffer)` for
+   serialization.
+4. Handle it in the owning `Worker.acceptPacket(...)` (e.g. `LoginWorker`, `CharWorker`,
+   `WorldserverWorker`, `ChatWorker`, or `FrontEndServerWorker`).
 
-### Adding a New World
+`PacketFactory` picks it up automatically via reflection.
 
-1. Create a scene file (`.j3o`) and place it in client `assets/Scenes/`
-2. Add terrain textures to `assets/Textures/`
-3. Register the world via `ISMSG_REG_WORLD` packet in the world server module
+### Add a world module
+
+1. Create a class in `ru.terra.universal.worldserver.module` annotated with
+   `@Module("your-name")` extending `WorldModule`.
+2. Implement `tick(World world)`.
+
+### Add a world
+
+1. Add a `.j3o` scene (plus its `.j3odata` and terrain-alpha textures) to the client
+   assets (and repackage `assets.jar`, or point the asset manager at a directory).
+2. Register the world name from the world server's `ISMSG_REG` (`RegisterPacket.setWorld`) and
+   make sure the character server offers it in `SMSG_CHAR_BOOT`.
+
+## Known issues
+
+These are real behaviors visible in the current code and worth knowing before extending it:
+
+- **`WispSayPacket` is annotated with `CMSG_SAY` (202) instead of `CMSG_WISP` (203).** It
+  therefore collides with `ChatSayPacket` in `PacketFactory`, so private messages cannot be
+  distinguished from public ones. (The chat server also logs the wrong opcode path.)
+- **Empty strings are not length-prefixed.** `writeString` returns early for empty values,
+  so a reader expecting a `short` length would desynchronize.
+- **The frontend routes world packets only by opcode and world name**, and
+  `WorldServersChannelsHolder` is keyed by world, so multiple worlds per server are not
+  modelled yet.
+- **Client login is hard-coded** (`mylogin`/`mypass` in `ClientWorker`); the Swing window
+  only captures the server IP.
+- **`WorldThread` ticks every millisecond** with no fixed timestep, so it is CPU-heavy for
+  what it does.
+- **The client Maven build depends on `ru.terra.universal:shared:1`**, which is not produced
+  by the Gradle build (which versions everything `1.0.0`); it must be present in the local
+  Maven repository.
+- **Native libraries are checked into the repo root and duplicated under `client/lib`** for
+  convenience rather than resolved per-platform.
