@@ -1,44 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="8dcc54af-fb65-481f-a182-0757b04ff229" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/test/TestWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sf_flexjson_flexjson_2_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ru_terra_universal_shared_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameStateChangeNotifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameStateChangeNotifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameStateHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameStateHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/game/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GameWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GameWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GuiManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/GuiManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/LoginWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/LoginWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/jmonkey/JMEGameViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/gui/jmonkey/JMonkeyGameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/ClientWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/ClientWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/network/GUIDHOlder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/test/ClientTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/terra/universal/client/test/ClientTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/charserver/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/charserver/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/frontend/src/main/java/ru/terra/universal/frontend/server/FrontEndServerWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/frontend/src/main/java/ru/terra/universal/frontend/server/InterserverFEWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/loginserver/src/main/java/ru/terra/universal/loginserver/LoginWorker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/shared/src/main/java/ru/terra/universal/shared/config/ConfigConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server2/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../server2/worldserver/src/main/java/ru/terra/universal/worldserver/world/WorldWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__com_google_code_findbugs_jsr305_1_3_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__commons_configuration_commons_configuration_1_9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__commons_logging_commons_logging_1_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__net_sf_flexjson_flexjson_2_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__org_jboss_netty_netty_3_2_9_Final.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/libraries/Maven__xml_apis_xml_apis_1_0_b2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/charserver/charserver.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/chatserver/chatserver.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/frontend/frontend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/loginserver/loginserver.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/shared/shared.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/worldserver/worldserver.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +104,9 @@
       <MyDateState />
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="-12" />
@@ -115,7 +114,7 @@
     <option name="height" value="1072" />
   </component>
   <component name="ProjectId" id="1b27dIsNUKWMCWORg0i9vS4MTP6" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectReloadState">
@@ -125,34 +124,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
-    <property name="options.searchVisible" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.26152074" />
-  </component>
-  <component name="RunManager" selected="Application.main2 (2)">
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/terranz/projects/universal/client/lib&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.Main">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
       <module name="" />
       <option name="ACTIVITY_CLASS" value="" />
@@ -208,6 +192,15 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" singleton="true">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.terra.universal.client.Main" />
@@ -293,15 +286,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" singleton="true">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file enabled="true" id="idea.log" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.main2" />
       <item itemvalue="Application.main2 (1)" />
@@ -338,52 +322,21 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USERS">
       <collection />
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="448" y="100" key="#Project_Structure" timestamp="1587818517262">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="448" y="100" key="#Project_Structure/0.0.1920.1044@0.0.1920.1044" timestamp="1587818517262" />
-    <state x="424" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1587833892510">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="424" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1587833892510" />
-    <state x="773" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1587832228551">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="773" y="231" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1044@0.0.1920.1044" timestamp="1587832228551" />
-    <state x="697" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1587831368568">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="697" y="314" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1044@0.0.1920.1044" timestamp="1587831368568" />
-    <state x="642" y="266" key="FileChooserDialogImpl" timestamp="1587818513800">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="642" y="266" key="FileChooserDialogImpl/0.0.1920.1044@0.0.1920.1044" timestamp="1587818513800" />
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom" timestamp="1587834581086">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state width="1876" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1044@0.0.1920.1044" timestamp="1587834581086" />
-    <state width="1876" height="274" key="GridCell.Tab.0.center" timestamp="1587834581086">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state width="1876" height="274" key="GridCell.Tab.0.center/0.0.1920.1044@0.0.1920.1044" timestamp="1587834581086" />
-    <state width="1876" height="274" key="GridCell.Tab.0.left" timestamp="1587834581085">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state width="1876" height="274" key="GridCell.Tab.0.left/0.0.1920.1044@0.0.1920.1044" timestamp="1587834581085" />
-    <state width="1876" height="274" key="GridCell.Tab.0.right" timestamp="1587834581086">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state width="1876" height="274" key="GridCell.Tab.0.right/0.0.1920.1044@0.0.1920.1044" timestamp="1587834581086" />
-    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1587832588999">
-      <screen x="0" y="0" width="1920" height="1044" />
-    </state>
-    <state x="623" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1044@0.0.1920.1044" timestamp="1587832588999" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
