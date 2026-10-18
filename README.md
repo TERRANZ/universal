@@ -88,19 +88,20 @@ the target world name) and routes the raw packet to the owning backend channel.
 
 ```
 universal/
-├── client/                       # Desktop client (Maven)
-│   ├── pom.xml
-│   ├── lib/                      # Bundled JME3 / LWJGL / Netty JARs (added via addjars plugin)
-│   │   ├── assets.jar            # Scenes + textures, packaged as a classpath resource
-│   │   └── lwjgl/native/         # Linux + Windows LWJGL natives
+├── client/                       # Desktop client (Gradle)
+│   ├── settings.gradle           # Composite build: reuses the server's `shared` module
+│   ├── build.gradle              # jMonkeyEngine 3.9 / LWJGL 3 deps + fat-jar config
+│   ├── gradlew                   # Gradle wrapper (9.8.1)
 │   ├── jmeproj/                  # Legacy NetBeans JME project + raw assets (Scenes, Textures)
-│   └── src/main/java/ru/terra/universal/client/
-│       ├── Main.java             # Entry point (starts the Swing login window)
-│       ├── game/                 # GameManager, GameView, GameStateHolder
-│       ├── gui/                  # GuiManager, LoginWindow
-│       │   └── jmonkey/          # JMEGameViewImpl (SimpleApplication)
-│       ├── network/              # ClientWorker, GUIDHOlder
-│       └── test/                 # Headless client test harness
+│   ├── src/main/java/ru/terra/universal/client/
+│   │   ├── Main.java             # Entry point (starts the Swing login window)
+│   │   ├── game/                 # GameManager, GameView, GameStateHolder
+│   │   ├── gui/                  # GuiManager, LoginWindow
+│   │   │   └── jmonkey/          # JMEGameViewImpl (SimpleApplication)
+│   │   ├── network/              # ClientWorker, GUIDHOlder
+│   │   └── test/                 # Headless client test harness
+│   ├── src/main/resources/       # Scenes, textures and log4j2.xml
+│   └── src/test/java/            # JUnit 5 unit tests
 ├── server2/                      # Backend (Gradle multi-project)
 │   ├── settings.gradle           # shared, frontend, loginserver, charserver, worldserver, chatserver
 │   ├── build.gradle              # Common deps + fat-jar config for all subprojects
@@ -122,12 +123,13 @@ universal/
 
 ## Prerequisites
 
-- **JDK 21** - the server builds and runs on Java 21 (configured as a Gradle toolchain);
-  the Maven client still targets the older Java 8 level.
-- **Gradle** - a wrapper is included in `server2/` (Gradle 9.8.1), so no local install is required.
-- **Maven 3.x** - for building the client.
+- **JDK 21** - both the server and the client build and run on Java 21 (configured as a
+  Gradle toolchain).
+- **Gradle** - a wrapper is included in `server2/` and `client/` (Gradle 9.8.1), so no local
+  install is required.
 - **A desktop environment with 3D acceleration** - required to run the JME3 client.
-- **LWJGL / OpenAL natives** - bundled for Linux and Windows under `client/lib/lwjgl/native/`.
+- **LWJGL 3 / OpenAL natives** - resolved from Maven Central per platform; nothing to install
+  by hand.
 
 ## Building
 
@@ -160,24 +162,30 @@ Key dependencies (declared once in `server2/build.gradle` and inherited by every
 | `org.apache.commons:commons-configuration2` | 2.15.1 | `server.properties` loading |
 | `org.junit.jupiter:junit-jupiter` | 5.14.4 | Tests (test scope) |
 
-### Client (Maven)
+### Client (Gradle)
 
 ```bash
 cd client
-mvn package
+./gradlew build
 ```
 
-This compiles against `ru.terra.universal:shared:1` and bundles everything
-(`lib/*.jar` via `addjars-maven-plugin`, plus `maven-assembly-plugin`'s
-`jar-with-dependencies` descriptor) into:
+The client build is a Gradle **composite build** that includes `server2/`, so it compiles
+against the `shared` module directly - there is nothing to publish or install first. All
+dependencies come from Maven Central and are shaded into a single runnable JAR:
 
 ```
-client/target/client-1-jar-with-dependencies.jar
+client/build/libs/client-1.0.0.jar
 ```
 
-> The `shared` artifact is consumed from your local Maven repository. If Maven cannot
-> resolve `ru.terra.universal:shared:1`, install a matching JAR first
-> (`mvn install:install-file ...`).
+Run the unit tests with `./gradlew test`.
+
+| Dependency | Version | Purpose |
+|------------|---------|---------|
+| `org.jmonkeyengine:jme3-core` (+ `-desktop`, `-effects`, `-terrain`, `-jbullet`) | 3.9.0-stable | Rendering, terrain, water filter, physics |
+| `org.jmonkeyengine:jme3-lwjgl3` | 3.9.0-stable | LWJGL 3 backend (pulls the platform natives) |
+| `org.apache.logging.log4j:log4j-api` / `log4j-core` | 2.26.1 | Logging (Log4j 2) |
+| `org.junit.jupiter:junit-jupiter` | 5.14.4 | Tests (test scope) |
+| `ru.terra.universal:shared` | - | Packets, entities and the Netty network stack |
 
 ## Running
 
@@ -203,15 +211,12 @@ the frontend on port `12346` (`NetworkThread` -> `NetworkManager`).
 ### Client
 
 ```bash
-java -jar client/target/client-1-jar-with-dependencies.jar
+java -jar client/build/libs/client-1.0.0.jar
 ```
 
-If the LWJGL natives are not found, point the JVM at them:
-
-```bash
-java -Djava.library.path=client/lib/lwjgl/native/linux \
-     -jar client/target/client-1-jar-with-dependencies.jar
-```
+or `./gradlew run` from `client/`. The LWJGL 3 natives are resolved from Maven Central and
+bundled in the JAR, where they are extracted at startup, so there is no need to set
+`-Djava.library.path`.
 
 The client opens a Swing login window (Russian labels) where you enter the **server IP**,
 click **Вход** to connect, pick a world from the list and click **Вход в мир** to launch
@@ -382,9 +387,11 @@ field).
 
 ### Frameworks
 
-- **JMonkeyEngine 3** for rendering (`SimpleApplication`), terrain, and water filter.
+- **JMonkeyEngine 3.9** on **LWJGL 3** for rendering (`SimpleApplication`), terrain, and the
+  water filter.
 - **jBullet** for physics: a `CharacterControl` per player and a `RigidBodyControl` for the
   scene mesh.
+- **Log4j 2** for logging.
 
 ### Flow and classes
 
@@ -412,9 +419,9 @@ field).
 | `Q` | Raise camera |
 | `Z` | Lower camera |
 
-The scene is loaded from `Scenes/<world>.j3o`. `assets.jar` bundles two sample scenes
-(`map_0`, `newScene`), terrain textures and `waterFilter.j3f`; the raw files also live in
-`client/jmeproj/assets`.
+The scene is loaded from `Scenes/<world>.j3o` on the classpath. Two sample scenes (`map_0`,
+`newScene`), their terrain textures and `waterFilter.j3f` live in
+`client/src/main/resources`; the raw files also live in `client/jmeproj/assets`.
 
 ## Docker
 
@@ -458,8 +465,8 @@ or with the Palantir Gradle Docker plugin configured in `server2/docker.gradle`.
 
 ### Add a world
 
-1. Add a `.j3o` scene (plus its `.j3odata` and terrain-alpha textures) to the client
-   assets (and repackage `assets.jar`, or point the asset manager at a directory).
+1. Add a `.j3o` scene (plus its `.j3odata` and terrain-alpha textures) to the client assets
+   under `client/src/main/resources` (or point the asset manager at a directory).
 2. Register the world name from the world server's `ISMSG_REG` (`RegisterPacket.setWorld`) and
    make sure the character server offers it in `SMSG_CHAR_BOOT`.
 
@@ -479,8 +486,5 @@ These are real behaviors visible in the current code and worth knowing before ex
   only captures the server IP.
 - **`WorldThread` ticks every millisecond** with no fixed timestep, so it is CPU-heavy for
   what it does.
-- **The client Maven build depends on `ru.terra.universal:shared:1`**, which is not produced
-  by the Gradle build (which versions everything `1.0.0`); it must be present in the local
-  Maven repository.
-- **Native libraries are checked into the repo root and duplicated under `client/lib`** for
-  convenience rather than resolved per-platform.
+- **Native libraries are still checked into the repo root** (`liblwjgl64.so`, `lwjgl64.dll`,
+  ...) alongside the Gradle build, which now resolves LWJGL 3 natives from Maven Central.
