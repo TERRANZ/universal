@@ -17,8 +17,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 public class CharHandler {
     private final List<PlayerInfo> players = new LinkedList<>();
     private final CharLoader charLoader = new JsonCharLoaderImpl();
@@ -48,7 +46,7 @@ public class CharHandler {
             return newPlayerInfo;
         });
 
-        networkManager.sendPacket(new CharBootPacket(sender, playerInfo, newArrayList(playerInfo.getWorld())));
+        networkManager.sendPacket(new CharBootPacket(sender, playerInfo, List.of(playerInfo.getWorld())));
         players.add(playerInfo);
     }
 

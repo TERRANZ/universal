@@ -1,8 +1,9 @@
 package ru.terra.universal.worldserver;
 
-import com.google.common.collect.Lists;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
@@ -46,7 +47,7 @@ public class WorldserverWorker extends InterserverWorker {
                 worldWorker.addPlayer(playerInfo);
                 log.info("Character " + playerInfo + " is in world now");
 
-                final WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), Lists.newArrayList(worldWorker.getPlayers().values()));
+                final WorldStatePacket worldStatePacket = new WorldStatePacket(worldWorker.getEntities(), new ArrayList<>(worldWorker.getPlayers().values()));
                 worldStatePacket.setSender(sender);
                 networkManager.sendPacket(worldStatePacket);
             }

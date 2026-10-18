@@ -1,6 +1,9 @@
 package ru.terra.universal.shared.config;
 
-import org.apache.commons.configuration.PropertiesConfiguration;
+import org.apache.commons.configuration2.PropertiesConfiguration;
+import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+import org.apache.commons.configuration2.builder.fluent.Parameters;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 
 /**
  * User: Vadim Korostelev
@@ -10,7 +13,7 @@ import org.apache.commons.configuration.PropertiesConfiguration;
 public class Config {
 
     private PropertiesConfiguration configuration;
-    private static Config instance = new Config();
+    private static final Config instance = new Config();
 
     public static Config getConfig() {
         return instance;
@@ -18,9 +21,13 @@ public class Config {
 
     private Config() {
         try {
-            configuration = new PropertiesConfiguration("server.properties");
-            configuration.setAutoSave(true);
-        } catch (Exception e) {
+            final Parameters params = new Parameters();
+            final FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
+                new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
+                    .configure(params.properties().setFileName("server.properties"));
+            builder.setAutoSave(true);
+            configuration = builder.getConfiguration();
+        } catch (ConfigurationException e) {
             e.printStackTrace();
         }
     }
@@ -30,7 +37,8 @@ public class Config {
         if (configuration == null)
             return defVal;
         else {
-            return configuration.getString(key, defVal);
+            final String value = configuration.getString(key);
+            return value != null ? value : defVal;
         }
     }
 
