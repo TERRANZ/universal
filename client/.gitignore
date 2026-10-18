@@ -1,0 +1,24 @@
+build/
+out/
+/.gradle/
+.gradle
+
+# Gradle wrapper jar must be committed even though the root .gitignore ignores *.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Eclipse
+# -------
+*.classpath
+*.project
+*.settings
+/bin
+
+# IDEA
+# ----
+*.iml
+*.iws
+*.ipr
+*.idea
+.ideaDataSources/
+*.class
+/classes

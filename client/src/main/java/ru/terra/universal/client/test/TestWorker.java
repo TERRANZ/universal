@@ -9,7 +9,8 @@ import static ru.terra.universal.client.game.GameStateHolder.GameState.LOGIN;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.client.game.GameStateChangeNotifier;
 import ru.terra.universal.client.game.GameStateHolder;
@@ -54,7 +55,7 @@ public class TestWorker extends InterserverWorker {
         }
     }
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LogManager.getLogger(this.getClass());
     private TestGameStateHolder gs = new TestGameStateHolder();
     private GUIDHOlder gh = new GUIDHOlder();
     private GameManager gm = new GameManager();

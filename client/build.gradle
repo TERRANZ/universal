@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'ru.terra.universal'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jmeVersion = '3.9.0-stable'
+    nettyVersion = '4.2.19.Final'
+    log4jVersion = '2.26.1'
+    junitVersion = '5.14.4'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+dependencies {
+    // Shared packets, entities and the Netty based network stack.
+    implementation 'ru.terra.universal:shared'
+    implementation "io.netty:netty-all:${nettyVersion}"
+
+    implementation "org.apache.logging.log4j:log4j-api:${log4jVersion}"
+    runtimeOnly "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    // jMonkeyEngine 3 and its desktop/renderer/physics/effects modules.
+    // jme3-lwjgl3 pulls the matching LWJGL 3 natives for every platform.
+    implementation "org.jmonkeyengine:jme3-core:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-desktop:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-effects:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-terrain:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-jbullet:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-lwjgl3:${jmeVersion}"
+
+    testImplementation platform("org.junit:junit-bom:${junitVersion}")
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+application {
+    mainClass = 'ru.terra.universal.client.Main'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named('jar', Jar) {
+    manifest.attributes('Main-Class': application.mainClass.get())
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

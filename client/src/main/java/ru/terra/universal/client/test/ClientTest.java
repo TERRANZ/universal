@@ -2,13 +2,14 @@ package ru.terra.universal.client.test;
 
 import java.util.Date;
 import java.util.UUID;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.client.game.GameStateHolder;
 import ru.terra.universal.client.network.ClientWorker;
 import ru.terra.universal.client.network.GUIDHOlder;
 import ru.terra.universal.interserver.network.NetworkManager;
-import ru.terra.universal.shared.packet.client.ChatSayPacket;
+import ru.terra.universal.shared.packet.client.chat.ChatSayPacket;
 import ru.terra.universal.shared.packet.client.LoginPacket;
 import ru.terra.universal.shared.packet.client.SelectServerPacket;
 
@@ -24,7 +25,7 @@ public class ClientTest {
     private class TestThread implements Runnable {
 
         private String ip;
-        private Logger logger = Logger.getLogger(this.getClass());
+        private Logger logger = LogManager.getLogger(this.getClass());
 
         public TestThread(String ip) {
             this.ip = ip;

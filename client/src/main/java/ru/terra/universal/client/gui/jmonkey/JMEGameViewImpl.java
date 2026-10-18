@@ -28,7 +28,8 @@ import com.jme3.scene.shape.Sphere;
 import com.jme3.terrain.geomipmap.TerrainQuad;
 import java.util.HashMap;
 import java.util.concurrent.Callable;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.AbstractEntity;
@@ -57,7 +58,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
     private Material mat1;
     private boolean isMoving = false;
     private CapsuleCollisionShape capsuleShape = new CapsuleCollisionShape(1.5f, 6f, 1);
-    private Logger logger = Logger.getLogger(getClass());
+    private Logger logger = LogManager.getLogger(getClass());
     private int pressed = 0;
     private BitmapText hudText;
     private String worldName = "map_0";
@@ -346,7 +347,7 @@ public class JMEGameViewImpl extends SimpleApplication implements ActionListener
             public Long call() throws Exception {
                 CharacterControl control = playerControls.get(guid);
                 if (control != null) {
-                    Logger.getLogger(getClass())
+                    LogManager.getLogger(getClass())
                         .info("guid " + guid + " moving " + " x = " + x + " y = " + y + " z = " + z);
                     if (!stop) {
                         Vector3f dir = new Vector3f();

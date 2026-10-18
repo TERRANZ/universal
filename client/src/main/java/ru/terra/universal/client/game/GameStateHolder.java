@@ -1,11 +1,12 @@
 package ru.terra.universal.client.game;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GameStateHolder {
 
     private static GameStateHolder instance = new GameStateHolder();
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LogManager.getLogger(this.getClass());
     private GameStateChangeNotifier notifier;
     private GameState gameState = GameState.INIT;
     private GameStateHolder() {

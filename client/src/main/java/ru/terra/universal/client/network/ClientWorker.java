@@ -1,6 +1,7 @@
 package ru.terra.universal.client.network;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.client.game.GameManager;
 import ru.terra.universal.client.game.GameStateHolder;
 import ru.terra.universal.client.game.GameView;
@@ -29,7 +30,7 @@ import ru.terra.universal.shared.packet.worldserver.PlayerLoggedOutPacket;
  */
 public class ClientWorker extends InterserverWorker {
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     public void disconnectedFromChannel() {

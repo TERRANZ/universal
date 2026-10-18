@@ -1,0 +1,11 @@
+rootProject.name = 'client'
+
+// The client reuses the shared packet/network library that lives in the server
+// Gradle build.  A composite build lets both components stay independently
+// buildable while resolving the `shared` project directly, so there is no need
+// to publish/install it into a local Maven repository first.
+includeBuild('../server2') {
+    dependencySubstitution {
+        substitute module('ru.terra.universal:shared') using project(':shared')
+    }
+}
