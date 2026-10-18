@@ -26,6 +26,9 @@ subprojects {
         implementation "org.reflections:reflections:0.10.2"
         implementation "net.sf.flexjson:flexjson:3.3"
         implementation "org.apache.commons:commons-configuration2:2.15.1"
+        // commons-configuration2 declares beanutils as optional, but it is
+        // required at runtime by AbstractConfiguration.
+        runtimeOnly "commons-beanutils:commons-beanutils:1.11.0"
 
         testImplementation platform("org.junit:junit-bom:5.14.4")
         testImplementation "org.junit.jupiter:junit-jupiter"
