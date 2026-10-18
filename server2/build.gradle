@@ -1,40 +1,43 @@
-apply plugin: 'java'
+plugins {
+    id 'java'
+}
 
-group 'ru.terra.universal'
-version '2'
-
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+group = 'ru.terra.universal'
+version = '2'
 
 subprojects {
     repositories {
-        google()
-        jcenter()
-        mavenLocal()
         mavenCentral()
     }
 
-    apply plugin: "java"
-    apply plugin: "application"
+    apply plugin: 'java'
+    apply plugin: 'application'
 
-    dependencies {
-
-        compile "org.jboss.netty:netty:3.2.9.Final"
-        compile "log4j:log4j:1.2.17"
-        compile "org.reflections:reflections:0.9.8"
-        compile "net.sf.flexjson:flexjson:2.1"
-        compile "commons-configuration:commons-configuration:1.9"
-
-        testCompile group: 'junit', name: 'junit', version: '4.12'
-    }
-
-    mainClassName = 'ru.terra.universal.server.Main'
-    jar {
-        manifest.attributes("Main-Class": mainClassName)
-        from {
-            configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
         }
     }
 
-}
+    dependencies {
+        implementation "org.jboss.netty:netty:3.2.9.Final"
+        implementation "log4j:log4j:1.2.17"
+        implementation "org.reflections:reflections:0.9.8"
+        implementation "net.sf.flexjson:flexjson:2.1"
+        implementation "commons-configuration:commons-configuration:1.9"
 
+        testImplementation "junit:junit:4.12"
+    }
+
+    application {
+        mainClass = 'ru.terra.universal.server.Main'
+    }
+
+    tasks.named('jar', Jar) {
+        manifest.attributes('Main-Class': application.mainClass.get())
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+}
