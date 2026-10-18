@@ -29,10 +29,10 @@ public class PacketFactory {
         AbstractPacket packet = packets.get(opCode);
         if (packet != null) {
             try {
-                packet = packet.getClass().newInstance();
+                packet = packet.getClass().getDeclaredConstructor().newInstance();
                 packet.setSender(sender);
                 return packet;
-            } catch (InstantiationException | IllegalAccessException e) {
+            } catch (ReflectiveOperationException e) {
                 return null;
             }
         }

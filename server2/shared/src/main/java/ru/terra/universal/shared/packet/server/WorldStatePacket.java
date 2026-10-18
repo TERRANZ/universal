@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.server;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.AbstractEntity;
@@ -31,7 +31,7 @@ public class WorldStatePacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         Integer entityInfosSize = buffer.readInt();
         for (int ei = 0; ei < entityInfosSize; ei++) {
             AbstractEntity worldEntityInfo = new AbstractEntity();
@@ -47,7 +47,7 @@ public class WorldStatePacket extends AbstractPacket {
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         buffer.writeInt(entityInfos.size());
         for (AbstractEntity worldEntityInfo : entityInfos) {
             worldEntityInfo.writeEntityInfo(buffer);

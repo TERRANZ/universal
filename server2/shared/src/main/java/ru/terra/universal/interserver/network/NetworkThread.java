@@ -1,20 +1,22 @@
 package ru.terra.universal.interserver.network;
 
-import org.jboss.netty.bootstrap.ClientBootstrap;
-import org.jboss.netty.channel.ChannelFactory;
-import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
-import ru.terra.universal.interserver.network.netty.ClientPipelineFactory;
+import io.netty.bootstrap.Bootstrap;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.MultiThreadIoEventLoopGroup;
+import io.netty.channel.nio.NioIoHandler;
+import io.netty.channel.socket.nio.NioSocketChannel;
+import org.apache.log4j.Logger;
+import ru.terra.universal.interserver.network.netty.ClientInitializer;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
-
-import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
 
 public class NetworkThread implements Runnable {
 
-    private int port;
-    private String addr;
-    private Class<? extends InterserverWorker> workerClass;
+    private final Logger log = Logger.getLogger(NetworkThread.class);
+    private final int port;
+    private final String addr;
+    private final Class<? extends InterserverWorker> workerClass;
 
     public NetworkThread(int port, String addr, Class<? extends InterserverWorker> workerClass) {
         super();
@@ -25,12 +27,23 @@ public class NetworkThread implements Runnable {
 
     @Override
     public void run() {
-        ChannelFactory factory = new NioClientSocketChannelFactory(Executors.newCachedThreadPool(), Executors.newCachedThreadPool());
-        ClientBootstrap bootstrap = new ClientBootstrap(factory);
-        bootstrap.setPipelineFactory(new ClientPipelineFactory(workerClass));
-        bootstrap.setOption("tcpNoDelay", true);
-        bootstrap.setOption("keepAlive", true);
-        ChannelFuture c = bootstrap.connect(new InetSocketAddress(addr, port));
-        NetworkManager.getInstance().setChannel(c.getChannel());
+        final EventLoopGroup group = new MultiThreadIoEventLoopGroup(NioIoHandler.newFactory());
+        try {
+            final Bootstrap bootstrap = new Bootstrap();
+            bootstrap.group(group)
+                .channel(NioSocketChannel.class)
+                .option(ChannelOption.TCP_NODELAY, true)
+                .option(ChannelOption.SO_KEEPALIVE, true)
+                .handler(new ClientInitializer(workerClass));
+            final ChannelFuture future = bootstrap.connect(addr, port).sync();
+            NetworkManager.getInstance().setChannel(future.channel());
+            // Keep the event loop alive for as long as the connection is open.
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            log.info("Network thread interrupted", e);
+            Thread.currentThread().interrupt();
+        } finally {
+            group.shutdownGracefully();
+        }
     }
 }

@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.client;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -11,13 +11,13 @@ public class LoginPacket extends AbstractPacket {
     private String login = "", password = "";
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         login = readString(buffer);
         password = readString(buffer);
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         writeString(buffer, login);
         writeString(buffer, password);
     }

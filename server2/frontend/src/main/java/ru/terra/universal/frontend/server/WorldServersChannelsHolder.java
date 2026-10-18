@@ -1,6 +1,6 @@
 package ru.terra.universal.frontend.server;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import ru.terra.universal.shared.constants.OpCodes;
 
 import java.util.HashMap;

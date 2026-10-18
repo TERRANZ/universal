@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.movement;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -91,7 +91,7 @@ public class MovementPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         movableId = buffer.readLong();
         direction = buffer.readInt();
         x = buffer.readFloat();
@@ -101,7 +101,7 @@ public class MovementPacket extends AbstractPacket {
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         buffer.writeLong(movableId);
         buffer.writeInt(direction);
         buffer.writeFloat(x);

@@ -2,7 +2,7 @@ package ru.terra.universal.frontend.server;
 
 import java.nio.channels.ClosedChannelException;
 import org.apache.log4j.Logger;
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -27,17 +27,17 @@ public class FrontEndServerWorker extends ServerWorker {
             final Channel loginChannel = channelsHolder.getChannel(OpCodes.LoginOpcodeStart);
             final UnregCharPacket unregCharPacket = new UnregCharPacket(removedChar);
             if (charChannel != null) {
-                charChannel.write(unregCharPacket);
+                charChannel.writeAndFlush(unregCharPacket);
             }
             if (chatChannel != null) {
-                chatChannel.write(unregCharPacket);
+                chatChannel.writeAndFlush(unregCharPacket);
             }
             if (loginChannel != null) {
-                loginChannel.write(unregCharPacket);
+                loginChannel.writeAndFlush(unregCharPacket);
             }
             worldServersChannelsHolder.getChannels().values().forEach(wch -> wch.values().forEach(wc -> {
                 try {
-                    wc.write(unregCharPacket);
+                    wc.writeAndFlush(unregCharPacket);
                 } catch (Exception e) {
 //                    logger.error("Channel already closed");
                 }
@@ -51,12 +51,12 @@ public class FrontEndServerWorker extends ServerWorker {
             if (worldServersChannelsHolder.getChannels() != null
                 && worldServersChannelsHolder.getChannels().size() > 0) {
                 worldServersChannelsHolder.getChannels().values()
-                    .forEach(wch -> wch.get(message.getOpCode()).write(message));
+                    .forEach(wch -> wch.get(message.getOpCode()).writeAndFlush(message));
             }
         } else {
             final Channel c = channelsHolder.getChannel(message.getOpCode());
             if (c != null) {
-                c.write(message);
+                c.writeAndFlush(message);
             } else {
                 logger.error("Unable to find interserver for opcode " + message.getOpCode());
             }
@@ -67,8 +67,8 @@ public class FrontEndServerWorker extends ServerWorker {
     synchronized public void sendHello() {
         logger.info("Player connected");
         final OkPacket okPacket = new OkPacket(tempCharactersHolder.getUnusedId());
-        logger.info("Temporary player uid = " + okPacket.getSender() + " with channel " + channel.getId());
+        logger.info("Temporary player uid = " + okPacket.getSender() + " with channel " + channel.id());
         tempCharactersHolder.addTempChannel(okPacket.getSender(), channel);
-        channel.write(okPacket);
+        channel.writeAndFlush(okPacket);
     }
 }

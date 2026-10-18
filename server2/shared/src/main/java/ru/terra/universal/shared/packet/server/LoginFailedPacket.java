@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.server;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -22,12 +22,12 @@ public class LoginFailedPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         reason = readString(buffer);
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         writeString(buffer, reason);
     }
 }

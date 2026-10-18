@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.worldserver;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 /**
@@ -20,12 +20,12 @@ public abstract class AbstractPlayerLogPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         guid = buffer.readLong();
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         buffer.writeLong(guid);
     }
 

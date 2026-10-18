@@ -24,8 +24,8 @@ public class ClassSearcher<T> {
         for (final Class<?> c : annotated) {
             Object o = null;
             try {
-                o = c.newInstance();
-            } catch (InstantiationException | IllegalAccessException e) {
+                o = c.getDeclaredConstructor().newInstance();
+            } catch (ReflectiveOperationException e) {
                 e.printStackTrace();
             }
             if (o != null)

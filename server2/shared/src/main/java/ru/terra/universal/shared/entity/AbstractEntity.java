@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.entity;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 /**
@@ -70,7 +70,7 @@ public class AbstractEntity {
         this.UID = UID;
     }
 
-    public void writeEntityInfo(final ChannelBuffer buffer) {
+    public void writeEntityInfo(final ByteBuf buffer) {
         buffer.writeFloat(x);
         buffer.writeFloat(y);
         buffer.writeFloat(z);
@@ -82,7 +82,7 @@ public class AbstractEntity {
         buffer.writeLong(UID);
     }
 
-    public void readEntityInfo(final ChannelBuffer buffer) {
+    public void readEntityInfo(final ByteBuf buffer) {
         x = buffer.readFloat();
         y = buffer.readFloat();
         z = buffer.readFloat();

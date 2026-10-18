@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.interserver;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.entity.PlayerInfo;
@@ -20,13 +20,13 @@ public class CharInWorldPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         playerInfo = new PlayerInfo();
         playerInfo.readPlayerInfo(buffer);
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         playerInfo.writePlayerInfo(buffer);
     }
 

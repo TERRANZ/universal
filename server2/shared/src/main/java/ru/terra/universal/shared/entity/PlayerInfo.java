@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.entity;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 import java.io.Serializable;
@@ -67,7 +67,7 @@ public class PlayerInfo extends AbstractEntity implements Serializable {
         this.level = level;
     }
 
-    public void writePlayerInfo(final ChannelBuffer buffer) {
+    public void writePlayerInfo(final ByteBuf buffer) {
         writeEntityInfo(buffer);
         buffer.writeInt(hp);
         buffer.writeInt(mp);
@@ -77,7 +77,7 @@ public class PlayerInfo extends AbstractEntity implements Serializable {
         AbstractPacket.writeString(buffer, world);
     }
 
-    public void readPlayerInfo(final ChannelBuffer buffer) {
+    public void readPlayerInfo(final ByteBuf buffer) {
         readEntityInfo(buffer);
         hp = buffer.readInt();
         mp = buffer.readInt();

@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.client.chat;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -25,13 +25,13 @@ public class ChatSayPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         message = readString(buffer);
         to = buffer.readLong();
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         writeString(buffer, message);
         buffer.writeLong(to);
     }

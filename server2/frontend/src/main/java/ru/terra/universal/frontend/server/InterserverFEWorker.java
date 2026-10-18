@@ -1,7 +1,7 @@
 package ru.terra.universal.frontend.server;
 
 import org.apache.log4j.Logger;
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -55,10 +55,10 @@ public class InterserverFEWorker extends ServerWorker {
                     final Channel charChannel = channelsHolder.getChannel(OpCodes.CharOpcodeStart);
                     final Channel chatChannel = channelsHolder.getChannel(OpCodes.ChatOpcodeStart);
                     if (charChannel != null) {
-                        charChannel.write(packet);
+                        charChannel.writeAndFlush(packet);
                     }
                     if (chatChannel != null) {
-                        chatChannel.write(packet);
+                        chatChannel.writeAndFlush(packet);
                     }
                 }
                 break;
@@ -74,33 +74,33 @@ public class InterserverFEWorker extends ServerWorker {
                     final Channel wsChan = worldServersChannelsHolder
                         .getChannel(((CharInWorldPacket) packet).getPlayerInfo().getWorld());
                     if (wsChan != null) {
-                        wsChan.write(packet);
+                        wsChan.writeAndFlush(packet);
                     }
                 }
                 break;
                 case OpCodes.InterServer.ISMSG_UPDATE_CHAR: {
                     log.info("Updating player info from world to char server");
-                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).write(packet);
+                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).writeAndFlush(packet);
                 }
                 break;
                 case OpCodes.InterServer.ISMSG_IS_WORLD_AVAIL: {
                     final String world = ((ISWorldAvaiPacket) packet).getWorld();
                     log.info("Char server checking is world " + world + " available");
                     ((ISWorldAvaiPacket) packet).setAvail(worldServersChannelsHolder.isWorldAvailable(world));
-                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).write(packet);
+                    channelsHolder.getChannel(OpCodes.CharOpcodeStart).writeAndFlush(packet);
                 }
                 break;
             }
         } else {
             if (packet.getOpCode().equals(OpCodes.Server.Login.SMSG_LOGIN_FAILED)) {
-                tempCharactersHolder.getTempChannel(packet.getSender()).write(packet);
+                tempCharactersHolder.getTempChannel(packet.getSender()).writeAndFlush(packet);
             } else {
                 if (packet.getSender().equals(0L)) {
                     //log.info("Sending packet " + packet.getOpCode() + " to all players");
-                    charactersHolder.getChannels().forEach(chan -> charactersHolder.getCharChannel(chan).write(packet));
+                    charactersHolder.getChannels().forEach(chan -> charactersHolder.getCharChannel(chan).writeAndFlush(packet));
                 } else {
                     try {
-                        charactersHolder.getCharChannel(packet.getSender()).write(packet);
+                        charactersHolder.getCharChannel(packet.getSender()).writeAndFlush(packet);
                     } catch (Exception e) {
                     }
                 }
@@ -112,7 +112,7 @@ public class InterserverFEWorker extends ServerWorker {
     public void sendHello() {
         final HelloPacket helloPacket = new HelloPacket();
         helloPacket.setHello("Hello, this is frontend!");
-        channel.write(helloPacket);
+        channel.writeAndFlush(helloPacket);
     }
 
 }

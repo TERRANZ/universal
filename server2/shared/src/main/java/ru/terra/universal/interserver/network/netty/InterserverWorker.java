@@ -1,6 +1,6 @@
 package ru.terra.universal.interserver.network.netty;
 
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.packet.AbstractPacket;
 

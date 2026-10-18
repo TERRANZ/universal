@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.interserver;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -23,13 +23,13 @@ public class ISWorldAvaiPacket extends AbstractPacket {
     }
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         world = readString(buffer);
         avail = buffer.readByte() == 1;
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         writeString(buffer, world);
         buffer.writeByte(avail ? 1 : 0);
     }

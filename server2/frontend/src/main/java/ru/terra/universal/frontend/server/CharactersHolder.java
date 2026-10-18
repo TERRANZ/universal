@@ -1,7 +1,7 @@
 package ru.terra.universal.frontend.server;
 
 import org.apache.log4j.Logger;
-import org.jboss.netty.channel.Channel;
+import io.netty.channel.Channel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,7 +33,7 @@ public class CharactersHolder {
             logger.error("Channel is null");
         if (charUID == null)
             logger.error("charUID is null");
-        logger.info("Adding channel " + channel.getId() + " for player " + charUID);
+        logger.info("Adding channel " + channel.id() + " for player " + charUID);
         characters.put(charUID, channel);
     }
 
@@ -53,7 +53,7 @@ public class CharactersHolder {
         }
         if (removedPlayer != null) {
             logger.info("Removing player " + removedPlayer);
-            logger.info("Removed channel " + characters.remove(removedPlayer).getId());
+            logger.info("Removed channel " + characters.remove(removedPlayer).id());
             return removedPlayer;
         }
         return null;

@@ -1,6 +1,6 @@
 package ru.terra.universal.shared.packet.interserver;
 
-import org.jboss.netty.buffer.ChannelBuffer;
+import io.netty.buffer.ByteBuf;
 import ru.terra.universal.shared.annoations.Packet;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
 import ru.terra.universal.shared.packet.AbstractPacket;
@@ -13,14 +13,14 @@ public class RegisterPacket extends AbstractPacket {
     private String world = "null";
 
     @Override
-    public void get(ChannelBuffer buffer) {
+    public void get(ByteBuf buffer) {
         startRange = buffer.readInt();
         endRange = buffer.readInt();
         world = readString(buffer);
     }
 
     @Override
-    public void send(ChannelBuffer buffer) {
+    public void send(ByteBuf buffer) {
         buffer.writeInt(startRange);
         buffer.writeInt(endRange);
         writeString(buffer, world);
