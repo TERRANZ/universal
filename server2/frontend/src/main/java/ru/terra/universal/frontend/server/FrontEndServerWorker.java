@@ -1,7 +1,8 @@
 package ru.terra.universal.frontend.server;
 
 import java.nio.channels.ClosedChannelException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
@@ -11,7 +12,7 @@ import ru.terra.universal.shared.packet.server.OkPacket;
 
 public class FrontEndServerWorker extends ServerWorker {
 
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
     private final TempCharactersHolder tempCharactersHolder = TempCharactersHolder.getInstance();
     private final CharactersHolder charactersHolder = CharactersHolder.getInstance();
     private final ChannelsHolder channelsHolder = ChannelsHolder.getInstance();

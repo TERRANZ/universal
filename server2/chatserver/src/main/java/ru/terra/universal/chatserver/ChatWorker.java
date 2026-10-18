@@ -1,6 +1,7 @@
 package ru.terra.universal.chatserver;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
@@ -10,7 +11,7 @@ import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
 public class ChatWorker extends InterserverWorker {
 
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = LogManager.getLogger(this.getClass());
     private final ChatHandler chatHandler = new ChatHandler(networkManager);
 
     @Override

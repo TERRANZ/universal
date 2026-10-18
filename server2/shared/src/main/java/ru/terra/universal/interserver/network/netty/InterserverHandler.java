@@ -2,7 +2,8 @@ package ru.terra.universal.interserver.network.netty;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 public class InterserverHandler extends ChannelInboundHandlerAdapter {
@@ -10,7 +11,7 @@ public class InterserverHandler extends ChannelInboundHandlerAdapter {
     private InterserverWorker worker;
     private final PacketFrameDecoder decoder;
     private final PacketFrameEncoder encoder;
-    private final Logger log = Logger.getLogger(InterserverHandler.class);
+    private final Logger log = LogManager.getLogger(InterserverHandler.class);
     private final Class<? extends InterserverWorker> workerClass;
 
     public PacketFrameDecoder getDecoder() {

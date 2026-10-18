@@ -1,6 +1,7 @@
 package ru.terra.universal.frontend.server;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.netty.channel.Channel;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 import ru.terra.universal.shared.constants.OpCodes;
@@ -13,7 +14,7 @@ import ru.terra.universal.shared.packet.interserver.RegisterPacket;
 
 public class InterserverFEWorker extends ServerWorker {
 
-    private final Logger log = Logger.getLogger(InterserverFEWorker.class);
+    private final Logger log = LogManager.getLogger(InterserverFEWorker.class);
     private final ChannelsHolder channelsHolder = ChannelsHolder.getInstance();
     private final WorldServersChannelsHolder worldServersChannelsHolder = WorldServersChannelsHolder.getInstance();
     private final CharactersHolder charactersHolder = CharactersHolder.getInstance();

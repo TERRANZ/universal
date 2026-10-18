@@ -1,13 +1,14 @@
 package ru.terra.universal.interserver.network;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.netty.channel.Channel;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 public class NetworkManager {
     private static NetworkManager instance = new NetworkManager();
-    private final Logger log = Logger.getLogger(NetworkManager.class);
+    private final Logger log = LogManager.getLogger(NetworkManager.class);
 
     private NetworkManager() {
     }

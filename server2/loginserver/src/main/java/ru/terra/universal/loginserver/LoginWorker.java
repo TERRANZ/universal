@@ -1,7 +1,8 @@
 package ru.terra.universal.loginserver;
 
 import java.util.Date;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.interserver.network.netty.InterserverWorker;
 import ru.terra.universal.shared.constants.OpCodes;
 import ru.terra.universal.shared.constants.OpCodes.InterServer;
@@ -21,7 +22,7 @@ import ru.terra.universal.shared.util.CryptoUtil;
 
 public class LoginWorker extends InterserverWorker {
 
-    private Logger logger = Logger.getLogger(this.getClass());
+    private Logger logger = LogManager.getLogger(this.getClass());
     private CharLoader charLoader = new JsonCharLoaderImpl();
     private CharSaver charSaver = new JsonCharSaverImpl();
 

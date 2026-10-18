@@ -7,14 +7,15 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.MultiThreadIoEventLoopGroup;
 import io.netty.channel.nio.NioIoHandler;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.frontend.network.netty.ServerInitializer;
 import ru.terra.universal.frontend.network.netty.ServerWorker;
 
 public class ServerThread implements Runnable {
     private final int port;
     private final String bindAddr;
-    private final Logger log = Logger.getLogger(ServerThread.class);
+    private final Logger log = LogManager.getLogger(ServerThread.class);
     private final Class<? extends ServerWorker> serverWorker;
 
     public ServerThread(final int port, final String bindAddr, Class<? extends ServerWorker> serverWorker) {

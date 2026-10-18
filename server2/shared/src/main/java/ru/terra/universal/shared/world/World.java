@@ -1,6 +1,7 @@
 package ru.terra.universal.shared.world;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.shared.annoations.Module;
 import ru.terra.universal.shared.config.Config;
 import ru.terra.universal.shared.core.ClassSearcher;
@@ -21,7 +22,7 @@ public class World {
     private String worldUID;
     private List<WorldModule> modules;
     private final Config config = Config.getConfig();
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     public World(final WorldLoader worldLoader, final WorldSaver worldSaver, final String worldUID) {
         this.worldLoader = worldLoader;

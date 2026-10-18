@@ -3,7 +3,8 @@ package ru.terra.universal.worldserver.world;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.entity.AbstractEntity;
 import ru.terra.universal.shared.entity.PlayerInfo;
@@ -21,7 +22,7 @@ public class WorldWorker {
     private static final WorldWorker instance = new WorldWorker();
     private final Map<Long, PlayerInfo> players = new HashMap<>();
     private WorldThread worldThread;
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = LogManager.getLogger(this.getClass());
     private final NetworkManager networkManager = NetworkManager.getInstance();
 
     public synchronized Map<Long, PlayerInfo> getPlayers() {

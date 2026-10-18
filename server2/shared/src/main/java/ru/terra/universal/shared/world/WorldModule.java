@@ -1,6 +1,7 @@
 package ru.terra.universal.shared.world;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.shared.annoations.Module;
 
 /**
@@ -8,7 +9,7 @@ import ru.terra.universal.shared.annoations.Module;
  * Time: 19:53
  */
 public abstract class WorldModule {
-    protected Logger logger = Logger.getLogger(this.getClass());
+    protected Logger logger = LogManager.getLogger(this.getClass());
 
     public abstract void tick(World world);
 

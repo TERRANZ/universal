@@ -1,13 +1,14 @@
 package ru.terra.universal.chatserver;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.interserver.network.NetworkManager;
 import ru.terra.universal.shared.packet.AbstractPacket;
 import ru.terra.universal.shared.packet.client.chat.ChatSayPacket;
 import ru.terra.universal.shared.packet.client.chat.WispSayPacket;
 
 public class ChatHandler {
-    private final Logger log = Logger.getLogger(this.getClass());
+    private final Logger log = LogManager.getLogger(this.getClass());
     private final NetworkManager networkManager;
 
     public ChatHandler(NetworkManager networkManager) {

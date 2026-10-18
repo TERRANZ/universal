@@ -2,7 +2,8 @@ package ru.terra.universal.frontend.network.netty;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import ru.terra.universal.shared.packet.AbstractPacket;
 
 
@@ -11,7 +12,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     private ServerWorker worker;
     private final PacketFrameDecoder decoder;
     private final PacketFrameEncoder encoder;
-    private final Logger log = Logger.getLogger(ServerHandler.class);
+    private final Logger log = LogManager.getLogger(ServerHandler.class);
     private final Class<? extends ServerWorker> serverWorker;
 
     public PacketFrameDecoder getDecoder() {

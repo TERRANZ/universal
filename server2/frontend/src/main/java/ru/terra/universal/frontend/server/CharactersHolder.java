@@ -1,6 +1,7 @@
 package ru.terra.universal.frontend.server;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import io.netty.channel.Channel;
 
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 public class CharactersHolder {
     private static final CharactersHolder instance = new CharactersHolder();
     private final HashMap<Long, Channel> characters = new HashMap<>();
-    private final Logger logger = Logger.getLogger(this.getClass());
+    private final Logger logger = LogManager.getLogger(this.getClass());
 
     private CharactersHolder() {
     }
