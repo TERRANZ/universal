@@ -1,7 +1,7 @@
 # Universal
 
 Universal is an experimental, multiplayer 3D game prototype written in Java. It pairs a
-**JMonkeyEngine 3** desktop client with a set of **Netty 3** backend services that handle
+**JMonkeyEngine 3** desktop client with a set of **Netty 4** backend services that handle
 login, characters, chat and world simulation behind a single routing front end.
 
 The codebase is intentionally small and low-level: the network protocol, packet
@@ -122,8 +122,9 @@ universal/
 
 ## Prerequisites
 
-- **JDK 8** - both projects target Java 1.8 (`sourceCompatibility`/`targetCompatibility`).
-- **Gradle** - a wrapper is included in `server2/` (Gradle 6.2.1), so no local install is required.
+- **JDK 21** - the server builds and runs on Java 21 (configured as a Gradle toolchain);
+  the Maven client still targets the older Java 8 level.
+- **Gradle** - a wrapper is included in `server2/` (Gradle 9.8.1), so no local install is required.
 - **Maven 3.x** - for building the client.
 - **A desktop environment with 3D acceleration** - required to run the JME3 client.
 - **LWJGL / OpenAL natives** - bundled for Linux and Windows under `client/lib/lwjgl/native/`.
@@ -152,12 +153,12 @@ Key dependencies (declared once in `server2/build.gradle` and inherited by every
 
 | Dependency | Version | Purpose |
 |------------|---------|---------|
-| `org.jboss.netty:netty` | 3.2.9.Final | NIO networking + codecs |
-| `log4j:log4j` | 1.2.17 | Logging |
-| `org.reflections:reflections` | 0.9.8 | Runtime scanning of `@Packet` / `@Module` classes |
-| `net.sf.flexjson:flexjson` | 2.1 | JSON serialization |
-| `commons-configuration:commons-configuration` | 1.9 | `server.properties` loading |
-| `junit:junit` | 4.12 | Tests (test scope) |
+| `io.netty:netty-all` | 4.2.19.Final | NIO networking + codecs |
+| `org.apache.logging.log4j:log4j-api` / `log4j-core` | 2.26.1 | Logging (Log4j 2) |
+| `org.reflections:reflections` | 0.10.2 | Runtime scanning of `@Packet` / `@Module` classes |
+| `net.sf.flexjson:flexjson` | 3.3 | JSON serialization |
+| `org.apache.commons:commons-configuration2` | 2.15.1 | `server.properties` loading |
+| `org.junit.jupiter:junit-jupiter` | 5.14.4 | Tests (test scope) |
 
 ### Client (Maven)
 
@@ -237,7 +238,7 @@ Each module ships its own `src/main/resources/server.properties`. The root
 ## Networking protocol
 
 All traffic uses the same framing; only the opcode ranges differ between services.
-Serialization is done directly against Netty's `ChannelBuffer` from `AbstractPacket`.
+Serialization is done directly against Netty's `ByteBuf` from `AbstractPacket`.
 
 ### Frame format
 
@@ -426,7 +427,7 @@ There are two compose files:
 - **Root `docker-compose.yml`** - the same topology but referencing
   `universal/<service>:latest` images.
 
-The shared `server2/Dockerfile` runs on `openjdk:8-jre-slim` and launches
+The shared `server2/Dockerfile` runs on `eclipse-temurin:21-jre` and launches
 `/app/app.jar`. Build all images locally with:
 
 ```bash
@@ -442,7 +443,7 @@ or with the Palantir Gradle Docker plugin configured in `server2/docker.gradle`.
 
 1. Add the opcode constant to `OpCodes.java` (in the right range).
 2. Create a class extending `AbstractPacket` annotated with `@Packet(opCode = ...)`.
-3. Implement `get(ChannelBuffer)` for deserialization and `send(ChannelBuffer)` for
+3. Implement `get(ByteBuf)` for deserialization and `send(ByteBuf)` for
    serialization.
 4. Handle it in the owning `Worker.acceptPacket(...)` (e.g. `LoginWorker`, `CharWorker`,
    `WorldserverWorker`, `ChatWorker`, or `FrontEndServerWorker`).
